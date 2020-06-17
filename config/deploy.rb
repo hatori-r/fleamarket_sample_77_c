@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, 'fleamarket_sample_77_c'
-set :repo_url,  'hatori-r/fleamarket_sample_77_c.git'
+set :repo_url,  'git@github.com:hatori-r/fleamarket_sample_77_c.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
