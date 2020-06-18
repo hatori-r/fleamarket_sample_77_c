@@ -45,7 +45,6 @@
 ## Itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
 |name|string|null: false|
 |introduce|string|null: false|
 |status|integer|null: false|
@@ -58,14 +57,26 @@
 |category_id|references|null: false, foreign_key: true|
 |bland_id|references|null: false, foreign_key: true|
 ### Association
+- has_many :images, dependent: :destroy
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
+
+## Imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_00|string|null: false|
+|image_01|string||
+|image_02|string||
+|image_03|string||
+### Association
+-belongs_to :item
 
 ## Categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null, false|
+|ancestry|string||
 ### Association
 - has_many :items
 
@@ -75,3 +86,6 @@
 |name|string|null, false|
 ### Association
 - has_many :items
+
+## 補足事項
+- Cards(クレジットカード)に関しては、gemの「pay.jp」で実装するためテーブルは不要とします。
