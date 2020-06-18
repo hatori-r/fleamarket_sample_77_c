@@ -65,10 +65,8 @@
 ## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_00|string|null: false|
-|image_01|string||
-|image_02|string||
-|image_03|string||
+|item_id|references|null: false, foreign_key: true|
+|image|string|null: false|
 ### Association
 -belongs_to :item
 
