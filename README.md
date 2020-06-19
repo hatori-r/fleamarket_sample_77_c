@@ -23,7 +23,7 @@
 |day_birth|date|null: false|
 |image|text||
 |introduction|text||
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -38,7 +38,7 @@
 |address|string|null: false|
 |apartment|string||
 |tel_number|integer|null: false, unique: true|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -52,10 +52,10 @@
 |sipping_area|string|null: false|
 |date|date|null: false|
 |price_introduce|string||
-|user_id|references|null: false, foreign_key: true|
-|send_address_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
-|bland_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|send_address|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
+|bland|references|null: false, foreign_key: true|
 ### Association
 - has_many :images, dependent: :destroy
 - belongs_to :user
@@ -65,7 +65,7 @@
 ## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_id|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 |image|string|null: false|
 ### Association
 -belongs_to :item
