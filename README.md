@@ -53,7 +53,6 @@
 |date|date|null: false|
 |price_introduce|string||
 |user|references|null: false, foreign_key: true|
-|send_address|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
 ### Association
