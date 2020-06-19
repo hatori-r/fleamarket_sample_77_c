@@ -8,8 +8,8 @@
 |password|string|null: false|
 ### Association
 - has_many :items, dependent: :destroy
-- has_one :profiles, dependent: :destroy
-- has_one :send_addresses, dependent: :destroy
+- has_one :profile, dependent: :destroy
+- has_one :send_address, dependent: :destroy
 
 ## Profilesテーブル
 |Column|Type|Options|
@@ -55,7 +55,7 @@
 |user|references|null: false, foreign_key: true|
 |send_address|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
-|bland|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
 ### Association
 - has_many :images, dependent: :destroy
 - belongs_to :user
