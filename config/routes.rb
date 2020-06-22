@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :items
   resources :brands
   resources :categories
-  resources :send_adresses
   devise_for :users
   root to: "home#index"
 
