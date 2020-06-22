@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Send Adresses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Send family name</th>
+      <th>Send first name</th>
+      <th>Send family kana</th>
+      <th>Send first kana</th>
+      <th>Post number</th>
+      <th>Prefectures</th>
+      <th>City</th>
+      <th>Address</th>
+      <th>Apartment</th>
+      <th>Tell number</th>
+      <th>Sendscol</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @send_adresses.each do |send_adress| %>
+      <tr>
+        <td><%= send_adress.send_family_name %></td>
+        <td><%= send_adress.send_first_name %></td>
+        <td><%= send_adress.send_family_kana %></td>
+        <td><%= send_adress.send_first_kana %></td>
+        <td><%= send_adress.post_number %></td>
+        <td><%= send_adress.prefectures %></td>
+        <td><%= send_adress.city %></td>
+        <td><%= send_adress.address %></td>
+        <td><%= send_adress.apartment %></td>
+        <td><%= send_adress.tell_number %></td>
+        <td><%= send_adress.sendscol %></td>
+        <td><%= send_adress.user %></td>
+        <td><%= link_to 'Show', send_adress %></td>
+        <td><%= link_to 'Edit', edit_send_adress_path(send_adress) %></td>
+        <td><%= link_to 'Destroy', send_adress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Send Adress', new_send_adress_path %>
