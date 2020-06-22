@@ -1,0 +1,29 @@
+%h1 Listing credits
+
+%table
+  %thead
+    %tr
+      %th Card number
+      %th Expiration year
+      %th Expiration month
+      %th Security code
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @credits.each do |credit|
+      %tr
+        %td= credit.card_number
+        %td= credit.expiration_year
+        %td= credit.expiration_month
+        %td= credit.security_code
+        %td= credit.user
+        %td= link_to 'Show', credit
+        %td= link_to 'Edit', edit_credit_path(credit)
+        %td= link_to 'Destroy', credit, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Credit', new_credit_path

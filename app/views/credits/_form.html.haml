@@ -1,0 +1,25 @@
+= form_for @credit do |f|
+  - if @credit.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@credit.errors.count, "error")} prohibited this credit from being saved:"
+      %ul
+        - @credit.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :card_number
+    = f.number_field :card_number
+  .field
+    = f.label :expiration_year
+    = f.number_field :expiration_year
+  .field
+    = f.label :expiration_month
+    = f.number_field :expiration_month
+  .field
+    = f.label :security_code
+    = f.number_field :security_code
+  .field
+    = f.label :user
+    = f.text_field :user
+  .actions
+    = f.submit 'Save'

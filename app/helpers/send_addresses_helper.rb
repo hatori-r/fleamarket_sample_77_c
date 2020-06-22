@@ -1,0 +1,2 @@
+module SendAddressesHelper
+end

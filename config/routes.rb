@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :credits
+  resources :send_addresses
   resources :images
   resources :items
   resources :brands
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   #   For example:
   
   #     Rails.application.routes.draw do
+  resources :credits
+  resources :send_addresses
   # resources :images
   # resources :items
   # resources :brands
