@@ -10,6 +10,7 @@
 - has_many :items, dependent: :destroy
 - has_one :profile, dependent: :destroy
 - has_one :send_address, dependent: :destroy
+- has_one :credits
 
 ## Profilesテーブル
 |Column|Type|Options|
@@ -84,5 +85,14 @@
 ### Association
 - has_many :items
 
-## 補足事項
-- Cards(クレジットカード)に関しては、gemの「pay.jp」で実装するためテーブルは不要とします。
+## Creditsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null:false, unique: true|
+|expiration_year|integer|null:false|
+|expiration_month|integer|null:false|
+|security_code|integer|null:false|
+|user|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
