@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  send_family_name: MyString
+  send_first_name: MyString
+  send_family_kana: MyString
+  send_first_kana: MyString
+  post_number: MyString
+  prefectures: MyString
+  city: MyString
+  address: MyString
+  apartment: MyString
+  tell_number: 1
+  sendscol: MyString
+  user: one
+
+two:
+  send_family_name: MyString
+  send_first_name: MyString
+  send_family_kana: MyString
+  send_first_kana: MyString
+  post_number: MyString
+  prefectures: MyString
+  city: MyString
+  address: MyString
+  apartment: MyString
+  tell_number: 1
+  sendscol: MyString
+  user: two
