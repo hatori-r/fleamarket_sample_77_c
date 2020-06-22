@@ -1,3 +1,1044 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.header{
+  height: 100px;
+  width: 100%;
+  background-color: #fff;
+  flex-direction: column;
+  padding-bottom: 20px;
+
+  .header__logo{
+    height: 45px;
+    font-size: 60px;
+    margin-top: 15px;
+    margin-left: 120px;
+  }
+
+  .searchBox {
+    margin-left: auto;
+    height: 36px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+    .textarea {
+      width: calc(100% - 26px);
+      height: 32px;
+      padding: 0 0 0 5px;
+    }
+    .submit {
+      background-color: #3CCACE;
+      height: 36px;
+      width: 36px;
+      border: 0;
+      cursor: pointer;
+      padding: 8px;
+      .searchBox__icon {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .header__box{
+    height: 60px;
+    display: flex;
+    margin-top: auto;
+    
+    .header__box--a{
+      font-size: 15px;
+      margin-top: auto;
+      margin-left: 250px;
+      width: 500px;
+        
+      .header__left{
+        width: 200px;
+        display: flex;
+  
+        .category__btn{
+          color: #272727;
+        }
+        .brand__btn{
+          color: #272727;
+          margin-left: 40px;
+        }
+      }
+    }
+    .header__box--b{
+      font-size: 15px;
+      display: flex;
+      margin-top: auto;
+      margin-left: 500px;
+  
+      .header__right{
+        width: 200px;
+        display: flex;
+    
+        .login__btn{
+          color: #272727;
+        }
+        .signup__btn{
+          color: #272727;
+          margin-left: 30px;
+        }
+       }
+    }
+  }
+  
+}
+.top__image{
+  width: 100%;
+  height: 560px;
+  background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+
+
+  .top__image--box{
+    width: 800px;
+    height: 100px;
+    padding-top: 220px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #272727;
+
+    .top__title{
+      font-size: 50px;
+      width: 600px;
+      height: 60px;
+      margin-left: 40px;   
+    }
+
+    .top__message{
+      font-size: 20px;
+      width: 700px;
+      height: 50px;
+      padding-top: 20px;
+    }
+  }
+  .top__icon--box{
+    width: 600px;
+    height: 100px;
+    margin-left: 40px;
+    padding-top: 80px;
+    display: flex;
+
+    .top__app--icon{
+      width: 220px;
+      height: 70px;
+      background-image: url(/assets/appstore.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 10px;
+    }
+
+    .top__google--icon{
+      width: 240px;
+      height: 100px;
+      background-image: url(/assets/googleplay.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-bottom: 80px;
+    }
+  }
+  .exhibition__btn{
+    position: fixed;
+    height: 120px;
+    width: 120px;
+    top:  530px;
+    right: 40px; 
+    color: #fff;
+    font-size: 20px;
+    background-color: #3ccace;
+    background-image: url(/assets/icon_camera.png);
+  }
+}
+
+.message__reason{
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  padding-top: 50px;
+  font-size: 25px;
+  font-weight: bold;
+
+  .after__line{
+    color: #3ccace;
+  }
+}
+
+.reason__box{
+  width: 100%;
+  height: 400px;
+  margin-bottom: 150px;
+
+  .reason__list{
+    height: 100px;
+    padding: 50px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+
+  .reason__box--a{
+    height: 250px;
+    width: 350px;
+
+    .reason__image--a{
+      height: 350px;
+      width: 350px;
+      background-image: url(/assets/pict-reason-01.jpg);
+      background-size: cover;
+      vertical-align: bottom;
+
+      .reason__nember--one{
+        width: 60px;
+        height: 60px;
+        color: #fff;
+        font-size: 40px;
+        text-align: center;
+        background-color: #3ccace;
+      }
+
+    }
+
+    .resason__title--one{
+      display: flex;
+      font-weight: bold;
+      font-size: 30px;
+      height: 30px;
+      text-align: center;
+      background-color: #fff;
+      justify-content: center;
+
+    .reason__title--a{
+      color: #3ccace;
+   }
+    .reason__title--b{
+      color: #272727;
+    }
+  }
+
+      .reason__message--a{
+        padding-top: 30px;
+        font-size: 20px;
+        height: 50px;
+        background-color: #fff;
+      }
+  }
+
+    .reason__box--b{
+      height: 200px;
+      width: 350px;
+      margin-left: 80px;
+
+      .reason__image--b{
+        height: 350px;
+        width: 350px;
+        background-image: url(/assets/pict-reason-02.jpg);
+        background-size: cover;
+
+        .reason__nember--two{
+          width: 60px;
+          height: 60px;
+          color: #fff;
+          font-size: 40px;
+          text-align: center;
+          background-color: #3ccace;
+        }
+      }
+
+      .resason__title--two{
+        display: flex;
+        font-weight: bold;
+        font-size: 30px;
+        height: 30px;
+        text-align: center;
+        background-color: #fff;
+        justify-content: center;
+
+      .reason__title--c{
+        color: #3ccace;
+     }
+      .reason__title--d{
+        color: #272727;
+      }
+    }
+
+      .reason__message--b{
+        padding-top: 30px;
+        font-size: 20px;
+        height: 50px;
+        align-items: center;
+      }
+    }
+
+    .reason__box--c{
+      height: 300px;
+      width: 350px;
+      margin-left: 80px;;
+
+      .reason__image--c{
+        height: 350px;
+        width: 350px;
+        background-image: url(/assets/pict-reason-03.jpg);
+        background-size: cover;
+
+        .reason__nember--three{
+          width: 60px;
+          height: 60px;
+          color: #fff;
+          font-size: 40px;
+          text-align: center;
+          background-color: #3ccace;
+        }
+      }
+      .resason__title--three{
+        display: flex;
+        font-weight: bold;
+        font-size: 30px;
+        height: 30px;
+        text-align: center;
+        background-color: #fff;
+        justify-content: center;
+
+      .reason__title--e{
+        color: #3ccace;
+     }
+      .reason__title--f{
+        color: #272727;
+      }
+    }
+
+      .reason__message--c{
+        padding-top: 30px;
+        font-size: 20px;
+        height: 50px;
+        text-align: center;
+      }
+    }
+}
+.center__image{
+  width: 100%;
+  height: 300px;
+  background-image: url(/assets/bg-topMiddleDl-pict.jpg);
+  background-size: cover;
+  background-position: bottom right;
+  align-items: center;
+  padding-top: 200px;
+  font-size: 30px;
+
+  .center__image--box{
+    width: 450px;
+    height: 150px;
+    margin-left: 200px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 0 #272727;
+
+    .center__title{
+      font-size: 25px;
+      width: 500px;
+      height: 60px;
+    }
+    .center__message--a{
+      font-size: 20px;
+    }
+    .center__message--b{
+      font-size: 20px;
+    }
+    .center__message--c{
+      font-size: 20px;
+    }
+  }
+  .center__icon--box{
+    width: 500px;
+    margin-left: 200px;
+    display: flex;
+    padding-bottom: 100px;
+    
+    .center__app--icon{
+      width: 220px;
+      height: 70px;
+      background-image: url(/assets/appstore.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 10px;
+    }
+
+    .center__google--icon{
+      width: 240px;
+      height: 100px;
+      background-image: url(/assets/googleplay.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+.message__characteristic{
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  padding-top: 50px;
+  font-size: 25px;
+  font-weight: bold;
+
+  .after__line{
+    color: #3ccace;
+  }
+}
+
+.characteristic__box{
+  padding-top: 30px;
+  height: 600px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: calc(1040px + 20px);
+}
+
+  .characteristic__list{
+    height: 550px;
+    display: flex;
+
+  .characteristic__box--a{
+    width: 400px;
+    height: 550px;
+    text-align: center;
+    flex-direction: column;
+
+    .characteristic__image--a{
+      height: 400px;
+      width: 250px;
+      background-image: url(/assets/icon-01.png);
+      background-size: cover;
+      margin: auto;
+    }
+  
+    .characteristic__title--a{
+      padding-top: 30px;
+      font-weight: bold;
+      font-size: 20px;
+      width: 350px;
+    }
+    .characteristic__message--a{
+      padding-top: 10px;
+      font-size: 18px;
+      width: 330px;
+    }
+  
+    .characteristic__message--b{
+      font-size: 18px;
+      width: 190px;
+      float: left;
+    }
+  }
+
+  .characteristic__box--b{
+    width: 400px;
+    height: 550px;
+    text-align: center;
+    flex-direction: column;
+    margin-left: 40px;
+
+    .characteristic__image--b{
+      height: 400px;
+      width: 250px;
+      background-image: url(/assets/icon-03.png);
+      background-size: cover;
+      margin: auto;
+    }
+
+      .characteristic__title--b{
+        padding-top: 30px;
+        font-weight: bold;
+        font-size: 20px;
+        width: 350px;
+     }
+
+      .characteristic__message--c{
+        padding-top: 10px;
+        font-size: 18px;
+        width: 300px;  
+      }
+      .characteristic__message--d{
+        font-size: 18px;
+        width: 330px;  
+      }
+    }
+
+    .characteristic__box--c{
+      width: 350px;
+      height: 550px;
+      text-align: center;
+      flex-direction: column;
+      margin-left: 40px;
+
+      .characteristic__image--c{
+        height: 400px;
+        width: 250px;
+        background-image: url(/assets/icon-04.png);
+        background-size: cover;
+        margin: auto;
+      }
+
+      .characteristic__title--c{
+        padding-top: 30px;
+        font-weight: bold;
+        font-size: 20px;
+        width: 350px; 
+     }
+
+      .characteristic__message--e{
+        padding-top: 10px;
+        font-size: 18px;
+        width: 330px;
+      }
+      .characteristic__message--f{
+        font-size: 18px;
+        width: 330px;
+      }
+      .characteristic__message--g{
+        font-size: 18px;
+        width: 100px;
+      }
+    }
+  }
+.pickup__category{
+  margin-top: 80px;
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+.pickup__new--post{
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  color: #3ccace;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+
+  .pickup__category--box{
+    font-size: 15px;
+    color: #272727;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+
+    .category__base--a{
+      padding-top: 20px;
+      height: 400px;
+
+      .category__image--a{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+       background-image: url(/assets/sozai1.jpeg);
+       background-size: cover;
+      }
+  
+      .pickup__category--a{
+      height: 120px;
+      width: 250px;
+      background-color: #fff;
+        
+      .category__name--a{
+        height: 30px;
+        width: 100px;
+       }
+       .category__price--a{
+         height: 30px;
+         width: 100px;
+       }
+       .category__tax--a{
+         height: 30px;
+         width: 100px;
+         font-size: 10px;
+       }
+       .category__point--a{
+         margin-top: -60px;
+         float: right;
+       }
+      }
+    }
+  }
+    .category__base--b{
+      padding-top: 20px;
+      height: 400px;
+
+      .category__image--b{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+        background-image: url(/assets/sozai2.png);
+        background-size: cover;
+      }
+  
+      .pickup__category--b{
+        margin: auto;
+        height: 120px;
+        width: 250px;
+        background-color: #fff;
+  
+        .category__name--b{
+         height: 30px;
+         width: 100px;
+        }
+  
+        .category__price--b{
+          height: 30px;
+          width: 100px;
+        }
+        .category__tax--b{
+          height: 30px;
+          width: 100px;
+          font-size: 10px;
+        }
+        .category__point--b{
+          margin-top: -60px;
+          float: right;
+        }
+      }
+    }
+
+    .category__base--c{
+      padding-top: 20px;
+      height: 400px;
+
+      .category__image--c{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+        background-image: url(/assets/sozai3.png);
+       background-size: cover;
+      }
+  
+      .pickup__category--c{
+        margin: auto;
+        height: 120px;
+        width: 250px;
+        background-color: #fff;
+  
+        .category__name--c{
+         height: 30px;
+         width: 100px;
+        }
+  
+        .category__price--c{
+          height: 30px;
+          width: 100px;
+        }
+        .category__tax--c{
+          height: 30px;
+          width: 100px;
+          font-size: 10px;
+        }
+        .category__point--c{
+          margin-top: -60px;
+          float: right;
+        }
+      }
+    }
+   
+    .category__base--d{
+      padding-top: 20px;
+      height: 400px;
+
+      .category__image--d{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+        background-image: url(/assets/sozai4.png);
+        background-size: cover;
+      }
+  
+      .pickup__category--d{
+        margin: auto;
+        height: 120px;
+        width: 250px;
+        background-color: #fff;
+  
+        .category__name--d{
+         height: 30px;
+         width: 100px;
+        }
+        .category__price--d{
+          height: 30px;
+          width: 100px;
+        }
+        .category__tax--d{
+          height: 30px;
+          width: 100px;
+          font-size: 10px;
+        }
+        .category__point--d{
+          margin-top: -60px;
+          float: right;
+        }
+      }
+    }
+  }
+.pickup__brand{
+  margin-top: 350px;
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+.pickup__archive{
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  color: #3ccace;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+
+  .pickup__brand--box{
+    font-size: 15px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    color: #272727;
+
+    .brand__base--a{
+      padding-top: 20px;
+      height: 400px;
+
+      .brand__image--a{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+        background-image: url(/assets/sozai5.png);
+        background-size: cover;
+      }
+  
+      .pickup__brand--a{
+        margin: auto;
+        height: 120px;
+        width: 250px;
+        background-color: #fff;
+  
+        .brand__name--a{
+         height: 30px;
+         width: 100px;
+        }
+  
+        .brand__price--a{
+          height: 30px;
+          width: 100px;
+        }
+        .brand__tax--a{
+          height: 30px;
+          width: 100px;
+          font-size: 10px;
+        }
+        .brand__point--a{
+          margin-top: -60px;
+          float: right;
+        }
+      }
+    }
+
+    .brand__base--b{
+      padding-top: 20px;
+      height: 400px;
+
+      .brand__image--b{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+        background-image: url(/assets/sozai6.png);
+        background-size: cover;
+      }
+  
+      .pickup__brand--b{
+        margin: auto;
+        height: 120px;
+        width: 250px;
+        background-color: #fff;
+  
+        .brand__name--b{
+         height: 30px;
+         width: 100px;
+        }
+  
+        .brand__price--b{
+          height: 30px;
+          width: 100px;
+        }
+        .brand__tax--b{
+          height: 30px;
+          width: 100px;
+          font-size: 10px;
+        }
+        .brand__point--b{
+          margin-top: -60px;
+          float: right;
+        }
+      }
+    }
+
+    .brand__base--c{
+      padding-top: 20px;
+      height: 400px;
+
+      .brand__image--c{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+        background-image: url(/assets/sozai7.png);
+        background-size: cover;
+      }
+  
+      .pickup__brand--c{
+        margin: auto;
+        height: 120px;
+        width: 250px;
+        background-color: #fff;
+  
+        .brand__name--c{
+         height: 30px;
+         width: 100px;
+        }
+  
+        .brand__price--c{
+          height: 30px;
+          width: 100px;
+        }
+        .brand__tax--c{
+          height: 30px;
+          width: 100px;
+          font-size: 10px;
+        }
+        .brand__point--c{
+          margin-top: -60px;
+          float: right;
+        }
+      }
+    }
+   
+    .brand__base--d{
+      padding-top: 20px;
+      height: 400px;
+
+      .brand__image--d{
+        margin: auto;
+        height: 250px;
+        width: 250px;
+        background-image: url(/assets/sozai8.jpeg);
+        background-size: cover;
+      }
+  
+      .pickup__brand--d{
+        margin: auto;
+        height: 120px;
+        width: 250px;
+        background-color: #fff;
+  
+        .brand__name--d{
+         height: 30px;
+         width: 100px;
+        }
+  
+        .brand__price--d{
+          height: 30px;
+          width: 100px;
+        }
+        .brand__tax--d{
+          height: 30px;
+          width: 100px;
+          font-size: 10px;
+        }
+        .brand__point--d{
+          margin-top: -60px;
+          float: right;
+        }
+      }
+    }
+  }
+}
+.bottom__image{
+  width: 100%;
+  height: 300px;
+  background-image: url(/assets/bg-appBanner-pict.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  align-items: center;
+  padding-top: 100px;
+  font-size: 30px;
+  margin-top: 450px;
+
+  .bottom__image--box{
+    width: 800px;
+    height: 100px;
+    color: #fff;
+    text-shadow: 1px 1px 0#272727;
+    margin: auto;
+
+    .bottom__title{
+      font-size: 30px;
+      width: 650px;
+      height: 60px;
+      margin-left: 40px;
+     
+    }
+    .bottom__message{
+      font-size: 40px;
+      width: 700px;
+      height: 50px;
+    }
+  }
+  .bottom__icon--box{
+    width: 500px;
+    height: 100px;
+    display: flex;
+    margin: auto;
+    padding-top: 40px;
+
+    .bottom__app--icon{
+      width: 220px;
+      height: 70px;
+      background-image: url(/assets/appstore.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 10px;
+    }
+
+    .bottom__google--icon{
+      width: 240px;
+      height: 100px;
+      background-image: url(/assets/googleplay.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-bottom: 80px;
+    }
+  }
+}
+.fotter{
+  height: 350px;
+  background-color: #272727;
+  color: #fff;
+  padding: 30px;
+
+  .fotter__box{
+    display: flex;
+    margin-bottom: 30px;
+    height: 280px;
+    justify-content: center;
+    align-items: center;
+    
+    .about__box{
+      height: 200px;
+      width: 200px;
+      text-align: center;
+      font-weight: bold;
+      margin-right: 100px;
+
+      .about__title{
+        height: 20px;
+      }
+
+      .about__content{
+        height: 120px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 12px;
+
+        .manegement__company{
+          padding-top: 20px;
+          height: 20px;
+        }
+        
+        .privacy__policy{
+          height: 20px;
+          padding-top: 15px;
+        }
+          
+        .terms__service{
+          height: 20px;
+          padding-top: 15px;
+        }
+        
+        .point_convenant{
+          height: 20px;
+          padding-top: 15px;
+        }
+      }
+    }
+    .look__box{
+      height: 200px;
+      width: 200px;
+      text-align: center;
+      font-weight: bold;
+      margin-right: 100px;
+
+      .look__title{
+        height: 20px;
+      }
+
+      .look__content{
+        height: 80px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+
+        .look__category{
+          height: 20px;
+        }
+
+        .look__brand{
+          height: 20px;
+        }
+      }  
+      .logo__image{
+        font-size: small;
+      }
+    }
+    .help__box{
+      height: 200px;
+      width: 200px;
+      text-align: center;
+      font-weight: bold;
+      .help__title{
+        height: 20px;
+      }
+
+      .help__content{
+        height: 80px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+
+        .app__guide{
+          padding-top: 20px;
+          height: 20px;
+        }
+        
+        .logo__guid--line{
+          height: 20px;
+          padding-top: 10px;
+        }
+          
+        .app__notice{
+          height: 20px;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
