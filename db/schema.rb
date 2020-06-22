@@ -80,24 +80,6 @@ ActiveRecord::Schema.define(version: 2020_06_22_092644) do
     t.index ["user_id"], name: "index_send_addresses_on_user_id"
   end
 
-  create_table "send_adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "send_family_name"
-    t.string "send_first_name"
-    t.string "send_family_kana"
-    t.string "send_first_kana"
-    t.string "post_number"
-    t.string "prefectures"
-    t.string "city"
-    t.string "address"
-    t.string "apartment"
-    t.integer "tell_number"
-    t.string "sendscol"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_send_adresses_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
@@ -127,5 +109,4 @@ ActiveRecord::Schema.define(version: 2020_06_22_092644) do
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "send_addresses", "users"
-  add_foreign_key "send_adresses", "users"
 end
