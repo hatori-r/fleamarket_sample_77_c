@@ -1,13 +1,13 @@
--# ここからがヘッダーです。
+-# # ここからがヘッダーです。
 .header
-  .header__logo
-  -# = image_tag "logo.png", alt: "logo", id: "assets", class: "header__logo"
-  -# .searchBox
-  -#   = input.textarea(type=“text” placeholder=“キーワードから探す“)
-  -#   = input.submit(type=“button”)/
-  -#   = button.submit(type=“submit”)/
-  -#     .searchBox__icon
-  -#       = img(src=“assets/icon/icon-search 1.png” alt=“検索ボタンの画像です。“)/
+  .main__header
+    .header__logo
+      -# = image_tag "logo.png", alt: "logo", id: "assets", class: "header__logo"
+    .search__box
+      %input.form__search{:name => "text", :placeholder => "キーワードから探す", :type => "content", :value => ""}/
+    .submit__btn
+      .searchBox__icon
+        -# = image_tag "/assets/icon-search 1.png", class: "searchBox__icon"
   .header__box
     .header__box--a
       .header__left
@@ -28,15 +28,18 @@
   .top__image--box
     .top__title
       人生を変えるフリマアプリ
-    .top__message
+    .top__message--a
       FURIMAはだれでもかんたんに出品・購入できる
+    .top__message--b
       フリマアプリです
   .top__icon--box
     .top__app--icon
     .top__google--icon
   .exhibition__btn
-    -# %img_tag 
-    -#   = src = "/assets/icon_camera.png" class = "exhibition__btn"
+    .exhibition__name
+      出品する
+    .exhibition__icon
+      -# = image_tag "logo/icon_camera.png", class: "exhibition__icon"
 -# 固定で付け回すカメラアイコン（出品ページへの遷移）。
 -# ここまで。
 
@@ -275,6 +278,11 @@
         ブランド一覧
       .logo__image
         -# = image_tag "logo-white.png", alt: "logo", id: "assets", class: "logo__image"
+      .logo__company
+        .logo__cmark
+          ©︎
+        .logo__app--mark
+          FURIMA
     .help__box
       .help__title
         ヘルプ＆ガイド
