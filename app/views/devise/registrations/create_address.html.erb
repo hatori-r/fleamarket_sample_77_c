@@ -9,6 +9,9 @@
     <div class="edit-link-box">
       <%= link_to "トップへ戻る", root_path%>
     </div>
+    <% if user_signed_in? %>
+    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+    <% end %>
     
   </div>
 </div>
