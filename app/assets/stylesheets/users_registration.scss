@@ -1,0 +1,115 @@
+.reg-wrapper {
+  background-color: #f8f8f8;
+  width: 100%;
+  &__content {
+    background-color: #fff;
+    margin: auto;
+    width: 700px;
+    &__nav {
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid whitesmoke;
+      margin-bottom: 20px;
+      &-text{
+      font-weight: bold;
+      font-size: 18px;
+      }
+    }
+
+    &__form {
+      text-align: center;
+      .required-box {
+        background-color: #ea352d;
+        color: #fff;
+        font-size: 12px;
+        padding: 2px 4px;
+        margin-left: 4px;
+        border-radius: 4px;
+        font-weight: lighter;
+        float: left;
+      }
+      .reg-info-box {
+        width: 310px;
+        height: 96px;
+        margin: auto;
+        font-weight: lighter;
+      }
+      .reg-info-box-bottom {
+        width: 310px;
+        margin: auto;
+        opacity: 0.5;
+        font-weight: lighter;
+      }
+      // ユーザ登録名前のbox
+      .form-set {
+        display: flex;
+        width: 310px;
+        margin: auto;
+        #user_family_name {
+          width: 145px;
+        }
+        #user_first_name {
+          width: 145px;
+        }
+        #user_family_name_kana {
+          width: 145px;
+        }
+        #user_first_name_kana {
+          width: 145px;
+        }
+      // 住所登録名前のbox
+      #send_address_send_family_name {
+        width: 145px;
+      }
+      #send_address_send_first_name {
+        width: 145px;
+      }
+      #send_address_send_family_kana {
+        width: 145px;
+      }
+      #send_address_send_first_kana {
+        width: 145px;
+      }
+
+      }
+        input{
+        height: 48px;
+        width: 300px;
+        margin: 10px 0 10px 5px;
+        }
+        .label {
+          margin: auto;
+          width: 300px;
+          float: left;
+        }
+        .field {
+          margin: auto;
+          width:310px;
+        }
+        .form-texts {
+          float: left;
+          font-size: 12px;
+          text-align: left;
+          font-weight: bold;
+          &-details{
+            font-weight: lighter;
+          }
+        }
+        .info-title {
+          float: left;
+          &-text{
+          font-size: 12px;
+          font-weight: bold;
+          }
+        }      
+        .reg-submit-btn {
+          background-color: #3CCACE;
+          color: #fff;
+          cursor: pointer;
+          height: 60px;
+          border-radius: 4px;
+          border: 1px solid #3CCACE;
+        }
+      }
+    }
+}
