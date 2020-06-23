@@ -1,22 +1,16 @@
 .header{
   height: 100px;
-  width: 100%;
   background-color: #fff;
   flex-direction: column;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   display: flex;
-
-  .main__header{
-    height: 45px;
-    display: flex;
-    
+  &__main{
+    display: flex;  
     .header__logo{
       margin-left: 120px;
-      padding-top: 10px;
-      margin-left: 120px;
+      margin-top: 10px;
       width: 150px;
     }
-    
     .form__search {
       height: 36px;
       width: 950px;
@@ -27,9 +21,8 @@
         background-color: #3CCACE;
         height: 25px;
         width: 25px;
-        border: 0;
         margin-top: 20px;
-        cursor: pointer;
+        // cursor: pointer;
         padding: 8px;
         .searchBox__icon {
           height: 100%;
@@ -43,23 +36,18 @@
         }
       }
   }
-  
-  }
+}
   .header__box{
     height: 60px;
     display: flex;
-    margin-top: auto;
-    
-    .header__box--a{
+    &--a{
       font-size: 15px;
       margin-top: auto;
       margin-left: 250px;
       width: 500px;
-        
       .header__left{
         width: 200px;
         display: flex;
-  
         .category__btn{
           color: #272727;
         }
@@ -69,16 +57,14 @@
         }
       }
     }
-    .header__box--b{
+    &--b{
       font-size: 15px;
       display: flex;
       margin-top: auto;
       margin-left: 500px;
-  
       .header__right{
         width: 200px;
         display: flex;
-    
         .login__btn{
           color: #272727;
         }
@@ -98,26 +84,23 @@
   background-position: top center;
   align-items: center;
   text-align: center;
-
-  .top__image--box{
+  &--box{
     width: 800px;
     height: 100px;
     padding-top: 220px;
     color: #fff;
     text-shadow: 1px 1px 0 #272727;
-
     .top__title{
       font-size: 60px;
       width: 800px;
       height: 60px;
       margin-left: 5px;   
     }
-
     .top__message--a{
       font-size: 20px;
       width: 550px;
       height: 50px;
-      padding-top: 20px;
+      padding-top: 40px;
     }
     .top__message--b{
       width: 265px;
@@ -128,11 +111,9 @@
   .top__icon--box{
     width: 600px;
     height: 100px;
-    padding-top: 50px;
+    padding-top: 70px;
     margin-left: -50px;
     display: flex;
-
-
     .top__app--icon{
       width: 420px;
       height: 120px;
@@ -141,7 +122,6 @@
       background-repeat: no-repeat;
       margin-top: 5px;
     }
-
     .top__google--icon{
       width: 270px;
       height: 60px;
@@ -160,7 +140,6 @@
     right: 40px; 
     color: #fff;
     background-color: #3ccace;
-
     .exhibition__name{
       padding-top: 15px;
       font-size: 18px;
@@ -171,7 +150,6 @@
     }
   }
 }
-
 .message__reason{
   text-align: center;
   width: 100%;
@@ -179,17 +157,14 @@
   padding-top: 50px;
   font-size: 25px;
   font-weight: bold;
-
   .after__line{
     color: #3ccace;
   }
 }
-
 .reason__box{
   width: 100%;
   height: 400px;
   margin-bottom: 150px;
-
   .reason__list{
     height: 100px;
     padding: 50px;
@@ -197,18 +172,13 @@
     display: flex;
     justify-content: center;
   }
-
   .reason__box--a{
-    height: 250px;
     width: 350px;
-
     .reason__image--a{
       height: 350px;
-      width: 350px;
       background-image: url(/assets/pict/pict-reason-01.jpg);
       background-size: cover;
       vertical-align: bottom;
-
       .reason__nember--one{
         width: 60px;
         height: 60px;
@@ -217,9 +187,7 @@
         text-align: center;
         background-color: #3ccace;
       }
-
     }
-
     .resason__title--one{
       display: flex;
       font-weight: bold;
@@ -228,7 +196,6 @@
       text-align: center;
       background-color: #fff;
       justify-content: center;
-
     .reason__title--a{
       color: #3ccace;
    }
@@ -236,7 +203,6 @@
       color: #272727;
     }
   }
-
       .reason__message--a{
         padding-top: 30px;
         font-size: 20px;
@@ -244,18 +210,13 @@
         background-color: #fff;
       }
   }
-
     .reason__box--b{
-      height: 200px;
       width: 350px;
       margin-left: 80px;
-
       .reason__image--b{
         height: 350px;
-        width: 350px;
         background-image: url(/assets/pict/pict-reason-02.jpg);
         background-size: cover;
-
         .reason__nember--two{
           width: 60px;
           height: 60px;
@@ -265,7 +226,6 @@
           background-color: #3ccace;
         }
       }
-
       .resason__title--two{
         display: flex;
         font-weight: bold;
@@ -274,7 +234,6 @@
         text-align: center;
         background-color: #fff;
         justify-content: center;
-
       .reason__title--c{
         color: #3ccace;
      }
@@ -282,7 +241,6 @@
         color: #272727;
       }
     }
-
       .reason__message--b{
         padding-top: 30px;
         font-size: 20px;
@@ -290,18 +248,13 @@
         align-items: center;
       }
     }
-
     .reason__box--c{
-      height: 300px;
       width: 350px;
       margin-left: 80px;;
-
       .reason__image--c{
         height: 350px;
-        width: 350px;
         background-image: url(/assets/pict/pict-reason-03.jpg);
         background-size: cover;
-
         .reason__nember--three{
           width: 60px;
           height: 60px;
@@ -319,7 +272,6 @@
         text-align: center;
         background-color: #fff;
         justify-content: center;
-
       .reason__title--e{
         color: #3ccace;
      }
@@ -327,7 +279,6 @@
         color: #272727;
       }
     }
-
       .reason__message--c{
         padding-top: 30px;
         font-size: 20px;
@@ -345,15 +296,13 @@
   align-items: center;
   padding-top: 200px;
   font-size: 30px;
-
-  .center__image--box{
+  &--box{
     width: 450px;
     height: 150px;
     margin-left: 200px;
     font-weight: bold;
     color: #fff;
     text-shadow: 1px 1px 0 #272727;
-
     .center__title{
       font-size: 25px;
       width: 500px;
@@ -374,24 +323,20 @@
     margin-left: 100px;
     display: flex;
     padding-bottom: 100px;
-    
     .center__app--icon{
-      width: 300px;
-      height: 120px;
+      width: 490px;
+      height: 110px;
       background-image: url(/assets/icon/apple_sozai.svg);
       background-size: cover;
       background-repeat: no-repeat;
     }
-
     .center__google--icon{
-      width: 180px;
-      height: 65px;
+      width: 330px;
+      height: 55px;
       background-image: url(/assets/icon/google_sozai.svg);
       background-size: cover;
       background-repeat: no-repeat;
       margin-top: 20px;
-      margin-left: 30px;
-    
     }
   }
 }
@@ -402,30 +347,22 @@
   padding-top: 50px;
   font-size: 25px;
   font-weight: bold;
-
   .after__line{
     color: #3ccace;
   }
 }
-
 .characteristic__box{
   padding-top: 30px;
-  height: 600px;
-  flex-wrap: wrap;
   margin: 0 auto;
   max-width: calc(1040px + 20px);
 }
-
   .characteristic__list{
     height: 550px;
     display: flex;
-
   .characteristic__box--a{
     width: 400px;
-    height: 550px;
     text-align: center;
     flex-direction: column;
-
     .characteristic__image--a{
       height: 400px;
       width: 250px;
@@ -433,7 +370,6 @@
       background-size: cover;
       margin: auto;
     }
-  
     .characteristic__title--a{
       padding-top: 30px;
       font-weight: bold;
@@ -445,21 +381,16 @@
       font-size: 18px;
       width: 330px;
     }
-  
     .characteristic__message--b{
       font-size: 18px;
       width: 190px;
-      float: left;
     }
   }
-
   .characteristic__box--b{
     width: 400px;
-    height: 550px;
     text-align: center;
     flex-direction: column;
-    margin-left: 40px;
-
+    margin-left: 25px;
     .characteristic__image--b{
       height: 400px;
       width: 250px;
@@ -467,14 +398,12 @@
       background-size: cover;
       margin: auto;
     }
-
       .characteristic__title--b{
         padding-top: 30px;
         font-weight: bold;
         font-size: 20px;
         width: 350px;
      }
-
       .characteristic__message--c{
         padding-top: 10px;
         font-size: 18px;
@@ -484,15 +413,12 @@
         font-size: 18px;
         width: 330px;  
       }
-    }
-
+  }
     .characteristic__box--c{
       width: 350px;
-      height: 550px;
       text-align: center;
       flex-direction: column;
-      margin-left: 40px;
-
+      margin-left: 25px;
       .characteristic__image--c{
         height: 400px;
         width: 250px;
@@ -500,14 +426,12 @@
         background-size: cover;
         margin: auto;
       }
-
       .characteristic__title--c{
         padding-top: 30px;
         font-weight: bold;
         font-size: 20px;
         width: 350px; 
      }
-
       .characteristic__message--e{
         padding-top: 10px;
         font-size: 18px;
@@ -540,18 +464,15 @@
   font-size: 25px;
   font-weight: bold;
   text-align: center;
-
   .pickup__category--box{
     font-size: 15px;
     color: #272727;
     height: 400px;
     display: flex;
     justify-content: center;
-
     .category__base--a{
       padding-top: 20px;
       height: 400px;
-
       .category__image--a{
         margin: auto;
         height: 250px;
@@ -559,12 +480,10 @@
        background-image: url(/assets/material/sozai1.jpeg);
        background-size: cover;
       }
-  
       .pickup__category--a{
       height: 120px;
       width: 250px;
-      background-color: #fff;
-        
+      background-color: #fff;  
       .category__name--a{
         height: 30px;
         width: 100px;
@@ -588,7 +507,6 @@
     .category__base--b{
       padding-top: 20px;
       height: 400px;
-
       .category__image--b{
         margin: auto;
         height: 250px;
@@ -596,18 +514,15 @@
         background-image: url(/assets/material/sozai2.png);
         background-size: cover;
       }
-  
       .pickup__category--b{
         margin: auto;
         height: 120px;
         width: 250px;
         background-color: #fff;
-  
         .category__name--b{
          height: 30px;
          width: 100px;
         }
-  
         .category__price--b{
           height: 30px;
           width: 100px;
@@ -627,7 +542,6 @@
     .category__base--c{
       padding-top: 20px;
       height: 400px;
-
       .category__image--c{
         margin: auto;
         height: 250px;
@@ -635,18 +549,15 @@
         background-image: url(/assets/material/sozai3.png);
        background-size: cover;
       }
-  
       .pickup__category--c{
         margin: auto;
         height: 120px;
         width: 250px;
         background-color: #fff;
-  
         .category__name--c{
          height: 30px;
          width: 100px;
         }
-  
         .category__price--c{
           height: 30px;
           width: 100px;
@@ -662,11 +573,9 @@
         }
       }
     }
-   
     .category__base--d{
       padding-top: 20px;
       height: 400px;
-
       .category__image--d{
         margin: auto;
         height: 250px;
@@ -674,13 +583,11 @@
         background-image: url(/assets/material/sozai4.png);
         background-size: cover;
       }
-  
       .pickup__category--d{
         margin: auto;
         height: 120px;
         width: 250px;
         background-color: #fff;
-  
         .category__name--d{
          height: 30px;
          width: 100px;
@@ -718,18 +625,15 @@
   font-weight: bold;
   font-size: 25px;
   text-align: center;
-
   .pickup__brand--box{
     font-size: 15px;
     height: 400px;
     display: flex;
     justify-content: center;
     color: #272727;
-
     .brand__base--a{
       padding-top: 20px;
       height: 400px;
-
       .brand__image--a{
         margin: auto;
         height: 250px;
@@ -737,18 +641,15 @@
         background-image: url(/assets/material/sozai5.png);
         background-size: cover;
       }
-  
       .pickup__brand--a{
         margin: auto;
         height: 120px;
         width: 250px;
         background-color: #fff;
-  
         .brand__name--a{
          height: 30px;
          width: 100px;
         }
-  
         .brand__price--a{
           height: 30px;
           width: 100px;
@@ -764,11 +665,9 @@
         }
       }
     }
-
     .brand__base--b{
       padding-top: 20px;
       height: 400px;
-
       .brand__image--b{
         margin: auto;
         height: 250px;
@@ -776,18 +675,15 @@
         background-image: url(/assets/material/sozai6.png);
         background-size: cover;
       }
-  
       .pickup__brand--b{
         margin: auto;
         height: 120px;
         width: 250px;
         background-color: #fff;
-  
         .brand__name--b{
          height: 30px;
          width: 100px;
         }
-  
         .brand__price--b{
           height: 30px;
           width: 100px;
@@ -803,11 +699,9 @@
         }
       }
     }
-
     .brand__base--c{
       padding-top: 20px;
       height: 400px;
-
       .brand__image--c{
         margin: auto;
         height: 250px;
@@ -815,18 +709,15 @@
         background-image: url(/assets/material/sozai7.png);
         background-size: cover;
       }
-  
       .pickup__brand--c{
         margin: auto;
         height: 120px;
         width: 250px;
         background-color: #fff;
-  
         .brand__name--c{
          height: 30px;
          width: 100px;
         }
-  
         .brand__price--c{
           height: 30px;
           width: 100px;
@@ -842,11 +733,9 @@
         }
       }
     }
-   
     .brand__base--d{
       padding-top: 20px;
       height: 400px;
-
       .brand__image--d{
         margin: auto;
         height: 250px;
@@ -854,18 +743,15 @@
         background-image: url(/assets/material/sozai8.jpeg);
         background-size: cover;
       }
-  
       .pickup__brand--d{
         margin: auto;
         height: 120px;
         width: 250px;
         background-color: #fff;
-  
         .brand__name--d{
          height: 30px;
          width: 100px;
         }
-  
         .brand__price--d{
           height: 30px;
           width: 100px;
@@ -895,19 +781,17 @@
   font-size: 30px;
   margin-top: 450px;
 
-  .bottom__image--box{
+  &--box{
     width: 800px;
     height: 100px;
     color: #fff;
     text-shadow: 1px 1px 0#272727;
     margin: auto;
-
     .bottom__title{
       font-size: 30px;
       width: 650px;
       height: 60px;
       margin-left: 40px;
-     
     }
     .bottom__message{
       font-size: 40px;
@@ -921,7 +805,6 @@
     display: flex;
     margin: auto;
     padding-top: 40px;
-
     .bottom__app--icon{
       width: 310px;
       height: 115px;
@@ -930,7 +813,6 @@
       background-repeat: no-repeat;
       margin-left: 40px;
     }
-
     .bottom__google--icon{
       width: 200px;
       height: 60px;
@@ -946,46 +828,38 @@
   background-color: #272727;
   color: #fff;
   padding: 30px;
-
-  .fotter__box{
+  &__box{
     display: flex;
     margin-bottom: 30px;
     height: 280px;
     justify-content: center;
     align-items: center;
-    
     .about__box{
       height: 200px;
       width: 200px;
       text-align: center;
       font-weight: bold;
       margin-right: 100px;
-
       .about__title{
         height: 20px;
       }
-
       .about__content{
         height: 120px;
         padding-top: 20px;
         text-align: center;
         font-size: 12px;
-
         .manegement__company{
           padding-top: 20px;
           height: 20px;
         }
-        
         .privacy__policy{
           height: 20px;
           padding-top: 15px;
         }
-          
         .terms__service{
           height: 20px;
           padding-top: 15px;
-        }
-        
+        } 
         .point_convenant{
           height: 20px;
           padding-top: 15px;
@@ -998,22 +872,18 @@
       text-align: center;
       font-weight: bold;
       margin-right: 100px;
-
       .look__title{
         height: 20px;
       }
-
       .look__content{
         height: 80px;
         padding-top: 20px;
         text-align: center;
         font-size: 12px;
         font-weight: bold;
-
         .look__category{
           height: 20px;
         }
-
         .look__brand{
           height: 20px;
         }
@@ -1026,7 +896,6 @@
       .logo__company{
         display: flex;
         margin-left: 60px;
-
         .logo__cmark{
           font-size: 20px;
         }
@@ -1045,24 +914,20 @@
       .help__title{
         height: 20px;
       }
-
       .help__content{
         height: 80px;
         padding-top: 20px;
         text-align: center;
         font-size: 12px;
         font-weight: bold;
-
         .app__guide{
           padding-top: 20px;
           height: 20px;
         }
-        
         .logo__guid--line{
           height: 20px;
           padding-top: 10px;
         }
-          
         .app__notice{
           height: 20px;
           padding-top: 10px;
