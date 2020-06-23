@@ -34,7 +34,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :nickname,null:false
       t.string :email,null:false
-      t.string :password,null:false
+      # passwordカラム不要？コメントアウトしてます
+      # t.string :password,null:false
       t.string :family_name,null:false
       t.string :first_name,null:false
       t.string :family_name_kana,null:false
