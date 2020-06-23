@@ -4,7 +4,7 @@
     .header__logo
       = image_tag "/assets/logo/logo.png", class: "header__logo"
     .search__box
-      %input.form__search{:name => "text", :placeholder => "キーワードから探す", :type => "content", :value => ""}/
+      %input.form__search{name: "text; charset=UTF-8", placeholder: "キーワードから探す", type: "content"}/
     .submit__btn
       .searchBox__icon
         = image_tag "/assets/icon/icon-search 1.png", class: "searchBox__icon"
