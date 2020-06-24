@@ -1,27 +1,28 @@
-.header
-  .header__main
-    .header__logo 
-      = image_tag "/assets/logo/logo.png", class: "header__logo"
-    .search__box
-      %input.form__search{name: "text; charset=UTF-8", placeholder: "キーワードから探す", type: "content"}/
-    .submit__btn
-      .searchBox__icon
-        = image_tag "/assets/icon/icon-search 1.png", class: "searchBox__icon"
-  .header__box
-    .header__box--a
-      .header__left
-        .category__btn
-          カテゴリー
-        .brand__btn
-          ブランド
-    .header__box--b
+%header.header-wrapper
+  .header-inner
+    .header-inner__main
+      %h1.icon
+        = link_to "/", class: "icon__link" do
+          = image_tag "/assets/logo/logo.png"
+      .search-box
+        %input.search-box__textarea(type="text" placeholder="キーワードから探す")/
+        -# %input.submit(type="button")/
+        %button.search-box__submit(type="submit")
+          .submit-icon
+            %img.submit-icon__img(src="assets/icon/icon-search 1.png" alt="検索ボタンの画像です。")/
+    .header-inner__nav
+      %ul.lists-left
+        %li.lists-left__items
+          = link_to "カテゴリー", "/", class:"header-link-text"
+        %li.lists-left__items
+          = link_to "ブランド", "/", class:"header-link-text"
       - if user_signed_in?
-        .header__right-a
-          = link_to "マイページ", users_show_path ,class:"header-link-text"
+        %ul.lists-right
+          %li.lists-right__items
+            = link_to "マイページ", users_show_path ,class:"header-link-text"
       - else
-        .header__right-a
-          .login__btn
+        %ul.lists-right
+          %li.lists-right__items
             = link_to "ログイン", new_user_session_path,class:"header-link-text"
-        .header__right-b
-          .signup__btn
+          %li.lists-right__items
             = link_to "新規登録", new_user_registration_path,class:"header-link-text"
