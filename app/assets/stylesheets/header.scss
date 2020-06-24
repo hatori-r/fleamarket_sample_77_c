@@ -62,14 +62,22 @@
       display: flex;
       margin-top: auto;
       margin-left: 500px;
-      .header__right{
-        width: 200px;
-        display: flex;
+      .header-link-text{
+        text-decoration: none;
+        color:#272727;
+      }
+      .header__right-a{
+        width: 100px;
+      .header__right-b{
+        width: 100px;
+      }
         .login__btn{
           color: #272727;
+          width:100px;
         }
         .signup__btn{
           color: #272727;
+          width: 100px;
           margin-left: 30px;
         }
        }

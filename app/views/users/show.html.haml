@@ -23,8 +23,7 @@
           支払い方法
     .users-show__left-wrapper__contents
       .users-show__left-wrapper__contents__content-title
-        = link_to root_path do
-          ログアウト
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
   .users-show__right-wrapper
     .users-show__right-wrapper__head
       =image_tag "/assets/icon/member_photo_noimage_thumb.png",height: "80",width: "80"

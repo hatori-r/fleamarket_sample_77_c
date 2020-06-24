@@ -1,4 +1,3 @@
--# # ここからがヘッダーです。
 .header
   .header__main
     .header__logo
@@ -16,9 +15,13 @@
         .brand__btn
           ブランド
     .header__box--b
-      .header__right
-        .login__btn
-          ログイン
-        .signup__btn
-          新規会員登録
--# ここまで。
+      - if user_signed_in?
+        .header__right-a
+          = link_to "マイページ", users_show_path ,class:"header-link-text"
+      - else
+        .header__right-a
+          .login__btn
+            = link_to "ログイン", new_user_session_path,class:"header-link-text"
+        .header__right-b
+          .signup__btn
+            = link_to "新規登録", new_user_registration_path,class:"header-link-text"

@@ -1,3 +1,5 @@
+# コードレビュー
+
 class SendAddress < ApplicationRecord
   belongs_to :user, optional: true
   validates :post_number, :prefectures, :city, :address, presence: true
