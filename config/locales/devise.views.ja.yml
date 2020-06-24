@@ -5,9 +5,9 @@ ja:
         user:
           attributes:
             email:
-              blank: ""
+              blank: "が入力されていません。"
             password:
-              blank: ""
+              blank: "が入力されていません。"
 
     attributes:
       user:
