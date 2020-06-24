@@ -104,7 +104,7 @@ GEM
     devise-i18n (1.9.1)
       devise (>= 4.7.1)
     devise-i18n-views (0.3.7)
-    diff-lcs (1.4.1)
+    diff-lcs (1.4.2)
     erb2haml (0.1.5)
       html2haml
     erubi (1.9.0)
