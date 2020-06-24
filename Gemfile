@@ -79,3 +79,4 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'haml-rails'
+gem 'erb2haml'

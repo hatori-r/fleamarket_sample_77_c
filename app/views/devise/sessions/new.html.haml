@@ -1,0 +1,16 @@
+.reg-wrapper
+  .reg-wrapper__content
+    .reg-wrapper__content__nav
+      %h2.reg-wrapper__content__nav-text ログイン
+    .reg-wrapper__content__form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :メールアドレス, class:"form-texts"
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス"
+        .field
+          = f.label :パスワード, class:"form-texts"
+          %br/
+          = f.password_field :password, autocomplete: "current-password", placeholder:"パスワード"
+        .actions
+          = f.submit "ログイン", class:"reg-submit-btn"

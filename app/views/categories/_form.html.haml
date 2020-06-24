@@ -1,0 +1,17 @@
+= form_with(model: category, local: true) do |form|
+  - if category.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(category.errors.count, "error")
+        prohibited this category from being saved:
+      %ul
+        - category.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :name
+    = form.text_field :name
+  .field
+    = form.label :ancestry
+    = form.text_field :ancestry
+  .actions
+    = form.submit

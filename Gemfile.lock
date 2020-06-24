@@ -105,6 +105,8 @@ GEM
       devise (>= 4.7.1)
     devise-i18n-views (0.3.7)
     diff-lcs (1.4.1)
+    erb2haml (0.1.5)
+      html2haml
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -301,6 +303,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  erb2haml
   factory_bot_rails
   haml-rails
   jbuilder (~> 2.5)
