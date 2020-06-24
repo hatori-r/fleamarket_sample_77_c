@@ -13,7 +13,14 @@ Rails.application.routes.draw do
   resources :credits
   # resources :send_addresses
   resources :images
-  resources :items
+  resources :items do
+    # （↓7つのアクション以外のルートを設定↓）
+    # （本来はidが必要なページですが、まだuserと連携していないため
+    # 一時的にcollectionで定義しております。【本来はmember】）
+    collection do
+      get "buy"
+    end
+  end
   resources :brands
   resources :categories
   
