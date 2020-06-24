@@ -1,0 +1,166 @@
+.items-main {
+  background-color: #fff;
+}
+.buy-item-section {
+  width: 375px;
+  margin: 0 auto;
+  &__title {
+    height: 98px;
+    .inner {
+      height: 34px;
+      width: 343px;
+      padding: 32px 16px;
+      font-size: 24px;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  &__item-info {
+    border-top: 1px solid #f5f5f5;
+    padding: 32px 16px;
+    .info-table {
+      height: 80px;
+      width: 100%;
+      @include item-flexbox;
+      .image {
+        .img {
+          height: 80px;
+          width: 80px;
+        }
+      }
+      .details {
+        width: 100%;
+        margin-left: 16px;
+        .name {
+          font-size: 14px;
+          color: #333;
+          margin-bottom: 8px;
+        }
+        .price {
+          @include item-flexbox;
+          .burden-info {
+            margin: 0 8px 0 auto;
+            font-size: 12px;
+            color: #333;
+          }
+          .price-info {
+            font-size: 15px;
+            color: #333;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  &__price-display {
+    border-top: 1px solid #f5f5f5;
+    .price-table {
+      padding: 32px 16px;
+      @include item-flexbox;
+      .price-guide {
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+      }
+      .price {
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+  &__payment {
+    border-top: 1px solid #f5f5f5;
+    .payment-content {
+      padding: 32px 16px;
+      .payment-table {
+        @include item-flexbox;
+        .payment-guide {
+          @include section-title
+        }
+        .change-payment {
+          &__link {
+            display: block;
+            font-size: 13.5px;
+            color: #0095ee;
+            line-height: 21px;
+          }
+        }
+      }
+      .payment-info {
+        .type {
+          @include section-title-normal;
+        }
+        .number {
+          @include section-title-normal;
+        }
+        .expiration-date {
+          @include section-title-normal;
+        }
+      }
+      .card-brand {
+        &__logo {
+          height: 32px;
+          width: 42.5px;
+        }
+      }
+    }
+  }
+  &__shipping {
+    border-top: 1px solid #f5f5f5;
+    .shipping-inner {
+      padding: 32px 16px;
+      &__upper {
+        @include item-flexbox;
+        .shipping-guide {
+          @include section-title;
+        }
+        .change-shipping {
+          &__link {
+            display: block;
+            font-size: 13.5px;
+            color: #0095ee;
+            line-height: 21px;
+          }
+        }
+      }
+      &__lower {
+        .buyer-zip-code {
+          @include section-title-normal;
+        }
+        .buyer-address {
+          @include section-title-normal;
+        }
+        .buyer-name {
+          @include section-title-normal;
+        }
+      }
+    }
+  }
+  &__contract {
+    border-top: 1px solid #f5f5f5;
+    .contract-inner {
+      padding: 32px 16px 48px;
+      &__upper {
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 14px;
+      }
+      &__lower {
+        &__link {
+          background-color: #ea352d;
+          height: 50px;
+          width: 100%;
+          border-radius: 4px;
+          display: block;
+          color: #fff;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 50px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

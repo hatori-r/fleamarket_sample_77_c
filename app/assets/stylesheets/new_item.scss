@@ -1,0 +1,339 @@
+.items-main {
+  height: 100%;
+  width: 700px;
+  margin: 0 auto;
+  .image-wrapper {
+    background-color: #fff;
+    height: 230px;
+    width: 620px;
+    padding: 40px;
+    &__label {
+      @include section-title;
+    &__tag {
+      @include required;
+      }
+    }
+    &__text {
+      font-size: 14px;
+      color: #333;
+      margin-top: 16px;
+    }
+    &__image {
+      height: 150px;
+      width: 620px;
+      margin-top: 16px;
+      .image-drop {
+        background-color: #f5f5f5;
+        height: 100%;
+        width: 100%;
+        border: 1px dashed #ccc;
+        position: relative;
+        &__label {
+          height: 100%;
+          width: 100%;
+          display: block;
+          cursor: pointer;
+          position: absolute;
+          &__hidden {
+            display: none;
+          }
+        }
+      }
+      .drop-area {
+        margin: 0 auto;
+        margin-top: 40px;
+        &__icon {
+          height: 22px;
+          width: 22px;
+          margin: 0 auto;
+          margin-bottom: 10px;
+          i {
+            height: 100%;
+            width: 100%;
+            display: block;
+            font-size: 22px;
+            color: #333;
+          }
+        }
+        &__explanation {
+          font-size: 12px;
+          color: #333;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .item-wrapper {
+    background-color: #fff;
+    height: 371px;
+    width: 620px;
+    padding: 40px;
+    border-top: 1px solid #efefef;
+    .item-name {
+      &__upper {
+        @include section-title;
+        &__tag {
+          @include required;
+        }
+      }
+      &__lower {
+        &__textarea {
+          @include text-area;
+          margin-top: 16px;
+        }
+      }
+    }
+    .item-explanation {
+      margin-top: 32px;
+      &__upper {
+        @include section-title;
+        &__tag {
+          @include required;
+        }
+      }
+      &__lower {
+        &__textarea {
+          height: 126px;
+          width: 586px;
+          padding: 13px 16px;
+          margin-top: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+  .details-wrapper {
+    background-color: #fff;
+    height: 365px;
+    width: 620px;
+    padding: 40px;
+    border-top: 1px solid #efefef;
+    .details-upper {
+      font-size: 14px;
+      color: #888;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .details-lower{
+      .category {
+        @include section-title;
+        .required {
+          @include required;
+        }
+      }
+      .category-tab {
+        margin-top: 16px;
+        &__select {
+          @include pulldown-area;
+        }
+      }
+      .brand {
+        margin-top: 32px;
+        @include section-title;
+        .any {
+          @include any;
+        }
+      }
+      .brand-text {
+        margin-top: 16px;
+        &__area {
+          @include text-area;
+        }
+      }
+      .condition {
+        margin-top: 32px;
+        @include section-title;
+        .required {
+          @include required;
+        }
+      }
+      .condition-tab {
+        margin-top: 16px;
+        &__select {
+          @include pulldown-area;
+        }
+      }
+    }
+  }
+  .delivery-wrapper {
+    background-color: #fff;
+    height: 370px;
+    width: 620px;
+    padding: 40px;
+    border-top: 1px solid #efefef;
+    .delivery-upper {
+      font-size: 14px;
+      color: #888;
+      font-weight: 600;
+      margin-bottom: 24px;
+      &__question {
+        &__link {
+          color: #0095ee;
+          i {
+            text-align: center;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+    .delivery-lower {
+      .burden {
+        margin-top: 32px;
+        @include section-title;
+        .required {
+          @include required;
+        }
+      }
+      .burden-tab {
+        margin-top: 16px;
+        &__select {
+          @include pulldown-area;
+        }
+      }
+      .shipping-region {
+        margin-top: 32px;
+        @include section-title;
+        .required {
+          @include required;
+        }
+      }
+      .shipping-region-tab {
+        margin-top: 16px;
+        &__select {
+          @include pulldown-area;
+        }
+      }
+      .shipping-days {
+        margin-top: 32px;
+        @include section-title;
+        .required {
+          @include required;
+        }
+      }
+      .shipping-days-tab {
+        margin-top: 16px;
+        &__select {
+          @include pulldown-area;
+        }
+      }
+    }
+  }
+  .price-wrapper {
+    background-color: #fff;
+    height: 210px;
+    width: 620px;
+    padding: 40px;
+    border-top: 1px solid #efefef;
+    .price-upper {
+      font-size: 14px;
+      color: #888;
+      font-weight: 600;
+      margin-bottom: 24px;
+      &__question {
+        &__link {
+          color: #0095ee;
+          i {
+            text-align: center;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+    .price-lower {
+      .price-box {
+        height: 46px;
+        padding-bottom: 12px;
+        @include item-flexbox;
+        &__name {
+          @include section-title;
+          line-height: 46px;
+          .required {
+            @include required;
+          }
+        }
+        &__price {
+          display: flex;
+          .yen-mark {
+            margin-right: 8px;
+            @include fee-content;
+          }
+          .input {
+            .number-field {
+              @include item-number-field;
+            }
+          }
+        }
+      }
+      .fee-box {
+        @include item-number-display;
+        @include item-flexbox;
+        &__fee {
+          @include fee-content;
+        }
+        &__fee-display {
+          @include fee-content;
+        }
+      }
+      .profit-box {
+        border-top: 1px solid #efefef;
+        @include item-number-display;
+        @include item-flexbox;
+        &__fee {
+          @include fee-content;
+        }
+        &__fee-display {
+          @include fee-content;
+        }
+      }
+    }
+  }
+  .buttons-wrapper {
+    background-color: #fff;
+    height: 250px;
+    width: 620px;
+    padding: 40px;
+    .buttons {
+      height: 165px;
+      width: 360px;
+      margin: 0 auto 32px;
+      .sell-button {
+        height: 46px;
+        width: 100%;
+        &__link {
+          background-color: #ea352d;
+          color: #fff;
+          @include item-buttons-link;
+        }
+      }
+      .save-button {
+        height: 46px;
+        width: 100%;
+        margin-top: 24px;
+        &__link {
+          background-color: #ccc;
+          color: #222;
+          @include item-buttons-link;
+        }
+      }
+      .back-button {
+        height: 24px;
+        width: 100%;
+        margin-top: 24px;
+        &__link {
+          height: 100%;
+          width: 100%;
+          display: block;
+          line-height: 24px;
+          text-align: center;
+          font-size: 14px;
+          color: #0095EE;
+        }
+      }
+    }
+    .caution {
+      font-size: 12px;
+      color: 12px;
+    }
+  }
+}

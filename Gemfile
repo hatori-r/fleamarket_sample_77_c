@@ -80,3 +80,7 @@ gem 'devise-i18n-views'
 
 gem 'haml-rails'
 gem 'erb2haml'
+
+gem 'font-awesome-sass'
+gem 'carrierwave'
+gem 'mini_magick'

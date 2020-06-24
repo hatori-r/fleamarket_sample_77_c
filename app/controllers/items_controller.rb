@@ -12,9 +12,14 @@ class ItemsController < ApplicationController
   def show
   end
 
-  # GET /items/new
+  # 商品出品
   def new
     @item = Item.new
+  end
+
+  # 商品購入
+  def buy
+
   end
 
   # GET /items/1/edit
