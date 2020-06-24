@@ -1,0 +1,65 @@
+.items-wrapper
+  = render partial: "item_header"
+  .items-main
+    .buy-item-section
+      .buy-item-section__title
+        .inner
+          購入内容の確認
+      .buy-item-section__item-info
+        .info-table
+          .image
+            = image_tag "/assets/card_logos/coach", class: "img"
+          .details
+            .name
+              COACH コーチ リュック
+            .price
+              .burden-info
+                送料込み(税込)
+              .price-info
+                ¥30,000
+      .buy-item-section__price-display
+        .price-table
+          .price-guide
+            支払い金額
+          .price
+            ¥30,000
+      .buy-item-section__payment
+        .payment-content
+          .payment-table
+            .payment-guide
+              支払い方法
+            .change-payment
+              = link_to "変更する >", "#", class: "change-payment__link"
+          .payment-info
+            .type
+              クレジットカード
+            .number
+              ************1111
+            .expiration-date
+              有効期限 01 / 25
+          .card-brand
+            = image_tag "/assets/card_logos/jcb", class: "card-brand__logo"
+      .buy-item-section__shipping
+        .shipping-inner
+          .shipping-inner__upper
+            .shipping-guide
+              配送先
+            .change-shipping
+              = link_to "変更する >", "#", class: "change-shipping__link"
+          .shipping-inner__lower
+            .buyer-zip-code
+              106-6108
+            .buyer-address
+              東京都港区六本木６丁目１０−１
+            .buyer-name
+              山田　太郎
+      .buy-item-section__contract
+        .contract-inner
+          .contract-inner__upper
+            郵便局/コンビニ受取をご希望の方は、購入後に
+            %b.contract-bold 取引画面
+            から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+          .contract-inner__lower
+            = link_to "購入する", "/", class: "contract-inner__lower__link"
+
+  = render partial: "item_footer"

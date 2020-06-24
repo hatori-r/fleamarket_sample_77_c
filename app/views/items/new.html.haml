@@ -1,3 +1,126 @@
-%h1 New Item
-= render 'form', item: @item
-= link_to 'Back', items_path
+.items-wrapper
+  = render partial: "item_header"
+  .items-main
+    .image-wrapper
+      .image-wrapper__label
+        出品画像
+        %span.image-wrapper__label__tag
+          必須
+      %p.image-wrapper__text
+        最大5枚までアップロードできます
+      -# = f.fileds_for :items do |i|
+      .image-wrapper__image
+        .image-drop
+          %label.image-drop__label
+            .image-drop__label__hidden
+              -# = i.file_field :name, class:"image-drop__label__area"
+              = file_field :fileupload, :file, class:"image-drop__label__area"
+            .drop-area
+              .drop-area__icon
+                %i.fas.fa-camera
+              %p.drop-area__explanation
+                ドラッグアンドドロップ
+                %br/
+                またはクリックしてファイルをアップロード
+    .item-wrapper
+      .item-name
+        .item-name__upper
+          商品名
+          %span.item-name__upper__tag
+            必須
+        .item-name__lower
+          %input.item-name__lower__textarea(type="text" placeholder="40文字まで")/
+      .item-explanation
+        .item-explanation__upper
+          商品の説明
+          %span.item-explanation__upper__tag
+            必須
+        .item-explanation__lower
+          %textarea.item-explanation__lower__textarea{cols: "40", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"}
+
+    .details-wrapper
+      .details-upper
+        商品の詳細
+      .details-lower
+        .category
+          カテゴリー
+          %span.required
+            必須
+        .category-tab
+          = select_tag 'name', options_for_select({"選択してください": 0, "レディース": 1, "メンズ": 2}, 0), class: "category-tab__select"
+        .brand
+          ブランド
+          %span.any
+            任意
+        .brand-text
+          %input.brand-text__area(type="text" placeholder="例）シャネル")/
+        .condition
+          商品の状態
+          %span.required
+            必須
+        .condition-tab
+          = select_tag 'name', options_for_select({"選択してください": 0, "新品、未使用": 1, "未使用に近い": 2}, 0), class: "condition-tab__select"
+    .delivery-wrapper
+      .delivery-upper
+        配送について
+        %span.delivery-upper__question
+          = link_to("#", class: "delivery-upper__question__link") do
+            %i.far.fa-question-circle
+      .delivery-lower
+        .burden
+          配送料の負担
+          %span.required
+            必須
+        .burden-tab
+          = select_tag 'name', options_for_select({"選択してください": 0, "送料込み(出品者負担)": 1, "着払い(購入者負担)": 2}, 0), class: "burden-tab__select"
+        .shipping-region
+          発送元の地域
+          %span.required
+            必須
+        .shipping-region-tab
+          = select_tag 'name', options_for_select({"選択してください": 0, "北海道": 1, "東京": 2, "大阪": 3}, 0), class: "shipping-region-tab__select"
+        .shipping-days
+          発送までの日数
+          %span.required
+            必須
+        .shipping-days-tab
+          = select_tag 'name', options_for_select({"選択してください": 0, "1~2日で発送": 1, "2~3日で発送": 2}, 0), class: "shipping-days-tab__select"
+    .price-wrapper
+      .price-upper
+        価格（¥300〜9,999,999）
+        %span.price-upper__question
+          = link_to("#", class: "price-upper__question__link") do
+            %i.far.fa-question-circle
+      .price-lower
+        .price-box
+          .price-box__name
+            販売価格
+            %span.required
+              必須
+          .price-box__price
+            .yen-mark
+              ¥
+            .input
+              = number_field :product, :price, placeholder: "0", class: "number-field"
+        .fee-box
+          .fee-box__fee
+            販売手数料（10%）
+          .fee-box__fee-display
+            ¥2,000
+        .profit-box
+          .profit-box__fee
+            販売利益
+          .profit-box__fee-display
+            ¥18,000
+    .buttons-wrapper
+      .buttons
+        .sell-button
+          -# %a.sell-button__link(href="#")
+          = link_to "出品する", "#", class: "sell-button__link"
+        .save-button
+          = link_to "下書きに保存", "#", class: "save-button__link"
+        .back-button
+          = link_to "もどる", "#", class: "back-button__link"
+      .caution
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+  = render partial: "item_footer"
