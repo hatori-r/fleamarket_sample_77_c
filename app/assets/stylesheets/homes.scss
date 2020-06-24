@@ -1,3 +1,17 @@
+@mixin header-links {
+  height: 100%;
+  color: #333;
+  display: block;
+  text-decoration: none;
+  line-height: 32px;
+}
+
+.home-wrapper {
+  height: 100%;
+  width: 100vw;
+  min-width: 1400px;
+}
+
 .top__image{
   width: 100%;
   height: 560px;
@@ -60,6 +74,7 @@
     position: fixed;
     height: 120px;
     width: 120px;
+    border-radius: 4px;
     top:  530px;
     right: 40px; 
     color: #fff;
