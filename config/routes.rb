@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
+  get 'users/edit'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -23,6 +26,9 @@ Rails.application.routes.draw do
   #   For example:
   
   #     Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
+  get 'users/edit'
   # resources :credits
   # resources :send_addresses
   # resources :images

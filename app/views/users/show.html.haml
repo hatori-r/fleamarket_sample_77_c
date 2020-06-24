@@ -1,0 +1,34 @@
+.users-show
+  .users-show__left-wrapper
+    .users-show__left-wrapper__contents
+      .users-show__left-wrapper__contents__content-title
+        = link_to root_path do
+          出品する
+    .users-show__left-wrapper__contents
+      .users-show__left-wrapper__contents__content-title
+        = link_to root_path do
+          出品した商品ー出品中
+    .users-show__left-wrapper__contents
+      .users-show__left-wrapper__contents__content-title
+        = link_to root_path do
+          出品した商品ー売却済み
+    .users-show__left-wrapper__contents
+      .users-show__left-wrapper__contents__content-title
+        = link_to root_path do
+          購入した商品ー過去の取引
+    %h1 設定
+    .users-show__left-wrapper__contents
+      .users-show__left-wrapper__contents__content-title
+        = link_to root_path do
+          支払い方法
+    .users-show__left-wrapper__contents
+      .users-show__left-wrapper__contents__content-title
+        = link_to root_path do
+          ログアウト
+  .users-show__right-wrapper
+    .users-show__right-wrapper__head
+      =image_tag "/assets/icon/member_photo_noimage_thumb.png",height: "80",width: "80"
+      .users-show__right-wrapper__head__icon
+        田中健斗
+        .users-show__right-wrapper__head__products-count
+          出品数 0
