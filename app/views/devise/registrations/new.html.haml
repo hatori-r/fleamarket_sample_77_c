@@ -1,0 +1,61 @@
+.reg-wrapper
+  .reg-wrapper__content
+    .reg-wrapper__content__nav
+      %h2.reg-wrapper__content__nav-text ユーザー情報登録
+    .reg-wrapper__content__form
+      = form_for(@user, url: user_registration_path) do |f|
+        = render "devise/shared/error_messages", resource: @user
+        .field
+          = f.label :ニックネーム, class:"form-texts"
+          %span.required-box 必須
+          %br/
+          = f.text_field :nickname , placeholder:"例）フリマ太郎"
+        .field
+          = f.label :メールアドレス, class:"form-texts"
+          %span.required-box 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらでも可"
+        .field
+          = f.label :パスワード, class:"form-texts" 
+            - if @minimum_password_length
+          %span.required-box 必須
+          = f.password_field :password, autocomplete: "new-password", placeholder:"７文字以上で入力してください"
+        .field
+          = f.label :確認用パスワード, class:"form-texts"
+          %span.required-box 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"もう一度入力してください"
+        .reg-info-box
+          .info-title
+            %h4.info-title-text 本人確認
+          .form-texts
+            %p.form-texts-details 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .form-set
+          .name-field
+            = f.label :お名前（全角）, class:"form-texts"
+            %span.required-box 必須
+            %br/
+            = f.text_field :family_name ,placeholder:"例）桜木"
+          .name-second-field
+            %br/
+            = f.text_field :first_name, placeholder:"例）花道"
+        .form-set
+          .name-field
+            = f.label :お名前かな（全角）, class:"form-texts"
+            %span.required-box 必須
+            %br/
+            = f.text_field :family_name_kana, placeholder:"例）さくらぎ"
+          .name-second-field
+            %br/
+            = f.text_field :first_name_kana, placeholder:"例）はなみち"
+        .form-birth-set
+          .field
+            = f.label :生年月日, class:"form-texts"
+            %span.required-box 必須
+            %br/
+            = f.text_field :birthday, placeholder:"例）20200101"
+        .reg-info-box-bottom
+          .form-texts
+            %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .actions
+          = f.submit "次へ進む", class:"reg-submit-btn"
