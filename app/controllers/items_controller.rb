@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.show(item_params)
   end
 
   # 商品出品
@@ -19,6 +20,11 @@ class ItemsController < ApplicationController
 
   # 商品購入
   def buy
+
+  end
+
+  # ＃商品詳細（仮）
+  def item_details
 
   end
 

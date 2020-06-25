@@ -1,0 +1,113 @@
+.fotter{
+  height: 350px;
+  background-color: #272727;
+  color: #fff;
+  padding: 30px;
+  &__box{
+    display: flex;
+    margin-bottom: 30px;
+    height: 280px;
+    justify-content: center;
+    align-items: center;
+    .about__box{
+      height: 200px;
+      width: 200px;
+      text-align: center;
+      font-weight: bold;
+      margin-right: 100px;
+      .about__title{
+        height: 20px;
+      }
+      .about__content{
+        height: 120px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 12px;
+        .manegement__company{
+          padding-top: 20px;
+          height: 20px;
+        }
+        .privacy__policy{
+          height: 20px;
+          padding-top: 15px;
+        }
+        .terms__service{
+          height: 20px;
+          padding-top: 15px;
+        } 
+        .point_convenant{
+          height: 20px;
+          padding-top: 15px;
+        }
+      }
+    }
+    .look__box{
+      height: 200px;
+      width: 200px;
+      text-align: center;
+      font-weight: bold;
+      margin-right: 100px;
+      .look__title{
+        height: 20px;
+      }
+      .look__content{
+        height: 80px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        .look__category{
+          height: 20px;
+        }
+        .look__brand{
+          height: 20px;
+        }
+      }  
+      .logo__image{
+        padding-top: 30px;
+        margin-left: 10px;
+        width: 150px;
+      }
+      .logo__company{
+        display: flex;
+        margin-left: 60px;
+        .logo__cmark{
+          font-size: 20px;
+        }
+        .logo__app--mark{
+          margin-left: 5px;
+          margin-top: 2px;
+          font-size: 15px;
+        }
+      }
+    }
+    .help__box{
+      height: 200px;
+      width: 200px;
+      text-align: center;
+      font-weight: bold;
+      .help__title{
+        height: 20px;
+      }
+      .help__content{
+        height: 80px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        .app__guide{
+          padding-top: 20px;
+          height: 20px;
+        }
+        .logo__guid--line{
+          height: 20px;
+          padding-top: 10px;
+        }
+        .app__notice{
+          height: 20px;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}

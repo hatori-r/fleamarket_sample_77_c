@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     # 一時的にcollectionで定義しております。【本来はmember】）
     collection do
       get "buy"
+      get "item_details"
     end
   end
   resources :brands
