@@ -3,13 +3,13 @@
     .header-inner__main
       %h1.icon
         = link_to "/", class: "icon__link" do
-          = image_tag "/images/logo/logo.png"
+          = image_tag asset_path("/images/logo/logo.png")
       .search-box
         %input.search-box__textarea(type="text" placeholder="キーワードから探す")/
         -# %input.submit(type="button")/
         %button.search-box__submit(type="submit")
           .submit-icon
-            %img.submit-icon__img(src="/assets/icon/icon-search 1.png" alt="検索ボタンの画像です。")/
+            = image_tag asset_path("/images/icon/icon-search 1.png")
     .header-inner__nav
       %ul.lists-left
         %li.lists-left__items
