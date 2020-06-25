@@ -1,0 +1,99 @@
+= render partial: "home/header"
+.head__navi
+  .head__navi--bar
+    FURIMA > レディース > トップス > Tシャツ/カットソー(半袖/袖なし) > example01
+.exhibition__btn
+  .exhibition__name
+    出品する
+    .exhibition__icon
+      = image_tag "/assets/icon/icon_camera.png", class: "exhibition__icon"
+.detail__box
+  .item__title
+    .item__name
+      example01
+  .item__image
+    .item__image--box
+      .main__image--box
+      .another__image--box
+        .another__image--a
+        .another__image--b
+        .another__image--c
+  .price__box
+    .base__price
+      ¥1200
+    .price__unit
+      .price__tax
+        (税込)
+      .postage__included
+        送料込み   
+  .item__detail--comment
+    親譲りの無鉄砲で小供の時から損ばかりしている。 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
+  %table.detail__table
+    %tbody.table__list
+      %tr
+        %th.table__category 出品者
+        %td.table__content hoge
+      %tr
+        %th.table__category カテゴリー
+        %td.table__content
+          = link_to "#" do
+            レディース
+          %br/
+          = link_to "#" do
+            トップス
+          %br/
+          = link_to "#" do
+            Tシャツ/カットソー(半袖/袖なし)
+      %tr
+        %th.table__category ブランド
+        %td.table__content
+      %tr
+        %th.table__category 商品のサイズ
+        %td.table__content
+      %tr
+        %th.table__category 商品の状態
+        %td.table__content 新品/未使用
+      %tr
+        %th.table__category 配送料の負担
+        %td.table__content 送料込み（出品者負担）
+      %tr
+        %th.table__category 発送元の地域
+        %td.table__content
+          = link_to "#" do
+            青森県
+      %tr
+        %th.table__category 発送日の目安
+        %td.table__content 1-2日で発送
+  .stamp__box
+    .good__stamp
+      ☆お気に入り 1
+    .inappropriate__report
+      🏳不適切な商品の通報
+  .comment__box
+    .comment__form
+      %textarea#comment_body{:name => "comment[body]", :required => "required", :class => "comment__form"}
+    .note__box
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。 
+    .comment__btn
+      %button.commentBtn{:name => "button", :type => "submit", :class => "comment__btn"}
+        コメントする
+  .page__btn
+    .forward__btn
+      ＜前の商品
+    .back__btn
+      後の商品＞
+  .another__page
+    パソコンをもっと見る
+    .anoter__items--page
+-# ここからが３つ目のバック画像付きBOXです。
+.bottom__image
+  .bottom__image--box
+    .bottom__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    .bottom__message
+      今すぐ無料ダウンロード！
+  .bottom__icon--box
+    .bottom__app--icon
+    .bottom__google--icon
+-# ここまで。
+= render partial: "home/footer"
