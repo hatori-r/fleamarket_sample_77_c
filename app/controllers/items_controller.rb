@@ -18,11 +18,6 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  #商品編集(仮)
-  def edit
-    
-  end
-
   # 商品購入
   def buy
 
