@@ -1,0 +1,594 @@
+.single__header{
+  width: auto;
+  text-align: center;
+  height: 128px;
+  background-color: whitesmoke;
+  .single__logo{
+    display: inline-block;
+    margin: 40px 0 0;
+    width: 180px;
+    height: 50px;
+    background-image: url(/assets/logo/logo.png);
+    background-size: cover;
+  }
+}
+.single__main{
+  width: auto;
+  background-color: whitesmoke;
+  .single__container{
+    max-width: 700px;
+    margin: auto;
+    background-color: #fff;
+    .sell__edit{
+      height: 100px;
+      border-style: solid;
+      border-width: 0;
+      background-repeat: no-repeat;
+      .sell__item--edit{
+        height: 50px;
+        padding-top: 30px;
+        margin: auto;
+        text-align: center;
+        color: #272727;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+    }
+    .sell__uplode--box{
+      height: 300px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      .sell__uplode--head{
+        height: 30px;
+        display: flex;
+        margin: auto;
+        margin-left: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        .form__require--a{
+          line-height: 20px;
+          height: 20px;
+          width: 30px;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      .sell__uplode--supplement{
+        margin-left: 50px;
+      }
+      .sell__uplode--base{
+        display: flex;
+        .sell__uplode--image{
+          height: 180px;
+          width: 150px;
+          margin-left: 30px;
+          margin-top: 20px;
+          background-color: #eee;
+          .sell__image{
+            height: 110px;
+            background-color: whitesmoke;
+          }
+          .sell__around--btn{
+            height: 30px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            .sell__edit--box{
+              height: 30px;
+              width: 50px;
+              line-height: 30px;
+              text-align: center;
+            }
+            .sell__destroy--box{
+              height: 30px;
+              width: 50px;
+              line-height: 30px;
+              text-align: center;
+            }
+          }
+        }
+        .sell__image--dropbox{
+          height: 180px;
+          width: 430px;
+          border: inherit 2px;
+          margin-top: 20px;
+          margin-left: 10px;
+          text-align: center;
+          background-color: whitesmoke;
+          border: dotted 2px;
+          .sell__image--message--a{
+            height: 20px;
+            width: 300px;
+            padding-top: 60px;
+            margin: auto;
+          }
+          .sell__image--message--b{
+            height: 20px;
+            width: 350px;
+            margin: auto;
+          }
+        }
+      }
+    }
+    .sell__item--detail{
+      width: auto;
+      height: 400px;
+      border-top: 1px solid #eee;
+      .sell__item--head{
+        height: 30px;
+        display: flex;
+        margin: auto;
+        margin-left: 50px;
+        padding-top: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        .form__require--b{
+          line-height: 20px;
+          height: 20px;
+          width: 30px;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+    }
+    .item__name{
+      height: 40px;
+      width: 480px;
+      margin-left: 50px;
+    }
+    .sell__explanation--head{
+      height: 30px;
+      display: flex;
+      margin: auto;
+      margin-left: 50px;
+      padding-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      .form__require--c{
+        line-height: 20px;
+        height: 20px;
+        width: 30px;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        background-color: red;
+      }
+    }
+    .item__explanation{
+      height: 200px;
+      width: 480px;
+      overflow: scroll;
+      margin-left: 50px;
+    }
+  }
+  .sell__item--content--a{
+    width: auto;
+    height: 400px;
+    max-width: 700px;
+    display: flex;
+    border-top: 1px solid #eee;
+    .sell__item--evaluation{
+      height: auto;
+      width: 800px;
+      text-align: center;
+      .sell__evaluation--title{
+        color: #333;
+        height: auto;
+        margin: auto;
+        padding-top: 10px;
+      }
+    }
+    .sell__content--box{
+      height: 400px;
+      width: auto;
+      .sell__content--head{
+        height: 30px;
+        width: 200px;
+        display: flex;
+        margin: auto;
+        margin-top: 10px;
+        margin-left: 40px;
+        font-size: 18px;
+        font-weight: bold;
+        .form__require--d{
+          line-height: 20px;
+          height: 20px;
+          width: 30px;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      .category__select{
+        height: 50px;
+        width: 400px;
+        float: right;
+        margin: 5px 40px;
+      }
+      .sell__status--head{
+        height: auto;
+        width: 200px;
+        display: flex;
+        margin: auto;
+        margin-top: 180px;
+        margin-left: 40px;
+        padding-top: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        .form__require--e{
+          line-height: 20px;
+          height: 20px;
+          width: 30px;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      .status__select{
+        height: 50px;
+        width: 400px;
+        float: right;
+        margin: 20px 40px;
+      }
+    }
+  }
+    .sell__item--content--b{
+      width: auto;
+      height: 500px;
+      max-width: 700px;
+      display: flex;
+      border-top: 1px solid #eee;
+      .sell__item--send{
+        height: auto;
+        width: 800px;
+        text-align: center;
+        .sell__send--title{
+          color: #333;
+          height: auto;
+          margin: auto;
+          padding-top: 10px;
+        }
+      }
+      .sell__send--box{
+        height: auto;
+        width: auto;
+        .sell__charges--head{
+          height: 30px;
+          display: flex;
+          margin: auto;
+          margin-left: 40px;
+          margin-top: 30px;
+          font-size: 18px;
+          font-weight: bold;
+          .form__require--f{
+            line-height: 20px;
+            height: 20px;
+            width: 30px;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+            background-color: red;
+          }
+        }
+        .charges__select{
+          height: 50px;
+          width: 400px;
+          float: right;
+          margin: 5px 40px;
+        }
+        .sell__delivery--head{
+          height: 30px;
+          width: 200px;
+          display: flex;
+          margin: auto;
+          margin-left: 40px;
+          padding-top: 30px;
+          font-size: 18px;
+          font-weight: bold;
+          .form__require--g{
+            line-height: 20px;
+            height: 20px;
+            width: 30px;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+            background-color: red;
+          }
+        }
+        .delivery__select{
+          height: 50px;
+          width: 400px;
+          float: right;
+          margin: 5px 40px;
+        }
+        .sell__area--head{
+          height: 30px;
+          width: 200px;
+          display: flex;
+          margin: auto;
+          margin-left: 40px;
+          padding-top: 30px;
+          font-size: 18px;
+          font-weight: bold;
+          .form__require--h{
+            line-height: 20px;
+            height: 20px;
+            width: 30px;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+            background-color: red;
+          }
+        }
+        .area__select{
+          height: 50px;
+          width: 400px;
+          float: right;
+          margin: 5px 40px;
+        }
+        .sell__days--head{
+          height: 30px;
+          width: 200px;
+          display: flex;
+          margin: auto;
+          margin-left: 40px;
+          padding-top: 30px;
+          font-size: 18px;
+          font-weight: bold;
+          .form__require--i{
+            line-height: 20px;
+            height: 20px;
+            width: 30px;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            vertical-align: top;
+            background-color: red;
+          }
+        }
+        .days__select{
+          height: 50px;
+          width: 400px;
+          float: right;
+          margin: 5px 40px;
+        }
+      }
+    }
+    .sell__item--content--c{
+      width: auto;
+      height: 400px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #eee;
+      .sell__item--price{
+        height: 100px;
+        width: 300px;
+        text-align: center;
+        .sell__price--title{
+          color: #333;
+          margin-top: 20px;
+        }
+      }
+      .sell__price--list{
+        height: 400px;
+        width: auto;
+        .sell__price--list--box{
+          height: 340px;
+          margin-top: 20px;
+          .sell__price--a{
+            display: flex;
+            height: 80px;
+            float: right;
+            font-size: 15px;
+            font-weight: bold;
+            color: #272727;
+            margin-top: 20px;
+            margin-right: 30px;
+            border-bottom: 1px solid #272727;
+            .sell__price--head{
+              height: 30px;
+              width: 55px;
+              margin: auto;
+              font-size: 18px;
+              font-weight: bold;
+            }
+            .form__require--j{
+              line-height: 20px;
+              height: 20px;
+              width: 30px;
+              margin-top: 25px;
+              margin-right: 70px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+              background-color: red;
+            }
+            .price__mark{
+              line-height: 15px;
+              font-size: 15px;
+              height: 15px;
+              width: 20px;
+              margin-top: 40px;
+             }
+            .item__price{
+              height: 60px;
+              width: 200px;
+              margin-top: 10px;
+              margin-right: 20px;
+              margin-bottom: 10px;
+            }
+          }
+          .sell__price--b{
+            display: flex;
+            height: 80px;
+            float: right;
+            font-size: 15px;
+            font-weight: bold;
+            color: #272727;
+            margin-top: 20px;
+            margin-right: 30px;
+            border-bottom: 1px solid #272727;
+              .sell___commission{
+                height: 30px;
+                width: 350px;
+                margin: auto;
+              }
+              .commission__detail{
+                line-height: 20px;
+                height: 20px;
+                width: 30px;
+                margin-top: 25px;
+                margin-right: 20px;
+                padding: 2px 4px;
+                font-size: 12px;
+                vertical-align: top;
+              } 
+          }
+          .sell__price--c{
+            display: flex;
+            height: 80px;
+            float: right;
+            font-size: 15px;
+            font-weight: bold;
+            color: #272727;
+            margin-top: 20px;
+            margin-right: 30px;
+            border-bottom: 1px solid #272727;
+              .sell___profit{
+                height: 30px;
+                width: 250px;
+                margin: auto;
+                margin-right: 10px;
+                font-size: 20px;
+              }
+              .profit__detail{
+                line-height: 20px;
+                height: 20px;
+                width: 80px;
+                margin-top: 25px;
+                margin-right: 60px;
+                padding: 2px 4px;
+                font-size: 30px;
+                vertical-align: top;
+              } 
+          }
+        }
+      }
+    }
+    .sell__bottom--btn{
+      height: 180px;
+      margin: auto;
+      border-top: 1px solid #eee;
+      .btn__list{
+        width: 500px;
+        height: 200px;
+        margin: auto;
+        .sell__edit{
+          height: 60px;
+          width: 400px;
+          border-radius: 4px;
+          margin-top: 30px;
+          margin-left: 50px;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff; 
+          font-size: 15px;
+        }
+        .sell__cancel{
+          height: 60px;
+          width: 300px;
+          border-radius: 4px;
+          margin-top: 20px;
+          margin-left: 100px;
+          background: #aaa;
+          border: 1px solid #aaa;
+          color: #fff;
+          font-size: 15px;
+      }
+    }
+  }
+}
+.single__footer{
+  width: auto;
+  box-sizing: border-box;
+  height: 220px;
+  background-color:whitesmoke;
+  .footer__list{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 50px;
+    margin: auto;
+    padding-top: 40px;
+    font-size: 10px;
+    color: #333;
+    .privacy__policy{
+      margin-right: 40px;
+    }
+    .terms__service{
+      margin-right: 40px;
+    }
+    .specific__commerce{
+    }
+  }
+  .apprication__logo{
+    margin: auto;
+    padding-top: 30px;  
+    height: 15px;
+    width: 165px;
+    background-image: url(/assets/logo/logo-white.png);
+    background-size: cover;
+    text-align: center;
+  }
+  .logo__company{
+    display: flex;
+    margin: auto;
+    margin-top: 15px;  
+    width: 100px;
+    
+   .logo__cmark{
+    font-size: 20px;
+    }
+    .logo__app--mark{
+    margin-left: 5px;
+    margin-top: 2px;
+    font-size: 15px;
+    }
+  }
+}

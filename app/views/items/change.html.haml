@@ -1,0 +1,127 @@
+.single__header
+  .single__logo
+.single__main
+  .single__container
+    .sell__edit
+      .sell__item--edit
+        商品の情報を入力
+    .sell__container
+    .sell__uplode--box
+      .sell__uplode--head
+        出品画像
+        .form__require--a
+          必須
+      .sell__uplode--supplement
+        最大5枚までアップロードできます
+      .sell__uplode--base
+        .sell__uplode--image
+          .sell__image
+          .sell__around--btn
+            .sell__edit--box
+              = link_to "#" do
+                編集
+            .sell__destroy--box
+              = link_to "#" do
+                削除
+        .sell__image--dropbox
+          .sell__image--message--a
+            ドラッグアンドドロップ
+          .sell__image--message--b
+            またはクリックしてファイルをアップロード
+    .sell__item--detail
+      .sell__item--head
+        商品名
+        .form__require--b
+          必須
+      %input#item__name{:name =>"current_item", :class => "item__name"}
+      .sell__explanation--head
+        商品の説明
+        .form__require--c
+          必須
+      %textarea#item__explanation{:name =>"current_item", :class => "item__explanation"}
+    .sell__item--content--a
+      .sell__item--evaluation
+        .sell__evaluation--title
+          商品の評価
+      .sell__content--box
+        .sell__content--head
+          カテゴリー
+          .form__require--d
+            必須
+        %select#category__select{:name =>"current_item", :class => "category__select"}
+        %select#category__select{:name =>"current_item", :class => "category__select"}
+        %select#category__select{:name =>"current_item", :class => "category__select"}
+        .sell__status--head
+          商品の状態
+          .form__require--e
+            必須
+        %select#status__select{:name =>"current_item", :class => "status__select"}
+    .sell__item--content--b
+      .sell__item--send
+        .sell__send--title
+          配送について
+      .sell__send--box
+        .sell__charges--head
+          配送料の負担
+          .form__require--f
+            必須
+        %select#charges__select{:name =>"current_item", :class => "charges__select"}
+        .sell__delivery--head
+          配送の方法
+          .form__require--g
+            必須
+        %select#delivery__select{:name =>"current_item", :class => "delivery__select"}
+        .sell__area--head
+          配送元の地域
+          .form__require--h
+            必須
+        %select#area__select{:name =>"current_item", :class => "area__select"}
+        .sell__days--head
+          配送までの日数
+          .form__require--i
+            必須
+        %select#days__select{:name =>"current_item", :class => "days__select"}
+    .sell__item--content--c
+      .sell__item--price
+        .sell__price--title
+          販売価格
+      .sell__price--list
+        .sell__price--list--box
+          .sell__price--a
+            .sell__price--head
+              価格
+            .form__require--j
+              必須
+            .price__mark
+              ¥
+            %input#item__price{:name =>"current_item", :class => "item__price"}
+          .sell__price--b
+            .sell___commission
+              販売手数料(10%)
+            .commission__detail
+              ¥77
+          .sell__price--c
+            .sell___profit
+              販売利益
+            .profit__detail
+              ¥700
+    .sell__bottom--btn
+      .btn__list
+        %button#sell__edit{:class => "sell__edit"}
+          変更する
+        %button#sell__cancel{:class => "sell__cancel"}
+          キャンセル
+.single__footer
+  .footer__list
+    .privacy__policy
+      プライバシーポリシー
+    .terms__service
+      FURIMA利用規約
+    .specific__commerce
+      特定商取引に関する表記
+  .apprication__logo
+  .logo__company
+    .logo__cmark
+      ©️
+    .logo__app--mark
+      FURIMA

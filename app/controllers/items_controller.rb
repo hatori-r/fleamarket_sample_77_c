@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  #商品編集(仮)
+  def edit
+    
+  end
+
   # 商品購入
   def buy
 
@@ -28,8 +33,14 @@ class ItemsController < ApplicationController
 
   end
 
+  #商品編集(仮)
+  def change
+    
+  end
+
   # GET /items/1/edit
   def edit
+    @item = Item.show(item_params)
   end
 
   # POST /items
