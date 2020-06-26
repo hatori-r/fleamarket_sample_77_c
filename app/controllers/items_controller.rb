@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    @item = Item.show(item_params)
+    @item = Item.find(params[:id]
   end
 
   # POST /items
