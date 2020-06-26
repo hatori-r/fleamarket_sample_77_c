@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get "buy"
       get "item_details"
       get "change"
+      get "cut"
     end
   end
   resources :brands

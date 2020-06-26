@@ -1,0 +1,115 @@
+.single__header{
+  width: auto;
+  text-align: center;
+  height: 128px;
+  background-color: whitesmoke;
+  .single__logo{
+    display: inline-block;
+    margin: 40px 0 0;
+    width: 180px;
+    height: 50px;
+    background-image: url(/assets/logo/logo.png);
+    background-size: cover;
+  }
+}
+.single__main{
+  width: auto;
+  background-color: whitesmoke;
+  .single__container{
+    max-width: 700px;
+    margin: auto;
+    background-color: #fff;
+    .sell__destroy{
+      height: 180px;
+      width: auto;
+      border: solid 3px #eee;
+      .sell__item--destyoy-check{
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .sell__item--destyoy-notification{
+        font-size: 20px;
+        color:#333;
+        text-align: center;
+      }
+      .sell__item--destyoy-Confirmation{
+        font-size: 20px;
+        color:#333;
+        text-align: center;
+      }
+      .btn__list{
+        display: flex;
+        color: #fff;
+        margin-top: 30px;
+        text-align: center;
+        justify-content: center;
+        .cancel__btn{
+          width: 100px;
+          height: 30px;
+          background-color: lightcyan;
+          border-radius: 4px;
+          margin-right: 15px;
+          text-decoration: none;
+        }
+        .destroy__btn{
+          width: 100px;
+          height: 30px;
+          background-color: lightpink;
+          border-radius: 4px;
+          margin-left: 15px;
+          text-decoration: none;
+        }
+      }
+    }
+
+  }
+}
+.single__footer{
+  width: auto;
+  box-sizing: border-box;
+  height: 220px;
+  background-color:whitesmoke;
+  .footer__list{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 50px;
+    margin: auto;
+    padding-top: 40px;
+    font-size: 10px;
+    color: #333;
+    .privacy__policy{
+      margin-right: 40px;
+    }
+    .terms__service{
+      margin-right: 40px;
+    }
+    .specific__commerce{
+    }
+  }
+  .apprication__logo{
+    margin: auto;
+    padding-top: 30px;  
+    height: 15px;
+    width: 165px;
+    background-image: url(/assets/logo/logo-white.png);
+    background-size: cover;
+    text-align: center;
+  }
+  .logo__company{
+    display: flex;
+    margin: auto;
+    margin-top: 15px;  
+    width: 100px;
+    
+   .logo__cmark{
+    font-size: 20px;
+    }
+    .logo__app--mark{
+    margin-left: 5px;
+    margin-top: 2px;
+    font-size: 15px;
+    }
+  }
+}
