@@ -28,8 +28,14 @@ class ItemsController < ApplicationController
 
   end
 
+  #商品編集(仮)
+  def change
+    
+  end
+
   # GET /items/1/edit
   def edit
+    @item = Item.find(params[:id]
   end
 
   # POST /items
