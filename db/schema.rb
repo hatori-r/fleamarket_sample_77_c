@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_040058) do
     t.integer "sales_status"
     t.integer "seller_id", null: false
     t.integer "buyer_id"
+    t.integer "category_id"
     t.bigint "brand_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
