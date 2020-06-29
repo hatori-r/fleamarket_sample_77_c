@@ -27,9 +27,9 @@ class Item < ApplicationRecord
   # validates :price_introduce, presence: true
 
   has_many :images, dependent: :destroy
-  belongs_to :user, optional: true
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
+  has_one :user_evaluation
   belongs_to :seller, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
 

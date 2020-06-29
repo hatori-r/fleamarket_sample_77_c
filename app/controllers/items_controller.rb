@@ -110,6 +110,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :introduce, :status, :shipping_fee, :shipping_area, :shipping_day, :price_introduce, :sales_status, :seller_id, :buyer_id, :category_id, :brand_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+      params.require(:item).permit(:name, :introduce, :status, :shipping_fee, :shipping_area, :shipping_day, :price_introduce, :sales_status, :category_id, :brand_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
     end
 end
