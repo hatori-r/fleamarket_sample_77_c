@@ -1,0 +1,19 @@
+.image-wrapper
+  .image-wrapper__label
+    出品画像
+    %span.image-wrapper__label__tag 必須
+  %p.image-wrapper__text
+    最大10枚までアップロードできます
+  .image-wrapper__image
+    .image-drop
+      %label.image-drop__label
+        = f.fields_for :images do |i|
+          .image-drop__label__hidden
+            = i.file_field :image, value: "", class:"image-drop__label__area"
+        .drop-area
+          .drop-area__icon
+            %i.fas.fa-camera
+          %p.drop-area__explanation
+            ドラッグアンドドロップ
+            %br/
+            またはクリックしてファイルをアップロード
