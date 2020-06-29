@@ -5,9 +5,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :introduce
       t.integer :status
       t.integer :shipping_fee
-      t.string :shipping_area
-      t.date :date
-      t.string :price_introduce
+      t.integer :shipping_area
+      t.integer :shipping_day
+      t.integer :price_introduce
       t.references :user, foreign_key: true
       t.references :category, foreign_key: true
       t.references :brand, foreign_key: true

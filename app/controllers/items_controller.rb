@@ -16,6 +16,13 @@ class ItemsController < ApplicationController
   # 商品出品
   def new
     @item = Item.new
+    @item.images.new
+
+    # @brands = Brand.all
+    # @brand_array = [nil]
+    # @brands.each do |brand|
+    #   @beand_array << [brand.name, brand.id]
+    # end
   end
 
   # 商品購入
@@ -47,40 +54,51 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-
-    respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
+        redirect_to '/'
       else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        render 'items/new'
       end
-    end
+      
+    # respond_to do |format|
+    #   if @item.save
+    #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
+    #     format.json { render :show, status: :created, location: @item }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @item.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      reder :edit
     end
+    # respond_to do |format|
+    #   if @item.update(item_params)
+    #     format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @item }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @item.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
     @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_path
+    # respond_to do |format|
+    #   format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
@@ -91,6 +109,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :introduce, :status, :shipping_fee, :shipping_area, :date, :price_introduce, :user_id, :category_id, :brand_id)
+      params.require(:item).permit(:name, :introduce, :status, :shipping_fee, :shipping_area, :shipping_day, :price_introduce, :user_id, :category_id, :brand_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
     end
 end
