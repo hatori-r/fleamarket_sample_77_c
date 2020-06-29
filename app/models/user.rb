@@ -5,7 +5,6 @@ class User < ApplicationRecord
   validates :nickname, :birthday ,presence: true
   validates :family_name, :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }, presence: true
   validates :family_name_kana, :first_name_kana, format: { with: /\A[ぁ-んー－]+\z/ }, presence: true
-
   has_one :send_address
   has_many :user_evaluations
   has_many :seller_items, foreign_key: "seller_id", class_name: "items"

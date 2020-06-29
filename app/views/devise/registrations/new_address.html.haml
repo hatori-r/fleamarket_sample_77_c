@@ -33,6 +33,8 @@
           %span.required-box 必須
           %br/
           = f.text_field :prefectures, placeholder:"例）神奈川県"
+          -# = f.select :prefectures, Sendaddress.prefectures.keys, {prompt: "選択してください"}, class: "shipping-region-tab__select"
+
         .field
           = f.label :市区町村, class:"form-texts"
           %span.required-box 必須

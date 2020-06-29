@@ -24,6 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"][:user][:password] = params[:user][:password]
     #build_sned_addressメソッドはhas_one :send_addressのアソシエーションを設定すると使用可。関連付けのあるnewメソッドのようなもの
     @address = @user.build_send_address
+    # @address = Send_address.new(address_params)
     render :new_address
   end
 
