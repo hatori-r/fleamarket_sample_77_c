@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   # データベース保存確認のため一時的にoptional trueとしています
   belongs_to :user, optional: true
-  belongs_to :category, optional: true
+  # belongs_to :category, optional: true
   belongs_to :brand, optional: true
 
   accepts_nested_attributes_for :images, allow_destroy: true
