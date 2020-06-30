@@ -64,46 +64,19 @@
           height: 450px;
           width: 620px;
           margin-top: 20px;
-          background-image: image_url("/images/pict/laptop.png");
-          background-size: cover;
-          background-position: center;
+          img{height: 450px;}
         }
         .another__image--box{
           height: 100px;
+          width: 100%;
           margin-bottom: 60px;
           padding-bottom: 20px;
           margin-top: 20px;
           display: flex;
-          .another__image--a{
-            height: 180px;
+          .another__image{
+            height: 100%;
             width: 220px;
-            background-image: image_url("/images/pict/image_pc1.jpeg");
-            background-size: cover;
-            background-position: center;
-          }
-          .another__image--b{
-            height: 180px;
-            width: 220px;
-            background-image: image_url("/images/pict/image_pc2.png");
-            background-size: cover;
-            background-position: center;
-          }
-          .another__image--c{
-            height: 180px;
-            width: 220px;
-            background-image: image_url("/images/pict/image_pc3.png");
-            background-size: cover;
-            background-position: center;
-          }
-          .another__image--d{
-            height: 60px;
-            width: 60px;
-            background-color: mediumspringgreen;
-          }
-          .another__image--e{
-            height: 60px;
-            width: 60px;
-            background-color: mediumseagreen;
+            margin-right: 20px;
           }
         }
       }
