@@ -91,6 +91,20 @@
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
 
+.no-item-name,
+.no-item-explanation,
+.no-item-category,
+.no-item-status,
+.no-item-fee,
+.no-item-area,
+.no-item-day,
+.no-item-price {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
 a {
   text-decoration: none;
 }

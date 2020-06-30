@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
       if @item.save
         redirect_to '/'
       else
-        redirect_to new_item_path
+        render "new"
       end
       
     # respond_to do |format|

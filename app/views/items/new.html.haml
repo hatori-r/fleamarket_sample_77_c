@@ -3,19 +3,22 @@
   = form_with(model: @item, local: true) do |f|
     .items-main
       = render partial: "image_form2", locals: {f: f}
+      = render partial: "image_form", locals: {f: f}
       .item-wrapper
         .item-name
           .item-name__upper
             商品名
             %span.item-name__upper__tag 必須
           .item-name__lower
-            = f.text_field :name, placeholder: "40文字まで", class: "item-name__lower__textarea", required: ""
+            = f.text_field :name, placeholder: "40文字まで", class: "item-name__lower__textarea", id: "name-alert"
+          .no-item-name
         .item-explanation
           .item-explanation__upper
             商品の説明
             %span.item-explanation__upper__tag 必須
           .item-explanation__lower
-            = f.text_area :introduce, cols: "40", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。", class: "item-explanation__lower__textarea", required: ""
+            = f.text_area :introduce, cols: "40", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。", class: "item-explanation__lower__textarea", id: "introduce-alert"
+            .no-item-explanation
 
       .details-wrapper
         .details-upper
@@ -26,7 +29,8 @@
             %span.required 必須
           .category-tab
             -# ダミーです
-            = select_tag 'name', options_for_select({"選択してください": 0, "レディース": 1, "メンズ": 2}, 0), class: "category-tab__select"
+            = select_tag 'name', options_for_select({"選択してください": 0, "レディース": 1, "メンズ": 2}, 0), class: "category-tab__select", id: "category-alert"
+            .no-item-category
           .brand
             ブランド
             %span.any 任意
@@ -37,7 +41,8 @@
             商品の状態
             %span.required 必須
           .condition-tab
-            = f.select :status, Item.statuses.keys, {prompt: "選択してください"}, class: "condition-tab__select", required: ""
+            = f.select :status, Item.statuses.keys, {prompt: "選択してください"}, class: "condition-tab__select", id: "status-alert"
+            .no-item-status
       .delivery-wrapper
         .delivery-upper
           配送について
@@ -49,17 +54,20 @@
             配送料の負担
             %span.required 必須
           .burden-tab
-            = f.select :shipping_fee, Item.shipping_fees.keys, {prompt: "選択してください"},class: "burden-tab__select", required: ""
+            = f.select :shipping_fee, Item.shipping_fees.keys, {prompt: "選択してください"},class: "burden-tab__select", id: "fee-alert"
+            .no-item-fee
           .shipping-region
             発送元の地域
             %span.required 必須
           .shipping-region-tab
-            = f.select :shipping_area, Item.shipping_areas.keys, {prompt: "選択してください"}, class: "shipping-region-tab__select", required: ""
+            = f.select :shipping_area, Item.shipping_areas.keys, {prompt: "選択してください"}, class: "shipping-region-tab__select", id: "area-alert"
+            .no-item-area
           .shipping-days
             発送までの日数
             %span.required 必須
           .shipping-days-tab
-            = f.select :shipping_day, Item.shipping_days.keys, {prompt: "選択してください"}, class: "shipping-days-tab__select", required: ""
+            = f.select :shipping_day, Item.shipping_days.keys, {prompt: "選択してください"}, class: "shipping-days-tab__select", id: "day-alert"
+            .no-item-day
       .price-wrapper
         .price-upper
           価格（¥300〜9,999,999）
@@ -75,7 +83,8 @@
               .yen-mark
                 ¥
               .input
-                = f.number_field :price_introduce, placeholder: "0", class: "number-field", required: ""
+                = f.number_field :price_introduce, placeholder: "0", class: "number-field", id: "price-alert"
+                .no-item-price
           .fee-box
             .fee-box__fee
               販売手数料（10%）

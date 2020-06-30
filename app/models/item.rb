@@ -19,20 +19,24 @@ class Item < ApplicationRecord
 
   enum shipping_day: { "1~2日で発送": 0, "2~3日で発送": 1, "4~7日で発送": 2 }
 
-  # validates :name, presence: true
-  # validates :introduce, presence: true
-  # validates :status, presence: true
-  # validates :shipping_fee, presence: true
-  # validates :shipping_area, presence: true
-  # validates :shipping_day, presence: true
-  # validates :price_introduce, presence: true
-
-  has_many :images, dependent: :destroy
+  
+  has_one :user_evaluation
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
-  has_one :user_evaluation
   belongs_to :seller, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
+  has_many :images, dependent: :destroy
+  
+  validates :name, presence: true
+  validates :introduce, presence: true
+  validates :status, presence: true
+  validates :shipping_fee, presence: true
+  validates :shipping_area, presence: true
+  validates :shipping_day, presence: true
+  validates :price_introduce, presence: true
 
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  validates_associated :images
+  validates :images, presence: true
 end
