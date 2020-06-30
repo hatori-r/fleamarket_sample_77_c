@@ -9,7 +9,8 @@
       %label.image-drop__label
         = f.fields_for :images do |i|
           .image-drop__label__hidden
-            = i.file_field :image, value: "", class:"image-drop__label__area"
+            = i.file_field :image, value: "", class:"image-drop__label__area", id: "image-alert"
+        .no-item-image
         .drop-area
           .drop-area__icon
             %i.fas.fa-camera
