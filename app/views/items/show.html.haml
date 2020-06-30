@@ -10,29 +10,31 @@
 .detail__box
   .item__title
     .item__name
-      example01
+      = @item.name
   .item__image
     .item__image--box
       .main__image--box
+        =image_tag @item.images[0].image.url
       .another__image--box
-        .another__image--a
-        .another__image--b
-        .another__image--c
+        - @item.images.each do |image|
+          .another__image
+            = image_tag image.image.url
   .price__box
     .base__price
-      ¥1200
+      = @item.price_introduce
     .price__unit
       .price__tax
         (税込)
       .postage__included
         送料込み   
   .item__detail--comment
-    親譲りの無鉄砲で小供の時から損ばかりしている。 小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
+    = @item.introduce
   %table.detail__table
     %tbody.table__list
       %tr
         %th.table__category 出品者
-        %td.table__content hoge
+        %td.table__content
+          = @item.user.nickname
       %tr
         %th.table__category カテゴリー
         %td.table__content
@@ -52,18 +54,21 @@
         %td.table__content
       %tr
         %th.table__category 商品の状態
-        %td.table__content 新品/未使用
+        %td.table__content
+          = @item.status
       %tr
         %th.table__category 配送料の負担
-        %td.table__content 送料込み（出品者負担）
+        %td.table__content
+          = @item.shipping_fee
       %tr
         %th.table__category 発送元の地域
         %td.table__content
           = link_to "#" do
-            青森県
+            = @item.shipping_area
       %tr
         %th.table__category 発送日の目安
-        %td.table__content 1-2日で発送
+        %td.table__content
+          = @item.shipping_day
   .stamp__box
     .good__stamp
       ☆お気に入り 1

@@ -11,7 +11,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :category, foreign_key: true
       t.references :brand, foreign_key: true
-
       t.timestamps
     end
   end

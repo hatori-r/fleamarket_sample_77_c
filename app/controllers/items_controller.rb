@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @item = Item.show(item_params)
+    @item = Item.find(params[:id])
   end
 
   # 商品出品
@@ -31,9 +31,9 @@ class ItemsController < ApplicationController
   end
 
   # ＃商品詳細（仮）
-  def item_details
+  # def item_details
 
-  end
+  # end
 
   #商品編集(仮)
   def change
@@ -104,7 +104,7 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @item = Item.find(params[:id])
+      # @item = Item.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
