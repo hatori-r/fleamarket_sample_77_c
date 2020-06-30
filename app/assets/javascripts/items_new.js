@@ -62,7 +62,6 @@ $(document).on('turbolinks:load', ()=> {
   // 画像
   $(function() {
     $('#image-alert').on('blur', function() {
-      console.log("hello")
       let name = $(this).val();
       if(name == 0){
         $('#image-alert').css('border-color','red');
@@ -73,7 +72,6 @@ $(document).on('turbolinks:load', ()=> {
       };
     });
     $('#image-alert').on('change', function() {
-      console.log("change")
       let name = $(this).val();
       if(name == 0){
         $('#image-alert').css('border-color', 'red');
@@ -240,7 +238,7 @@ $(document).on('turbolinks:load', ()=> {
         $('.no-item-day').text('');
       };
     });
-    
+
     // 価格
   $('#price-alert').on('blur', function() {
     let price = $(this).val();
