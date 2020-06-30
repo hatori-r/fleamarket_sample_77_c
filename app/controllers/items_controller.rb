@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /items
   # GET /items.json
@@ -57,7 +58,7 @@ class ItemsController < ApplicationController
       if @item.save
         redirect_to '/'
       else
-        render 'items/new'
+        redirect_to new_item_path
       end
       
     # respond_to do |format|
@@ -109,6 +110,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :introduce, :status, :shipping_fee, :shipping_area, :shipping_day, :price_introduce, :user_id, :category_id, :brand_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+      params.require(:item).permit(:name, :introduce, :status, :shipping_fee, :shipping_area, :shipping_day, :price_introduce, :sales_status, :category_id, :brand_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
     end
 end
