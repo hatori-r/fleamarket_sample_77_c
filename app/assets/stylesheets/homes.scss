@@ -403,152 +403,50 @@
   font-size: 25px;
   font-weight: bold;
   text-align: center;
-  .pickup__category--box{
+  .pickup__item--box{
     font-size: 15px;
     color: #272727;
     height: 400px;
     display: flex;
     justify-content: center;
-    .category__base{
-      display: block;
-      color: #272727;
-      padding-top: 20px;
-      height: 400px;
-      .category__image{
-        margin: auto;
-        height: 250px;
-        width: 250px;
-        background-image: image_url("/images/material/sozai1.jpeg");
-        background-size: cover;
-      }
-      .pickup__category{
-      height: 120px;
-      width: 250px;
-      background-color: #fff;  
-      .category__name{
-        height: 30px;
-        width: 100px;
-      }
-      .category__price{
-        height: 30px;
-        width: 100px;
-      }
-      .category__tax{
-        height: 30px;
-        width: 100px;
-        font-size: 10px;
-      }
-      .category__point{
-        margin-top: -60px;
-        float: right;
-      }
-      }
+    img{
+      height: 180px;
+      margin-top: 20px;
+      margin-left: 20px;
     }
+      .item__base{
+        display: block;
+        color: #272727;
+        padding-top: 20px;
+        height: 300px;
+        width: 250px;
+        .item__post--image{
+          height: 200px;
+          width: 200px;
+        }
+        .item__name--label{
+          height: 30px;
+          width: 150px;
+          margin-top: 20px;
+        }
+        .item__price--box{
+          height: 30px;
+          width: 100px;
+          margin-left: 30px;
+          display: flex;
+          .item__price--label{
+          }
+          .item__unit--label{
+          }
+        }
+        .item__tax--label{
+          height: 30px;
+          width: 100px;
+          font-size: 5px;
+        }
+      }
   }
-    .category__base--b{
-      padding-top: 20px;
-      height: 400px;
-      .category__image--b{
-        margin: auto;
-        height: 250px;
-        width: 250px;
-        background-image: image_url("/images/material/sozai2.png");
-        background-size: cover;
-      }
-      .pickup__category--b{
-        margin: auto;
-        height: 120px;
-        width: 250px;
-        background-color: #fff;
-        .category__name--b{
-          height: 30px;
-          width: 100px;
-        }
-        .category__price--b{
-          height: 30px;
-          width: 100px;
-        }
-        .category__tax--b{
-          height: 30px;
-          width: 100px;
-          font-size: 10px;
-        }
-        .category__point--b{
-          margin-top: -60px;
-          float: right;
-        }
-      }
-    }
-
-    .category__base--c{
-      padding-top: 20px;
-      height: 400px;
-      .category__image--c{
-        margin: auto;
-        height: 250px;
-        width: 250px;
-        background-image: image_url("/images/material/sozai3.png");
-        background-size: cover;
-      }
-      .pickup__category--c{
-        margin: auto;
-        height: 120px;
-        width: 250px;
-        background-color: #fff;
-        .category__name--c{
-         height: 30px;
-         width: 100px;
-        }
-        .category__price--c{
-          height: 30px;
-          width: 100px;
-        }
-        .category__tax--c{
-          height: 30px;
-          width: 100px;
-          font-size: 10px;
-        }
-        .category__point--c{
-          margin-top: -60px;
-          float: right;
-        }
-      }
-    }
-    .category__base--d{
-      padding-top: 20px;
-      height: 400px;
-      .category__image--d{
-        margin: auto;
-        height: 250px;
-        width: 250px;
-        background-image: image_url("/images/material/sozai4.png");
-        background-size: cover;
-      }
-      .pickup__category--d{
-        margin: auto;
-        height: 120px;
-        width: 250px;
-        background-color: #fff;
-        .category__name--d{
-          height: 30px;
-          width: 100px;
-        }
-        .category__price--d{
-          height: 30px;
-          width: 100px;
-        }
-        .category__tax--d{
-          height: 30px;
-          width: 100px;
-          font-size: 10px;
-        }
-        .category__point--d{
-          margin-top: -60px;
-          float: right;
-        }
-      }
-    }
-  }
+}
 .pickup__brand{
   margin-top: 350px;
   height: 50px;
