@@ -409,36 +409,36 @@
     height: 400px;
     display: flex;
     justify-content: center;
-    .category__base--a{
+    .category__base{
       display: block;
       color: #272727;
       padding-top: 20px;
       height: 400px;
-      .category__image--a{
+      .category__image{
         margin: auto;
         height: 250px;
         width: 250px;
         background-image: image_url("/images/material/sozai1.jpeg");
         background-size: cover;
       }
-      .pickup__category--a{
+      .pickup__category{
       height: 120px;
       width: 250px;
       background-color: #fff;  
-      .category__name--a{
+      .category__name{
         height: 30px;
         width: 100px;
       }
-      .category__price--a{
+      .category__price{
         height: 30px;
         width: 100px;
       }
-      .category__tax--a{
+      .category__tax{
         height: 30px;
         width: 100px;
         font-size: 10px;
       }
-      .category__point--a{
+      .category__point{
         margin-top: -60px;
         float: right;
       }
