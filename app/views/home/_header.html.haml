@@ -11,9 +11,29 @@
           .submit-icon
             = image_tag asset_path("/images/icon/icon-search 1.png")
     .header-inner__nav
-      %ul.lists-left
+      -# %ul.lists-left
+      -#   %li.lists-left__items
+      -#     = link_to "カテゴリー", "/", class:"header-link-text"
+      %ul.list-left
         %li.lists-left__items
-          = link_to "カテゴリー", "/", class:"header-link-text"
+          = link_to "/", class: "header-link-text" do
+            カテゴリー
+          %ul.category__parent.category__list
+            - @parents.each do |parent|
+              %li
+                = link_to "#", class: "category__parent--name" do
+                  = parent.name
+                %ul.category__child.category__list
+                  - parent.children.each do |child|
+                    %li
+                      = link_to "#", class: "category__child--name" do
+                        = child.name
+                      %ul.category__grandchild.category__list
+                        - child.children.each do |grandchild|
+                          %li
+                            = link_to "#", class: " category__child--name" do
+                              = grandchild.name
+
         %li.lists-left__items
           = link_to "ブランド", "/", class:"header-link-text"
       - if user_signed_in?
