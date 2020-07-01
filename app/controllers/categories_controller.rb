@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Categorie.all
+    @parents = Category.where(ancestry: nil)
   end
 
   # GET /categories/1

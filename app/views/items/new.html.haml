@@ -27,7 +27,7 @@
             カテゴリー
             %span.required 必須
           .category-tab
-            = f.select :category, @category_parent_array, {}, {class: 'category__tab--select', id: 'parent_category'}
+            = f.select :category_id, @category_parent_array, {}, {class: 'category__tab--select', id: 'parent_category'}
             -# ダミーのときの記述
             -# 服部さんCSS変更よろしくです！
             -# = select_tag 'name', options_for_select({"選択してください": 0, "レディース": 1, "メンズ": 2}, 0), class: "category-tab__select", id: "category-alert"
