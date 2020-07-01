@@ -42,6 +42,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  def  done
+    @item_buyer= Item.find(params[:id])
+    @item_buyer.update( buyer_id: current_user.id)
+   end
+
   # GET /resource/edit
   # def edit
   #   super

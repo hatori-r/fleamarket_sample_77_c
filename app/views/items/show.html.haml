@@ -81,7 +81,7 @@
           -if user_signed_in? && current_user.id == @item.seller_id
             = link_to '商品の編集', "/items/change", method: :get
           -else user_signed_in? && current_user.id == @item.buyer_id
-            = link_to '購入画面に進む', "/items/change", method: :get
+            = link_to '購入画面に進む', "/items/buy", method: :get
     .item__action--select
       -if user_signed_in? && current_user.id == @item.seller_id
         or
