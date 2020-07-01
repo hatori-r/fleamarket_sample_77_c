@@ -19,6 +19,21 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
 
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["選択してください"]
+    #データベースから親カテゴリーのみ抽出→配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end  
+    #親カテゴリーが選択された後に動くアクション
+    def get_category_children
+      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    end
+    #子カテゴリーが選択された後に動くアクション
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
+    
     # @brands = Brand.all
     # @brand_array = [nil]
     # @brands.each do |brand|
