@@ -117,51 +117,53 @@
 .pickup__new--post
   新規投稿商品
   .pickup__category--box
-    = link_to "items/item_details", class: "category__base--a" do
-      .category__image--a
-      .pickup__category--a
-        .category__name--a
+    - @items.each do |item| 
+      = render partial: "items", locals: { item: item }
+    -# = link_to "items/item_details", class: "category__base--a" do
+      .category__image
+      .pickup__category
+        .category__name
           ee
-        .category__price--a
+        .category__price
           1000円
-        .category__tax--a
+        .category__tax
           (税込）
-        .category__point--a
+        .category__point
           ★０
     -# 以下b〜dは同義です。
-    .category__base--b
-      .category__image--b
-      .pickup__category--b
-        .category__name--b
-          product3
-        .category__price--b
-          30000円
-        .category__tax--b
-          （税込）
-        .category__point--b
-          ★０
-    .category__base--c
-      .category__image--c
-      .pickup__category--c
-        .category__name--c
-          product2
-        .category__price--c
-          20000円
-        .category__tax--c
-          （税込）
-        .category__point--c
-          ★０
-    .category__base--d
-      .category__image--d
-      .pickup__category--d
-        .category__name--d
-          product1
-        .category__price--d
-          10000円
-        .category__tax--d
-          （税込）
-        .category__point--d
-          ★1
+    -# .category__base--b
+    -#   .category__image--b
+    -#   .pickup__category--b
+    -#     .category__name--b
+    -#       product3
+    -#     .category__price--b
+    -#       30000円
+    -#     .category__tax--b
+    -#       （税込）
+    -#     .category__point--b
+    -#       ★０
+    -# .category__base--c
+    -#   .category__image--c
+    -#   .pickup__category--c
+    -#     .category__name--c
+    -#       product2
+    -#     .category__price--c
+    -#       20000円
+    -#     .category__tax--c
+    -#       （税込）
+    -#     .category__point--c
+    -#       ★０
+    -# .category__base--d
+    -#   .category__image--d
+    -#   .pickup__category--d
+    -#     .category__name--d
+    -#       product1
+    -#     .category__price--d
+    -#       10000円
+    -#     .category__tax--d
+    -#       （税込）
+    -#     .category__point--d
+    -#       ★1
 -# ここまで。
 
 -# ここからが”ピックアップブランド”です。

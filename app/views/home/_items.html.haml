@@ -1,0 +1,19 @@
+= link_to "items/show", class: "pickup__category--box" do
+  %li.pickup__category--box
+    %image.item
+      %figucaption.category__image
+        -# = @images.image
+      .item__thumbnail
+        .item__thumbnail--label
+          -# = "¥ #{item.item.to_s(:delimited)}"
+        .item__thumbnail--image
+          -# - if item.images.present?
+            -# =image_tag (item.images[0].item_image.url)
+          - else
+            = image_tag "no_image.png"
+          -# -if item.buyer_id.present? 
+            .items-box_photo__sold
+              .items-box_photo__sold__inner SOLD
+          -# -if item.reservation_email.present? 
+            .items-box_photo__reserved
+              .items-box_photo__reserved__inner Reserved
