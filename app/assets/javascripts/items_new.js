@@ -1,69 +1,111 @@
 $(document).on('turbolinks:load', ()=> {
-  // 画像用のinputを生成する関数
-  const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group">
-                    <input class="js-file" type="file"
-                    name="item[images_attributes][${num}][image]"
-                    id="item_images_attributes_${num}_image"><br>
-                    <div class="js-remove">削除</div>
-                  </div>`;
-    return html;
-  }
-  // プレビュー用のimgタグを生成する関数
-  const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
-    return html;
-  }
-
-  // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
-  // 既に使われているindexを除外
-  lastIndex = $('.js-file_group:last').data('index');
-  fileIndex.splice(0, lastIndex);
-
-  $('.hidden-destroy').hide();
-
-  $('#image-box').on('change', '.js-file', function(e) {
-    const targetIndex = $(this).parent().data('index');
-    // ファイルのブラウザ上でのURLを取得する
-    const file = e.target.files[0];
-    const blobUrl = window.URL.createObjectURL(file);
-
-    // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
-    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('image', blobUrl);
-    } else {  // 新規画像追加の処理
-      $('#previews').append(buildImg(targetIndex, blobUrl));
-      // fileIndexの先頭の数字を使ってinputを作る
-      $('#image-box').append(buildFileField(fileIndex[0]));
-      fileIndex.shift();
-      // 末尾の数に1足した数を追加する
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+  // -----↓商品出品ページ、画像投稿フォーム↓-----
+  $(function(){
+    function buildHTML(count) {
+      var html = `<div class="preview-box" id="preview-box__${count}">
+      <div class="upper-box">
+      <img src="" alt="preview">
+      </div>
+      <div class="lower-box">
+      <div class="update-box">
+      <label class="edit_btn">編集</label>
+      </div>
+      <div class="delete-box" id="delete_btn_${count}">
+      <span>削除</span>
+      </div>
+      </div>
+      </div>`;
+      return html;
     }
-  });
-
-  $('#image-box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
-    // 該当indexを振られているチェックボックスを取得する
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    // もしチェックボックスが存在すればチェックを入れる
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
     
-    $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
+    if (window.location.href.match(/\/items\/\d+\/edit/)){
+      var prevContent = $('.label-content').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.label-content').css('width', labelWidth);
+      $('.preview-box').each(function(index, box){
+        $(box).attr('id', `preview-box__${index}`);
+      })
+      $('.delete-box').each(function(index, box){
+        $(box).attr('id', `delete_btn_${index}`);
+      })
+      var count = $('.preview-box').length;
+      if (count == 5) {
+        $('.label-content').hide();
+      }
+    }
     
-    // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    function setLabel() {
+      var prevContent = $('.label-content').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.label-content').css('width', labelWidth);
+    }
+    
+    $(document).on('change', '.hidden-field', function() {
+      setLabel();
+      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      var file = this.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function() {
+        var image = this.result;
+        if ($(`#preview-box__${id}`).length == 0) {
+          var count = $('.preview-box').length;
+          var html = buildHTML(id);
+          var prevContent = $('.label-content').prev();
+          $(prevContent).append(html);
+        }
+        $(`#preview-box__${id} img`).attr('src', `${image}`);
+        var count = $('.preview-box').length;
+        if (count == 5) { 
+          $('.label-content').hide();
+        }
+        if ($(`#item_images_attributes_${id}__destroy`)){
+          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        } 
+        setLabel();
+        if(count < 5){
+          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+        }
+      }
+    });
+    
+    $(document).on('click', '.delete-box', function() {
+      var count = $('.preview-box').length;
+      setLabel(count);
+      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      $(`#preview-box__${id}`).remove();
+      if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
+        $(`#item_images_attributes_${id}_image`).val("");
+        var count = $('.preview-box').length;
+        if (count == 4) {
+          $('.label-content').show();
+        }
+        setLabel(count);
+        if(id < 5){
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        }
+      } else {
+        $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
+        if (count == 4) {
+          $('.label-content').show();
+        }
+        setLabel();
+        if(id < 5){
+          $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        }
+      }
+    });
   });
-
-
-
+  // -----↑商品出品ページ、画像投稿フォーム↑-----
+  
+  
   // -----↓フォーム未入力のアラート↓-----
   // 画像
   $(function() {
     $('#image-alert').on('blur', function() {
-      let name = $(this).val();
-      if(name == 0){
+      let image = $(this).val();
+      if(image == 0){
         $('#image-alert').css('border-color','red');
         $('.no-item-image').text('画像がありません');
       }else {
@@ -72,8 +114,8 @@ $(document).on('turbolinks:load', ()=> {
       };
     });
     $('#image-alert').on('change', function() {
-      let name = $(this).val();
-      if(name == 0){
+      let image = $(this).val();
+      if(image == 0){
         $('#image-alert').css('border-color', 'red');
         $('.no-item-image').text('画像がありません');
       }else {
@@ -82,7 +124,7 @@ $(document).on('turbolinks:load', ()=> {
       };
     });
   });
-
+  
   // 商品名
   $(function() {
     $('#name-alert').on('blur', function() {
@@ -106,15 +148,15 @@ $(document).on('turbolinks:load', ()=> {
       };
     });
   });
-
+  
   // 商品の説明
-    $('#introduce-alert').on('blur', function() {
-      let introduce = $(this).val();
-      if(introduce == 0){
-        $('#introduce-alert').css('border-color','red');
-        $('.no-item-explanation').text('入力してください');
-      }else {
-        $('#introduce-alert').css('border-color', '');
+  $('#introduce-alert').on('blur', function() {
+    let introduce = $(this).val();
+    if(introduce == 0){
+      $('#introduce-alert').css('border-color','red');
+      $('.no-item-explanation').text('入力してください');
+    }else {
+      $('#introduce-alert').css('border-color', '');
         $('.no-item-explanation').text('');
       };
     });
@@ -128,7 +170,7 @@ $(document).on('turbolinks:load', ()=> {
         $('.no-item-explanation').text('');
       };
     });
-
+    
     // カテゴリー
     $('#category-alert').on('blur', function() {
       let category = $(this).val();
@@ -150,7 +192,7 @@ $(document).on('turbolinks:load', ()=> {
         $('.no-item-category').text('');
       };
     });
-
+    
     // 商品の状態
     $('#status-alert').on('blur', function() {
       let status = $(this).val();
@@ -172,7 +214,7 @@ $(document).on('turbolinks:load', ()=> {
         $('.no-item-status').text('');
       };
     });
-
+    
     // 送料負担
     $('#fee-alert').on('blur', function() {
       let fee = $(this).val();
@@ -194,7 +236,7 @@ $(document).on('turbolinks:load', ()=> {
         $('.no-item-fee').text('');
       };
     });
-
+    
     // 発送元
     $('#area-alert').on('blur', function() {
       let area = $(this).val();
@@ -216,7 +258,7 @@ $(document).on('turbolinks:load', ()=> {
         $('.no-item-area').text('');
       };
     });
-
+    
     // 発送までの日にち
     $('#day-alert').on('blur', function() {
       let day = $(this).val();
@@ -238,26 +280,27 @@ $(document).on('turbolinks:load', ()=> {
         $('.no-item-day').text('');
       };
     });
-
+    
     // 価格
-  $('#price-alert').on('blur', function() {
-    let price = $(this).val();
-    if(price == 0){
-      $('#price-alert').css('border-color','red');
-      $('.no-item-price').text('入力してください');
-    }else {
-      $('#price-alert').css('border-color', '');
-      $('.no-item-price').text('');
-    };
+    $('#price-alert').on('blur', function() {
+      let price = $(this).val();
+      if(price == 0){
+        $('#price-alert').css('border-color','red');
+        $('.no-item-price').text('入力してください');
+      }else {
+        $('#price-alert').css('border-color', '');
+        $('.no-item-price').text('');
+      };
+    });
+    $('#price-alert').on('change', function() {
+      let price = $(this).val();
+      if(price == 0){
+        $('#price-alert').css('border-color', 'red');
+        $('.no-item-price').text('入力してください');
+      }else {
+        $('#price-alert').css('border-color', '');
+        $('.no-item-price').text('');
+      };
+    });
   });
-  $('#price-alert').on('change', function() {
-    let price = $(this).val();
-    if(price == 0){
-      $('#price-alert').css('border-color', 'red');
-      $('.no-item-price').text('入力してください');
-    }else {
-      $('#price-alert').css('border-color', '');
-      $('.no-item-price').text('');
-    };
-  });
-});
+  // -----↓フォーム未入力のアラート↑-----

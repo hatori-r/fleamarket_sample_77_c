@@ -3,7 +3,6 @@
   = form_with(model: @item, local: true) do |f|
     .items-main
       = render partial: "image_form2", locals: {f: f}
-      = render partial: "image_form", locals: {f: f}
       .item-wrapper
         .item-name
           .item-name__upper
