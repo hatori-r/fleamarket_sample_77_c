@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
       else
         redirect_to new_item_path
       end
-      
+     
     # respond_to do |format|
     #   if @item.save
     #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -102,6 +102,7 @@ class ItemsController < ApplicationController
     # end
   end
 
+  #ネットで検索して見かけたdestroyに関してのヒントです。一旦消さずにおります。不要であればその際に削除します（宮前）。
   # def destroy
   #   product=Product.find(params[:id])
   #   if product.destroy
