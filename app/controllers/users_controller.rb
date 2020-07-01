@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    #   if user = Seller.find(params[:id])
+    #   else user = Buyer.find(params[:id])
+    #   end
   end
 
   def edit

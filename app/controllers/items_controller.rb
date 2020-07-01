@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    # @item = Item.find(params[:id]
+    @item = Item.find(params[:id])
   end
 
   # POST /items
@@ -101,6 +101,15 @@ class ItemsController < ApplicationController
     #   format.json { head :no_content }
     # end
   end
+
+  # def destroy
+  #   product=Product.find(params[:id])
+  #   if product.destroy
+  #     redirect_to root_path, notice: '削除しました'
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
