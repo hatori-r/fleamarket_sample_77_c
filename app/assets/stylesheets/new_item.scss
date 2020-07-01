@@ -11,8 +11,6 @@
       font-size: 14px;
       padding-top: 40px;
       margin: 0 auto 20px;
-      // margin-bottom: 10px;
-      // padding: 0 30px;
       &__tag {
         @include required;
       }
@@ -85,9 +83,10 @@
               left: 16px;
               right: 16px;
               text-align: center;
+              color: #333;
               font-size: 14px;
+              font-weight: lighter;
               line-height: 1.5;
-              font-weight: bold;
               -webkit-transform: translate(0, -50%);
               transform: translate(0, -50%);
               pointer-events: none;

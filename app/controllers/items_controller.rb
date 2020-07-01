@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-
+    
     #セレクトボックスの初期値設定
     @category_parent_array = ["選択してください"]
     #データベースから親カテゴリーのみ抽出→配列化
@@ -40,30 +40,44 @@ class ItemsController < ApplicationController
     #   @beand_array << [brand.name, brand.id]
     # end
   end
-
+  
   # 商品購入
   def buy
-
+    
   end
-
+  
   # ＃商品詳細（仮）
   # def item_details
-
+  
   # end
-
+  
   #商品編集(仮)
   def change
     
   end
-
+  
   #商品削除（仮）
   def cut
-
+    
   end
-
+  
   # GET /items/1/edit
   def edit
     @item = Item.find(params[:id])
+    
+    @category_parent_array = ["選択してください"]
+    #データベースから親カテゴリーのみ抽出→配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end  
+    #親カテゴリーが選択された後に動くアクション
+    def get_category_children
+      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    end
+    #子カテゴリーが選択された後に動くアクション
+    def get_category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
   end
 
   # POST /items
@@ -75,7 +89,7 @@ class ItemsController < ApplicationController
       else
         render "new"
       end
-     
+
     # respond_to do |format|
     #   if @item.save
     #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -90,6 +104,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
