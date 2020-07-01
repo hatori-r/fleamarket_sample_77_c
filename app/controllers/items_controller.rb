@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    # @item = Item.find(params[:id]
+    @item = Item.find(params[:id])
   end
 
   # POST /items
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
       else
         render "new"
       end
-      
+     
     # respond_to do |format|
     #   if @item.save
     #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -101,6 +101,16 @@ class ItemsController < ApplicationController
     #   format.json { head :no_content }
     # end
   end
+
+  #ネットで検索して見かけたdestroyに関してのヒントです。一旦消さずにおります。不要であればその際に削除します（宮前）。
+  # def destroy
+  #   product=Product.find(params[:id])
+  #   if product.destroy
+  #     redirect_to root_path, notice: '削除しました'
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

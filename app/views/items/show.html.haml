@@ -1,7 +1,6 @@
 = render partial: "home/header"
 .head__navi
   .head__navi--bar
-    FURIMA > レディース > トップス > Tシャツ/カットソー(半袖/袖なし) > example01
 = link_to "/items/new", class: "exhibition__btn" do
   .exhibition__name
     出品する
@@ -34,7 +33,7 @@
       %tr
         %th.table__category 出品者
         %td.table__content
-          = @item.user.nickname
+          =@item.seller.nickname
       %tr
         %th.table__category カテゴリー
         %td.table__content
@@ -74,6 +73,24 @@
       ☆お気に入り 1
     .inappropriate__report
       🏳不適切な商品の通報
+  
+  .item__action--box
+    .item__edit--box
+      .item__edit--btn
+        %button.item__edit--Btn{:name => "button", :type => "submit", :class => "item__edit--btn"}
+          -if user_signed_in? && current_user.id == @item.seller_id
+            = link_to '商品の編集', "/items/change", method: :get
+          -else user_signed_in? && current_user.id == @item.buyer_id
+            = link_to '購入画面に進む', "/items/change", method: :get
+    .item__action--select
+      -if user_signed_in? && current_user.id == @item.seller_id
+        or
+    .item__destroy--box
+      -if user_signed_in? && current_user.id == @item.seller_id    
+        .item__destroy--btn
+          %button.item__edit--Btn{:name => "button", :type => "submit", :class => "item__destroy--btn"}
+            -if user_signed_in? && current_user.id == @item.seller_id
+              = link_to '商品の削除', "/items/cut", method: :get
   .comment__box
     .comment__form
       %textarea#comment_body{:name => "comment[body]", :required => "required", :class => "comment__form"}
