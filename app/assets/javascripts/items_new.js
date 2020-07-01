@@ -62,8 +62,8 @@ $(document).on('turbolinks:load', ()=> {
   // 画像
   $(function() {
     $('#image-alert').on('blur', function() {
-      let name = $(this).val();
-      if(name == 0){
+      let image = $(this).val();
+      if(image == 0){
         $('#image-alert').css('border-color','red');
         $('.no-item-image').text('画像がありません');
       }else {
@@ -72,8 +72,8 @@ $(document).on('turbolinks:load', ()=> {
       };
     });
     $('#image-alert').on('change', function() {
-      let name = $(this).val();
-      if(name == 0){
+      let image = $(this).val();
+      if(image == 0){
         $('#image-alert').css('border-color', 'red');
         $('.no-item-image').text('画像がありません');
       }else {
