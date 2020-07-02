@@ -1,10 +1,6 @@
-.reg-wrapper
-  .reg-wrapper__content
-    .reg-wrapper__content__nav
-      %h2.reg-wrapper__content__nav-text 登録が完了いたしました
-    .edit-link-box
-      = link_to "クレジットカードの登録をする", root_path
-    .edit-link-box
-      = link_to "トップへ戻る", root_path
-    - if user_signed_in?
-      %p= link_to "ログアウト", destroy_user_session_path, method: :delete
+.regFinishWrapper
+  .regFinish__contents
+    .regFinish__contents__title
+      %h4 登録が完了いたしました
+    .regFinish__contents__link
+      = link_to "トップ画面へ", root_path, class:"regFinish__contents__link--text"

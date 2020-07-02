@@ -332,7 +332,4 @@ others_8.children.create([{name: "オフィス用品一般"},{name: "オフィ�
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
-# カテゴリー
-
-categories = Category.create(name: "カテゴリー")
 
