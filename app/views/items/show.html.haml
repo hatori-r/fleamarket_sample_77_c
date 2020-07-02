@@ -37,14 +37,11 @@
       %tr
         %th.table__category カテゴリー
         %td.table__content
-          = link_to "#" do
-            レディース
+          = link_to @categorys.find(@item.category_id).parent.parent.name
           %br/
-          = link_to "#" do
-            トップス
+          = link_to @categorys.find(@item.category_id).parent.name
           %br/
-          = link_to "#" do
-            Tシャツ/カットソー(半袖/袖なし)
+          = link_to @categorys.find(@item.category_id).name
       %tr
         %th.table__category ブランド
         %td.table__content

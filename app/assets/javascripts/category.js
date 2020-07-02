@@ -1,14 +1,15 @@
+// カテゴリー出品機能Ajax
 $(document).on('turbolinks:load', ()=> {
   $(function(){
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
-      var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+      var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
       return html;
     }
     // 子カテゴリーの表示
     function appendChildrenBox(insertHTML){
       var childSelectHtml = '';
-      childSelectHtml = `<select class="category__tab--select" id="children_wrapper" name="item[category]">
+      childSelectHtml = `<select class="category__tab--select" id="children_wrapper" name="item[category_id]">
                           <option value="選択してください" data-category="選択してください">選択してください</option>
                           ${insertHTML}
                         </select>`;
@@ -17,7 +18,7 @@ $(document).on('turbolinks:load', ()=> {
     // 孫カテゴリーの表示
     function appendGrandchildrenBox(insertHTML){
       var grandchildSelectHtml = '';
-      grandchildSelectHtml = `<select class="category__tab--select" id="grandchildren_wrapper" name="item[category]">
+      grandchildSelectHtml = `<select class="category__tab--select" id="grandchildren_wrapper" name="item[category_id]">
                                 <option value="選択してください" data-category="選択してください">選択してください</option>
                                 ${insertHTML}
                               </select>`;
