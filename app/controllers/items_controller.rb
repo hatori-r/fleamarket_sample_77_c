@@ -128,7 +128,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    if item.destroy
+    if @item.destroy
       redirect_to root_path, notice: '削除しました'
     else
       render :edit
