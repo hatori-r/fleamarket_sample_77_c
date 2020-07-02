@@ -128,7 +128,6 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    item = Item.find(params[:id])
     if item.destroy
       redirect_to root_path, notice: '削除しました'
     else
@@ -149,7 +148,7 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      # @item = Item.find(params[:id])
+      @item = Item.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
