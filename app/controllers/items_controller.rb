@@ -135,16 +135,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @item.destroy
-  #   redirect_to root_path
-    # respond_to do |format|
-    #   format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
-  # end
-
-  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
