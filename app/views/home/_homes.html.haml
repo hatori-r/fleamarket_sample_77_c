@@ -116,6 +116,7 @@
   ピックアップアイテム
 .pickup__new--post
   新規投稿商品
+  = paginate(@items)
   .pickup__item--box
     - @items.each do |item| 
       = render partial: "item", locals: {item: item }

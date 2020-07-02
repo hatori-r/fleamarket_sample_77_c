@@ -1,4 +1,4 @@
-= link_to "items/show", class: "pickup__category--box" do
+= link_to "/items/#{item.id}", class: "pickup__category--box" do
   %li.pickup__item--box
     %img
       %figucaption.item__image
@@ -6,15 +6,14 @@
       .item__post--image
         - if item.images.present?
           =image_tag (item.images[0].image.url)
-        -# #以下のelseから以降のコメントアウトの箇所は次の作業で利用するため一旦このままでお願いします（宮前）
         -# - else
         -# = image_tag "no_image.png"
-        -# -if item.buyer_id.present? 
-        -#   .items-box_photo__sold
-        -#     .items-box_photo__sold__inner SOLD
-        -# -if item.reservation_email.present? 
+      -if item.buyer_id.present? 
+        .items-box_photo__sold
+          .items-box_photo__sold__inner SOLD
           .items-box_photo__reserved
             .items-box_photo__reserved__inner Reserved
+      
       .item__name--label
         =item.name
       .item__price--box
@@ -25,4 +24,3 @@
       .item__tax--label
         （税込）
         
-          

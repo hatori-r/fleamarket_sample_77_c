@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order("created_at DESC").page(params[:page]).per(4)
     @parents = Category.where(ancestry: nil)
   end
 

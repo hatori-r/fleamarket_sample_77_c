@@ -8,6 +8,7 @@
       .buy-item-section__item-info
         .info-table
           .image
+            -# =image_tag (@item.images[0].item_image.url), class:"img"
             = image_tag asset_path("/images/card_logos/coach.jpg"), class: "img"
           .details
             .name
