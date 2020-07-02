@@ -29,7 +29,7 @@ ja:
         send_family_kana: 名字（かな）
         send_first_kana: 名前（かな）
         post_number: 郵便番号
-        prefectures: 都道府県
+        prefectures_id: 都道府県
         city: 市区町村
         address: 番地
 
