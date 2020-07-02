@@ -128,24 +128,24 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item.destroy
-    redirect_to root_path
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :edit
+    end
+  end
+
+  # def destroy
+  #   @item.destroy
+  #   redirect_to root_path
     # respond_to do |format|
     #   format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
     #   format.json { head :no_content }
     # end
-  end
-
-  #ネットで検索して見かけたdestroyに関してのヒントです。一旦消さずにおります。不要であればその際に削除します（宮前）。
-  # def destroy
-  #   product=Product.find(params[:id])
-  #   if product.destroy
-  #     redirect_to root_path, notice: '削除しました'
-  #   else
-  #     render :edit
-  #   end
   # end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

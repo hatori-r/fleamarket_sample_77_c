@@ -19,9 +19,10 @@ Rails.application.routes.draw do
     # 一時的にcollectionで定義しております。【本来はmember】）
     collection do
       get "buy"
-      get "item_details"
-      get "change"
-      get "cut"
+      # get "item_details"
+      # get "change"
+      # get "cut"
+      # get "cut/destroy"
       # カテゴリー機能のルーティング
       # アクションのリスポンスをdefaultsでjsonに限定
       get 'get_category_children', defaults: { format: 'json' }
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/show'
   get 'users/edit'
+  # get 'users/destroy'
   # resources :credits
   # resources :send_addresses
   # resources :images
