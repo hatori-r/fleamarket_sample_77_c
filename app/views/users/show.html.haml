@@ -19,8 +19,7 @@
     %h1 設定
     .users-show__left-wrapper__contents
       .users-show__left-wrapper__contents__content-title
-        = link_to root_path do
-          支払い方法
+        = link_to "支払い方法", new_credit_path
     .users-show__left-wrapper__contents
       .users-show__left-wrapper__contents__content-title
         = link_to "ログアウト", destroy_user_session_path, method: :delete
