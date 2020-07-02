@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
+    @parents = Category.where(ancestry: nil)
+    @categorys = Category.all
   end
 
   # 商品出品
@@ -20,6 +22,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     
+
     #セレクトボックスの初期値設定
     @category_parent_array = ["選択してください"]
     #データベースから親カテゴリーのみ抽出→配列化
