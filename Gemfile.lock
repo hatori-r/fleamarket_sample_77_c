@@ -24,6 +24,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_hash (2.3.0)
+      activesupport (>= 5.0.0)
     activejob (5.2.4.3)
       activesupport (= 5.2.4.3)
       globalid (>= 0.3.6)
@@ -113,7 +115,7 @@ GEM
     devise-i18n (1.9.1)
       devise (>= 4.7.1)
     devise-i18n-views (0.3.7)
-    diff-lcs (1.4.2)
+    diff-lcs (1.4.4)
     erb2haml (0.1.5)
       html2haml
     erubi (1.9.0)
@@ -347,6 +349,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash (~> 2.3.0)
   ancestry
   bootsnap (>= 1.1.0)
   byebug

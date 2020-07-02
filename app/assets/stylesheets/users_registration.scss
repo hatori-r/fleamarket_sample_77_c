@@ -71,38 +71,39 @@
         width: 145px;
       }
 
-      }
-        input{
-        height: 48px;
-        width: 300px;
+      
+    }
+    input{
+      height: 48px;
+      width: 300px;
         margin: 10px 0 10px 5px;
         font-size: 12px;
+      }
+      .label {
+        margin: auto;
+        width: 300px;
+        float: left;
+      }
+      .field {
+        margin: auto;
+        width:310px;
+      }
+      .form-texts {
+        float: left;
+        font-size: 12px;
+        text-align: left;
+        font-weight: bold;
+        &-details{
+          font-weight: lighter;
         }
-        .label {
-          margin: auto;
-          width: 300px;
-          float: left;
-        }
-        .field {
-          margin: auto;
-          width:310px;
-        }
-        .form-texts {
-          float: left;
+      }
+      .info-title {
+        float: left;
+        &-text{
           font-size: 12px;
-          text-align: left;
           font-weight: bold;
-          &-details{
-            font-weight: lighter;
-          }
         }
-        .info-title {
-          float: left;
-          &-text{
-          font-size: 12px;
-          font-weight: bold;
-          }
-        }      
+      }      
         .reg-submit-btn {
           background-color: #3CCACE;
           color: #fff;
@@ -128,4 +129,11 @@
         list-style: none;
       }
     }
+  }
+  
+#send_address_prefectures_id {
+  height: 52px;
+  width: 98.5%;
+  margin: 10px 0 10px 5px;
+  font-size: 12px;
 }
