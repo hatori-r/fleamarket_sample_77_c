@@ -76,7 +76,7 @@
       .item__edit--btn
         %button.item__edit--Btn{:name => "button", :type => "submit", :class => "item__edit--btn"}
           -if user_signed_in? && current_user.id == @item.seller_id
-            = link_to '商品の編集', "/items/#{@item.id}/edit", method: :get
+            = link_to '商品の編集', edit_item_path(@item)
           -else user_signed_in? && current_user.id == @item.buyer_id
             = link_to '購入画面に進む', "/items/buy", method: :get
     .item__action--select
