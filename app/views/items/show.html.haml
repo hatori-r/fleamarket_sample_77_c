@@ -87,7 +87,7 @@
         .item__destroy--btn
           %button.item__edit--Btn{:name => "button", :type => "submit", :class => "item__destroy--btn"}
             -if user_signed_in? && current_user.id == @item.seller_id
-              = link_to '商品の削除', "/items/cut", method: :get
+              = link_to '商品の削除', item_path, method: :delete
   .comment__box
     .comment__form
       %textarea#comment_body{:name => "comment[body]", :required => "required", :class => "comment__form"}
