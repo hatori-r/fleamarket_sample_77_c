@@ -56,14 +56,23 @@
             カテゴリー
             %span.required 必須
           .category-tab
-            = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'category-wrapper__category form-control', id: 'parent_category'}
+            -# -----↓メモ↓-----
+            -# = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'category-wrapper__category form-control', id: 'parent_category'}
+            -# -----↑メモ↑-----
+            = f.collection_select :category_id, Category.roots, :name, :name, {include_blank: "---",selected: @item.category.parent.parent.name}, required: true,class:'category-wrapper__category form-control', id: 'parent_category'
             .no-item-category
             .category-wrapper-select#children_wrapper
               .category-wrapper-select__box
-                = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+                -# -----↓メモ↓-----
+                -# = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+                -# -----↑メモ↑-----
+                = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {include_blank: "---",selected: @item.category.parent_id}, required: true,class:'category-wrapper__category form-control', id: 'child_category'
             .category-wrapper-select#grandchildren_wrapper
               .category-wrapper-select__box
-                = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+                -# -----↓メモ↓-----
+                -# = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+                -# -----↑メモ↑-----
+                = f.collection_select :category_id, @item.category.siblings, :id, :name, {include_blank: "---",selected: @item.category.id}, required: true, class: 'category-wrapper__category form-control' ,id: 'grandchild_category'
           .brand
             ブランド
             %span.any 任意
@@ -132,8 +141,10 @@
         .buttons
           .sell-button
             = f.submit "出品する", class: "sell-button__link"
+          -# -----↓メモ↓-----
           -# .save-button
           -#   = link_to "下書きに保存", "#", class: "save-button__link"
+          -# -----↑メモ↑-----
           .back-button
             = link_to "もどる", "/", class: "back-button__link"
         .caution

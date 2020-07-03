@@ -27,7 +27,10 @@
             カテゴリー
             %span.required 必須
           .category-tab
-            = f.select :category_id, @category_parent_array, {}, {class: 'category__tab--select', id: 'parent_category'}
+            -# -----↓メモ↓-----
+            -# = f.select :category_id, @category_parent_array, {}, {class: 'category__tab--select', id: 'parent_category'}
+            -# -----↑メモ↑-----
+            = f.collection_select :category_id, Category.roots, :name, :name, {include_blank: "---"}, required: true, class:'category__tab--select', id: 'parent_category'
             .no-item-category
           .brand
             ブランド
@@ -97,8 +100,10 @@
         .buttons
           .sell-button
             = f.submit "出品する", class: "sell-button__link"
+          -# -----↓メモ↓-----
           -# .save-button
           -#   = link_to "下書きに保存", "#", class: "save-button__link"
+          -# -----↑メモ↑-----
           .back-button
             = link_to "もどる", "/", class: "back-button__link"
         .caution

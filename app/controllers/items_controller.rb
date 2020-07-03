@@ -19,8 +19,11 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    
-    @category_parent_array = Category.get_parent_category
+
+    # -----↓メモ↓-----
+    # @category_parent_array = Category.get_parent_category
+    # -----↑メモ↑-----
+
   end
   #親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -30,12 +33,6 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-  
-  # @brands = Brand.all
-  # @brand_array = [nil]
-  # @brands.each do |brand|
-  #   @beand_array << [brand.name, brand.id]
-  # end
   
   # 商品購入
   def buy
@@ -62,17 +59,12 @@ class ItemsController < ApplicationController
     grandchild_category = @item.category
     child_category = grandchild_category.parent
     
-    @category_parent_array = Category.get_parent_category
+    # -----↓メモ↓-----
+    # @category_parent_array = Category.get_parent_category
+    # -----↑メモ↑-----
     
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-    
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
   end
   
   # POST /items

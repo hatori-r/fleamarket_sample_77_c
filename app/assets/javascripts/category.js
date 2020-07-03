@@ -9,10 +9,18 @@ $(document).on('turbolinks:load', ()=> {
     // 子カテゴリーの表示
     function appendChildrenBox(insertHTML){
       var childSelectHtml = '';
-      childSelectHtml = `<select class="category__tab--select" id="children_wrapper" name="item[category_id]">
+      // -----↓メモ↓-----
+      // childSelectHtml = `<select class="category__tab--select" id="children_wrapper" name="item[category_id]">
+      //                     <option value="選択してください" data-category="選択してください">選択してください</option>
+      //                     ${insertHTML}
+      //                   </select>`;
+      // -----↑メモ↑-----
+      childSelectHtml = `
+                        <select required="required" class="category__tab--select" id="children_wrapper" name="item[category_id]">
                           <option value="選択してください" data-category="選択してください">選択してください</option>
                           ${insertHTML}
                         </select>`;
+      
       $('.category-tab').append(childSelectHtml);
     }
     // 孫カテゴリーの表示
@@ -26,7 +34,7 @@ $(document).on('turbolinks:load', ()=> {
     }
       // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
-      var parentCategory = document.getElementById('parent_category').value; 
+      var parentCategory = document.getElementById('parent_category').value;
       if (parentCategory != "選択してください"){ 
         $.ajax({
           url: '/items/get_category_children',
