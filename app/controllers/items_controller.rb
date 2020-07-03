@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @item = Item.find(params[:id])
     @parents = Category.where(ancestry: nil)
     @categorys = Category.all
   end
@@ -29,21 +28,21 @@ class ItemsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end  
+  end
     #親カテゴリーが選択された後に動くアクション
-    def get_category_children
-      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-    end
-    #子カテゴリーが選択された後に動くアクション
-    def get_category_grandchildren
-      @category_grandchildren = Category.find("#{params[:child_id]}").children
-    end
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+  #子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
     
     # @brands = Brand.all
     # @brand_array = [nil]
     # @brands.each do |brand|
     #   @beand_array << [brand.name, brand.id]
     # end
-  end
   
   # 商品購入
   def buy
@@ -67,20 +66,22 @@ class ItemsController < ApplicationController
   
   # GET /items/1/edit
   def edit
-    @item = Item.find(params[:id])
-    
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
     @category_parent_array = ["選択してください"]
-    #データベースから親カテゴリーのみ抽出→配列化
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
-    end  
-    #親カテゴリーが選択された後に動くアクション
-    def get_category_children
-      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
     end
-    #子カテゴリーが選択された後に動くアクション
-    def get_category_grandchildren
-      @category_grandchildren = Category.find("#{params[:child_id]}").children
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
     end
   end
 
@@ -108,7 +109,6 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else

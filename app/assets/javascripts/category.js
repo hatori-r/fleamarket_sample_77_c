@@ -27,9 +27,10 @@ $(document).on('turbolinks:load', ()=> {
       // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
       var parentCategory = document.getElementById('parent_category').value; 
+      console.log(parentCategory)
       if (parentCategory != "選択してください"){ 
         $.ajax({
-          url: 'get_category_children',
+          url: '/items/get_category_children',
           type: 'GET',
           data: { parent_name: parentCategory },
           dataType: 'json'
@@ -55,10 +56,10 @@ $(document).on('turbolinks:load', ()=> {
     });
     // JSで追加したhtml要素を認識するため発動すべき対象を指定
     $('.category-tab').on('change', '#children_wrapper', function(){
-      var childId = $('#children_wrapper option:selected').data('category'); 
+      var childId = $('#children_wrapper option:selected').data('category');
       if (childId != "選択してください"){ 
         $.ajax({
-          url: 'get_category_grandchildren',
+          url: '/items/get_category_grandchildren',
           type: 'GET',
           data: { child_id: childId },
           dataType: 'json'
