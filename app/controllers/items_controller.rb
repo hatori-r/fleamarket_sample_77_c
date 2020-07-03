@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     @items = Item.includes(:user).order("created_at DESC").page(params[:page]).per(4)
   end
 
-  # GET /items/1
   # GET /items/1.json
   def show
     @parents = Category.where(ancestry: nil)
@@ -21,7 +20,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     
-
     #セレクトボックスの初期値設定
     @category_parent_array = ["選択してください"]
     #データベースから親カテゴリーのみ抽出→配列化
@@ -29,7 +27,7 @@ class ItemsController < ApplicationController
       @category_parent_array << parent.name
     end  
   end
-    #親カテゴリーが選択された後に動くアクション
+  #親カテゴリーが選択された後に動くアクション
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end

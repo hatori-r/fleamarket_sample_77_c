@@ -27,7 +27,6 @@ $(document).on('turbolinks:load', ()=> {
       // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
       var parentCategory = document.getElementById('parent_category').value; 
-      console.log(parentCategory)
       if (parentCategory != "選択してください"){ 
         $.ajax({
           url: '/items/get_category_children',

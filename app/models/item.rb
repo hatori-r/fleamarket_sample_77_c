@@ -19,6 +19,29 @@ class Item < ApplicationRecord
 
   enum shipping_day: { "1~2日で発送": 0, "2~3日で発送": 1, "4~7日で発送": 2 }
 
+
+    #セレクトボックスの初期値設定
+  @category_parent_array = ["選択してください"]
+  #データベースから親カテゴリーのみ抽出→配列化
+  Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+  end 
+
+  @category_parent_array = ["選択してください"]
+  Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+  end
+
+  @category_children_array = []
+  Category.where(ancestry: child_category.ancestry).each do |children|
+    @category_children_array << children
+  end
+
+  @category_grandchildren_array = []
+  Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+    @category_grandchildren_array << grandchildren
+  end
+
   
   has_one :user_evaluation
   belongs_to :category, optional: true
