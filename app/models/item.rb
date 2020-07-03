@@ -1,5 +1,25 @@
 class Item < ApplicationRecord
   
+  has_one :user_evaluation
+  belongs_to :category, optional: true
+  belongs_to :brand, optional: true
+  belongs_to :seller, class_name: "User", optional: true
+  belongs_to :buyer, class_name: "User", optional: true
+  has_many :images, dependent: :destroy
+  
+  validates :name, presence: true
+  validates :introduce, presence: true
+  validates :status, presence: true
+  validates :shipping_fee, presence: true
+  validates :shipping_area, presence: true
+  validates :shipping_day, presence: true
+  validates :price_introduce, presence: true
+  
+  accepts_nested_attributes_for :images, allow_destroy: true
+  
+  validates_associated :images
+  validates :images, presence: true
+  
   enum status: { "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5 }
 
   enum shipping_fee: { "送料込み(出品者負担)": 0, "着払い(購入者負担)": 1 }
@@ -19,47 +39,4 @@ class Item < ApplicationRecord
 
   enum shipping_day: { "1~2日で発送": 0, "2~3日で発送": 1, "4~7日で発送": 2 }
 
-
-    #セレクトボックスの初期値設定
-  @category_parent_array = ["選択してください"]
-  #データベースから親カテゴリーのみ抽出→配列化
-  Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.name
-  end 
-
-  @category_parent_array = ["選択してください"]
-  Category.where(ancestry: nil).each do |parent|
-    @category_parent_array << parent.name
-  end
-
-  @category_children_array = []
-  Category.where(ancestry: child_category.ancestry).each do |children|
-    @category_children_array << children
-  end
-
-  @category_grandchildren_array = []
-  Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-    @category_grandchildren_array << grandchildren
-  end
-
-  
-  has_one :user_evaluation
-  belongs_to :category, optional: true
-  belongs_to :brand, optional: true
-  belongs_to :seller, class_name: "User", optional: true
-  belongs_to :buyer, class_name: "User", optional: true
-  has_many :images, dependent: :destroy
-  
-  validates :name, presence: true
-  validates :introduce, presence: true
-  validates :status, presence: true
-  validates :shipping_fee, presence: true
-  validates :shipping_area, presence: true
-  validates :shipping_day, presence: true
-  validates :price_introduce, presence: true
-
-  accepts_nested_attributes_for :images, allow_destroy: true
-
-  validates_associated :images
-  validates :images, presence: true
 end

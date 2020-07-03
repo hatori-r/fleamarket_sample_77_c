@@ -20,12 +20,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["選択してください"]
-    #データベースから親カテゴリーのみ抽出→配列化
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end  
+    @category_parent_array = Category.get_parent_category
   end
   #親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -35,12 +30,12 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-    
-    # @brands = Brand.all
-    # @brand_array = [nil]
-    # @brands.each do |brand|
-    #   @beand_array << [brand.name, brand.id]
-    # end
+  
+  # @brands = Brand.all
+  # @brand_array = [nil]
+  # @brands.each do |brand|
+  #   @beand_array << [brand.name, brand.id]
+  # end
   
   # 商品購入
   def buy
@@ -66,23 +61,20 @@ class ItemsController < ApplicationController
   def edit
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-
-    @category_parent_array = ["選択してください"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-
+    
+    @category_parent_array = Category.get_parent_category
+    
     @category_children_array = []
     Category.where(ancestry: child_category.ancestry).each do |children|
       @category_children_array << children
     end
-
+    
     @category_grandchildren_array = []
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren
     end
   end
-
+  
   # POST /items
   # POST /items.json
   def create
