@@ -4,7 +4,8 @@ class CreditsController < ApplicationController
   # GET /credits
   # GET /credits.json
   def index
-    @credits = Credit.all
+    
+    @credits = Credit.get_card(current_user.credit.customer_id) if current_user.credit
   end
 
   # GET /credits/1
@@ -16,7 +17,8 @@ class CreditsController < ApplicationController
       # 未登録なら新規登録画面に
       redirect_to action: "new" 
     else
-      Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+      # これを変更しない限りエラーが起きる[:PAYJP_SECRET_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
       # ログインユーザーのクレジットカード情報からPay.jpに登録されているカスタマー情報を引き出す
       customer = Payjp::Customer.retrieve(@card.customer_id)
       # カスタマー情報からカードの情報を引き出す
@@ -57,8 +59,8 @@ class CreditsController < ApplicationController
 
   # POST /credits
   # POST /credits.json
-def create #payjpとCardのデータベース作成
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+def create #payjpとCardのデータベース作成これを変更しない限りエラーが起きる[:PAYJP_SECRET_KEY]
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
     #保管した顧客IDでpayjpから情報取得
     if params['payjp-token'].blank?
       redirect_to new_credit_path
@@ -68,7 +70,7 @@ def create #payjpとCardのデータベース作成
         card: params['payjp-token'],
         metadata: {user_id: current_user.id}
       ) 
-      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
      
       if @card.save
         redirect_to credits_path(current_user.id)

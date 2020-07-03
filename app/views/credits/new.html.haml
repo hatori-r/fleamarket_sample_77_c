@@ -18,12 +18,12 @@
                 .number
                   = f.text_field "card_number", class: "mypage__card__new__box__format__number__default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
               .card_image
-                = image_tag(image_path('/images/visa.png'), class: 'visa')
-                = image_tag(image_path('images/mastercard.png'), class: 'master')
-                = image_tag(image_path('images/jcb.png'), class: 'jcb')
-                = image_tag(image_path('images/americanExpress.png'), class: 'amex')
-                = image_tag(image_path('images/dinersClub.png'), class: 'diners')
-                = image_tag(image_path('images/discover.png'), class: 'discover')
+                = image_tag 'visa.png', class:'visa'
+                = image_tag 'mastercard.png', class:'master'
+                = image_tag 'jcb.png', class:'jcb'
+                = image_tag 'americanExpress.png', class:'amex'
+                = image_tag 'dinersClub.png', class: 'diners'
+                = image_tag 'discover.png', class: 'discover'
   
               .mypage__card__new__box__format__group
                 %label 有効期限
