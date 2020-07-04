@@ -14,10 +14,7 @@
 
 -#   %tbody
 -#     = @credits[:last4]
--#     = @credits[:exp_month]
--#     = @credits[:exp_year]
--#     = @credits[:brand]
-
+    
 
 
 
@@ -54,13 +51,16 @@
               .credit_card_info__numbers
                 .number
                   = "**** **** **** " + @credits[:last4]
+                  = @credits[:brand]
                 
                   .expiration_date__title
                     有効期限
+                    = @credits[:exp_month]
+                    = @credits[:exp_year]
                   .expiration_date__info
                     -# = @exp_month + " / " + @exp_year
             .destroy__function
               .destroy__function__link
                 -# = link_to credit_card_path, method: :delete, class: "destroy__function__link__btn" do 
-                  削除する
-      
+                -#   削除する
+  = render partial: "credit_footer"
