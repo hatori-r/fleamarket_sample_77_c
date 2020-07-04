@@ -7,18 +7,18 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", optional: true
   has_many :images, dependent: :destroy
   
-  validates :name, presence: true
-  validates :introduce, presence: true
-  validates :status, presence: true
-  validates :shipping_fee, presence: true
-  validates :shipping_area, presence: true
-  validates :shipping_day, presence: true
-  validates :price_introduce, presence: true
+  validates :name, presence: true,
+            :introduce, presence: true,
+            :status, presence: true,
+            :shipping_fee, presence: true,
+            :shipping_area, presence: true,
+            :shipping_day, presence: true,
+            :price_introduce, presence: true,
+            :category_id, presence: true,
+            :images, presence: true
   
   accepts_nested_attributes_for :images, allow_destroy: true
-  
   validates_associated :images
-  validates :images, presence: true
   
   enum status: { "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5 }
 
