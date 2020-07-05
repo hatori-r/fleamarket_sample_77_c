@@ -24,7 +24,7 @@
 .background
   .my-page
     -# = render "users/side_bar"    
-    
+    = render partial: "credit_header"
     .show
       .show__frame
         .show__frame__title
@@ -33,7 +33,7 @@
           .credit_card__frame
             .credit_card_info
               .credit_card_info__brand
-                = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", size: '150x100', alt: @card_brand
+                -# = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", size: '150x100', alt: @card_brand
               .credit_card_info__numbers
                 .number
                   = "**** **** **** " + @customer_card.last4
@@ -44,6 +44,6 @@
                     = @exp_month + " / " + @exp_year
             .destroy__function
               .destroy__function__link
-                = link_to credit_card_path, method: :delete, class: "destroy__function__link__btn" do 
+                = link_to credit_path, method: :delete, class: "destroy__function__link__btn" do 
                   削除する
-      
+      = render partial: "credit_footer"
