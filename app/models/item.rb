@@ -7,14 +7,14 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", optional: true
   has_many :images, dependent: :destroy
   
-  validates :name, presence: true,
-            :introduce, presence: true,
-            :status, presence: true,
-            :shipping_fee, presence: true,
-            :shipping_area, presence: true,
-            :shipping_day, presence: true,
-            :price_introduce, presence: true,
-            :category_id, presence: true,
+  validates :name,
+            :introduce,
+            :status,
+            :shipping_fee,
+            :shipping_area,
+            :shipping_day,
+            :price_introduce,
+            :category_id,
             :images, presence: true
   
   accepts_nested_attributes_for :images, allow_destroy: true
