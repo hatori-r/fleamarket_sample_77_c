@@ -50,7 +50,8 @@ class CreditsController < ApplicationController
 
   # GET /credits/new
   def new
-    
+    @card = CreditCard.where(user_id: current_user.id)
+    redirect_to credit_card_path(current_user.id) if @card.exists?
   end
 
   # GET /credits/1/edit
@@ -97,10 +98,33 @@ def create #payjpとCardのデータベース作成これを変更しない限�
   # DELETE /credits/1
   # DELETE /credits/1.json
   def destroy
-    @credit.destroy
-    respond_to do |format|
-      format.html { redirect_to credits_url, notice: 'Credit was successfully destroyed.' }
-      format.json { head :no_content }
+    # @credit.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to credits_url, notice: 'Credit was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
+    # ログイン中のユーザーのクレジットカード登録の有無を判断
+    @card = CreditCard.find_by(user_id: current_user.id)
+    if @card.blank?
+      # 未登録なら新規登録画面に
+      redirect_to action: "new"
+    else
+      # 前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+      # ログインユーザーのクレジットカード情報からPay.jpに登録されているカスタマー情報を引き出す
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      # そのカスタマー情報を消す
+      customer.delete
+      @card.delete
+      # 削除が完了しているか判断
+      if @card.destroy
+      # 削除完了していればdestroyのビューに移行
+      # destroyビューを作るのが面倒であれば、flashメッセージを入れてトップページやマイページに飛ばしてもOK
+
+      else
+        # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
+        redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
+      end
     end
   end
 
