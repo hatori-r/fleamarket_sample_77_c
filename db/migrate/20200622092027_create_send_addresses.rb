@@ -6,7 +6,7 @@ class CreateSendAddresses < ActiveRecord::Migration[5.2]
       t.string :send_family_kana
       t.string :send_first_kana
       t.string :post_number
-      t.string :prefectures
+      t.integer :prefectures_id
       t.string :city
       t.string :address
       t.string :apartment

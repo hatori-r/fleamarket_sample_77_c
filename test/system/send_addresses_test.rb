@@ -18,7 +18,7 @@ class SendAddressesTest < ApplicationSystemTestCase
     fill_in "Apartment", with: @send_address.apartment
     fill_in "City", with: @send_address.city
     fill_in "Post number", with: @send_address.post_number
-    fill_in "Prefectures", with: @send_address.prefectures
+    fill_in "Prefectures_id", with: @send_address.prefectures_id
     fill_in "Send family kana", with: @send_address.send_family_kana
     fill_in "Send family name", with: @send_address.send_family_name
     fill_in "Send first kana", with: @send_address.send_first_kana
@@ -40,7 +40,7 @@ class SendAddressesTest < ApplicationSystemTestCase
     fill_in "Apartment", with: @send_address.apartment
     fill_in "City", with: @send_address.city
     fill_in "Post number", with: @send_address.post_number
-    fill_in "Prefectures", with: @send_address.prefectures
+    fill_in "Prefectures_id", with: @send_address.prefectures_id
     fill_in "Send family kana", with: @send_address.send_family_kana
     fill_in "Send family name", with: @send_address.send_family_name
     fill_in "Send first kana", with: @send_address.send_first_kana

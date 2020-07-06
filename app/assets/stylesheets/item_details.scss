@@ -1,53 +1,58 @@
-.head__navi{
-  width: 100%;
-  border-top: 1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  position: relative;
-  padding: 0 60px;
-  .head__navi--bar{
-    width: 100%;
-    border-top: 1px solid #eee;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-    position: relative;
-    padding: 0 60px;
-  }
+// ↓現時点で想定しないため、非表示として画面本体の機能として後に必要と判断した場合、再度表示。// .head__navi{
+//   width: 100%;
+//   border-top: 1px solid #eee;
+//   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+//   position: relative;
+//   padding: 0 60px;
+//   .head__navi--bar{
+//     width: 100%;
+//     border-top: 1px solid #eee;
+//     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+//     position: relative;
+//     padding: 0 60px;
+//   }
+// }
+// .exhibition__btn{
+//   display: block;
+//   position: fixed;
+//   text-align: center;
+//   border-radius: 4%;
+//   height: 120px;
+//   width: 120px;
+//   border-radius: 4px;
+//   top:  150px;
+//   right: 40px; 
+//   color: #fff;
+//   background-color: #3ccace;
+//   .exhibition__name{
+//     padding-top: 15px;
+//     font-size: 18px;
+//   }
+//   .exhibition__icon{
+//     height: 60px;
+//     background-image: image_url("/images/icon/icon_camera.png");
+//   }
+// }
+.show__header{
+  background-color: whitesmoke;
 }
-.exhibition__btn{
-  display: block;
-  position: fixed;
-  text-align: center;
-  border-radius: 4%;
-  height: 120px;
-  width: 120px;
-  border-radius: 4px;
-  top:  150px;
-  right: 40px; 
-  color: #fff;
-  background-color: #3ccace;
-  .exhibition__name{
-    padding-top: 15px;
-    font-size: 18px;
-  }
-  .exhibition__icon{
-    height: 60px;
-    background-image: image_url("/images/icon/icon_camera.png");
-  }
-}
+.outline__area--base{
+  background-color: whitesmoke;
   .detail__box{
     height: 1800px;
-    width: 900px;
+    width: 800px;
     margin: auto;
+    padding-top: 20px;
+    margin-bottom: 80px;
     background-color: #fff;
     .item__title{
-      height: 70px;
-      width: 700px;
+      height: 50px;
+      width: 600px;
       margin: auto;
-      margin-top: 20px;
       .item__name{
         width: 300px;
         margin: auto;
         text-align: center;
-        padding: 10px;
         font-size: 30px;
         color: #272727;
       }
@@ -63,21 +68,34 @@
         .main__image--box{
           height: 450px;
           width: 620px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: center;
           margin-top: 20px;
-          img{height: 450px;}
+          img{
+            margin: auto;
+            height: 300px;
+            width: 300px;
+          }
         }
         .another__image--box{
           height: 100px;
           width: 700px;
-          margin-bottom: 60px;
+          margin-bottom: 20px;
           padding-bottom: 20px;
           margin-top: 20px;
           display: flex;
-          .another__image{
-            height: 100%;
-            width: 220px;
-            margin-right: 20px;
+          justify-content: center;
+          &__item {
+            height: 100px;
+            width: 100px;
+            margin: 0 15px;
+            display: flex;
             justify-content: center;
+            .item-subimage {
+              width:100%;
+              height: 100%;
+            }
           }
         }
       }
@@ -90,7 +108,6 @@
         .base__price{
           width: 400px;
           margin: auto;
-          padding-top: 40px;
           font-size: 45px;
           align-items: center;
           justify-content: center;
@@ -184,85 +201,93 @@
     margin-top: 20px;
     border: solid #eee 1px;
     background-color: #fff;
-    .item__edit--box{
-      height: 50px;
+    .item__edit--btn{
+      height: 40px;
       width: 500px;
       margin: auto;
-      margin-top: 20px;
-      border-radius: 4%;
-      background-color: red;
-      .item__edit--btn{
-        height: 40px;
-        width: 200px;
-        margin: auto;
-        margin-top: 5px;
-        border: none;
-        outline: none;
-        background: transparent;
-        text-decoration: none;
-        font-size: 15px;
-        color: #fff;
-        background-color: red;
-      }
+      margin-top: 30px;
+      padding-top: 10px;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      background: transparent;
+      font-size: 15px;
+      color: #fff;
+      background-color:#3CCACE;
     }
     .item__action--select{
       height: 30px;
       margin: auto;
       text-align: center;
     }
-    .item__destroy--box{
-      height: 50px;
+    .item__destroy--btn{
+      height: 40px;
       width: 500px;
       margin: auto;
-      border-radius: 4%;
-      background-color: #f8f8f8;
-      .item__destroy--btn{
-        height: 40px;
-        width: 200px;
-        margin: auto;
-        margin-top: 5px;
-        border: none;
-        outline: none;
-        background: transparent;
-        text-decoration: none;
-        font-size: 15px;
-        color: #272727;
-        background-color: #f8f8f8;
-      }
-    }
-  }
-  
-  .comment__box{
-    height: 320px;
-    width: 700px;
-    margin: auto;
-    background-color: #fff;
-    .comment__form{
-      width: 680px;
-      height: 120px;
-      margin: auto;
-      margin-top: 20px;
-    }
-    .note__box{
-      height:60px;
-      width: 680px;
-      margin: auto;
-      margin-top: 30px;
-      background-color: #f8f8f8;
-    }
-    .comment__btn{
-      line-height: 48px;
-      background: #3CCACE;
-      border: 1px solid #3CCACE;
-      color: #fff;
-      width: 60%;
-      font-size: 18px;
-      border-radius: 100px;
-      margin: auto;
-      margin-top: 10px;
+      padding-top: 10px;
       text-align: center;
-    } 
-  }
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      background: transparent;
+      font-size: 15px;
+      color: #272727;
+      background-color: lightgray;
+    }
+     .item__buy--btn{
+      height: 40px;
+      width: 500px;
+      margin: auto;
+      margin-top: 60px;
+      margin-left: 110px;
+      padding-top: 10px;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      background: transparent;
+      font-size: 15px;
+      color: #fff;
+      background-color: #3CCACE;
+    }
+    a{
+      color: #fff;
+      text-decoration: none;
+    }
+  } 
+  // ↓現時点で想定しないため、非表示として画面本体の機能として後に必要と判断した場合、再度表示。
+  // .comment__box{
+  //   height: 320px;
+  //   width: 700px;
+  //   margin: auto;
+  //   background-color: #fff;
+  //   .comment__form{
+  //     width: 680px;
+  //     height: 120px;
+  //     margin: auto;
+  //     margin-top: 20px;
+  //   }
+  //   .note__box{
+  //     height:60px;
+  //     width: 680px;
+  //     margin: auto;
+  //     margin-top: 30px;
+  //     background-color: #f8f8f8;
+  //   }
+  //   .comment__btn{
+  //     line-height: 48px;
+  //     background: #3CCACE;
+  //     border: 1px solid #3CCACE;
+  //     color: #fff;
+  //     width: 60%;
+  //     font-size: 18px;
+  //     border-radius: 100px;
+  //     margin: auto;
+  //     margin-top: 10px;
+  //     text-align: center;
+  //   } 
+  // }
   .page__btn{
     width: 700px;
     height: 50px;
@@ -284,30 +309,34 @@
     float: left;
     margin-left: 100px;
   }
+ }
+}
+.outline__area--plus{
+  background-color: whitesmoke;
+  margin-top: -100px;
+  height: 100px;
 }
 .bottom__image{
   width: 100%;
   height: 300px;
+  margin-top: 0px;
   background-image: image_url("/images/pict/bg-appBanner-pict.jpg");
   background-size: cover;
   background-position: center;
   text-align: center;
   align-items: center;
   font-size: 30px;
-
   .bottom__image--box{
     width: 800px;
     height: 100px;
     color: #fff;
     text-shadow: 1px 1px 0#272727;
     margin: auto;
-
     .bottom__title{
       font-size: 30px;
       width: 650px;
       height: 60px;
-      margin-left: 40px;
-     
+      margin-left: 40px;  
     }
     .bottom__message{
       font-size: 40px;
@@ -321,7 +350,6 @@
     display: flex;
     margin: auto;
     padding-top: 40px;
-
     .bottom__app--icon{
       width: 310px;
       height: 115px;
@@ -330,7 +358,6 @@
       background-repeat: no-repeat;
       margin-left: 40px;
     }
-
     .bottom__google--icon{
       width: 200px;
       height: 60px;
