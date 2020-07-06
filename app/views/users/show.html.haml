@@ -1,4 +1,4 @@
-= render partial: "home/header"
+= render partial: "credits/credit_header"
 .users-show
   .users-show__left-wrapper
     .users-show__left-wrapper__contents
@@ -19,8 +19,7 @@
     %h1 設定
     .users-show__left-wrapper__contents
       .users-show__left-wrapper__contents__content-title
-        = link_to root_path do
-          支払い方法
+        = link_to "支払い方法", new_credit_path
     .users-show__left-wrapper__contents
       .users-show__left-wrapper__contents__content-title
         = link_to "ログアウト", destroy_user_session_path, method: :delete
@@ -28,7 +27,7 @@
     .users-show__right-wrapper__head
       =image_tag asset_path("/images/icon/member_photo_noimage_thumb.png"),height: "80",width: "80"
       .users-show__right-wrapper__head__icon
-        = @user.family_name
-        = @user.first_name
+        = current_user.nickname
         .users-show__right-wrapper__head__products-count
           出品数 0
+= render partial: "home/footer"

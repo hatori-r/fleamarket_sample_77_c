@@ -1,29 +1,73 @@
-%h1 Listing credits
+-# %h1 Listing credits
 
-%table
-  %thead
-    %tr
-      %th Card number
-      %th Expiration year
-      %th Expiration month
-      %th Security code
-      %th User
-      %th
-      %th
-      %th
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Card number
+-#       %th Expiration year
+-#       %th Expiration month
+-#       %th Security code
+-#       %th User
+-#       %th
+-#       %th
+-#       %th
 
-  %tbody
-    - @credits.each do |credit|
-      %tr
-        %td= credit.card_number
-        %td= credit.expiration_year
-        %td= credit.expiration_month
-        %td= credit.security_code
-        %td= credit.user
-        %td= link_to 'Show', credit
-        %td= link_to 'Edit', edit_credit_path(credit)
-        %td= link_to 'Destroy', credit, method: :delete, data: { confirm: 'Are you sure?' }
+-#   %tbody
+-#     = @credits[:last4]
+    
 
-%br
 
-= link_to 'New Credit', new_credit_path
+
+
+-#     - @credits.each do |credit|
+-#       -# - binding.pry
+-#       %tr
+-#         %td= credit.card_id
+-#         %td= credit
+-#         %td= credit
+-#         %td= credit
+-#         %td= credit
+-#         %td= link_to 'Show', credit
+-#         %td= link_to 'Edit', edit_credit_path(credit)
+-#         %td= link_to 'Destroy', credit, method: :delete, data: { confirm: 'Are you sure?' }
+
+-# %br
+
+-# = link_to 'New Credit', new_credit_path
+
+.background
+  .my-page
+    = render partial: "credit_header"
+    .show
+      .show__frame
+        .show__frame__username
+        = current_user.nickname
+        さん
+        .show__frame__title
+          登録クレジットカード情報詳細
+        .credit_card
+          .credit_card__frame
+            .credit_card_info
+              .credit_card_info__brand
+                -# = image_tag "images/#{@card_src}"
+              .credit_card_info__numbers
+                .number
+                  = "**** **** **** " + @credits[:last4]
+                  = @credits[:brand]
+                
+                  .expiration_date__title
+                    有効期限
+                    = @credits[:exp_month]
+                    = @credits[:exp_year]
+                  .expiration_date__info
+                    -# = @exp_month + " / " + @exp_year
+            .destroy__function
+              .destroy__function__link
+                -# = link_to credit_card_path, method: :delete, class: "destroy__function__link__btn" do 
+                -#   削除する
+            -# .mypage__card__new__box__format__fom
+            -#   = submit_tag 'クレジットカード削除', class: "mypage__card__new__box__format__fom__btn"
+            .mypage__card__new__box__format__fom
+              = submit_tag 'クレジットカード詳細', class: "mypage__card__new__box__format__fom__btn"
+  
+      = render partial: "credit_footer"
