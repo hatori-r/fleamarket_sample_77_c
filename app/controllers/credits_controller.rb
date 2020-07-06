@@ -1,3 +1,5 @@
+# 担当：アドリアン　コメントアウトに関しましては、まだ実装完了していないのでそのままにさせていただきました。最後に不要な部分は削除いたしますのでよろしくお願いします。
+
 class CreditsController < ApplicationController
   before_action :set_credit, only: [:show, :edit, :update, :destroy]
   require "payjp"
@@ -104,7 +106,7 @@ def create #payjpとCardのデータベース作成これを変更しない限�
     #   format.json { head :no_content }
     # end
     # ログイン中のユーザーのクレジットカード登録の有無を判断
-    @card = CreditCard.find_by(user_id: current_user.id)
+    @card = Credit.find_by(user_id: current_user.id)
     if @card.blank?
       # 未登録なら新規登録画面に
       redirect_to action: "new"
@@ -120,7 +122,7 @@ def create #payjpとCardのデータベース作成これを変更しない限�
       if @card.destroy
       # 削除完了していればdestroyのビューに移行
       # destroyビューを作るのが面倒であれば、flashメッセージを入れてトップページやマイページに飛ばしてもOK
-
+        
       else
         # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
         redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"

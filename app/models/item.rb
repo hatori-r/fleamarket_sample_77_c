@@ -1,5 +1,25 @@
 class Item < ApplicationRecord
   
+  has_one :user_evaluation
+  belongs_to :category, optional: true
+  belongs_to :brand, optional: true
+  belongs_to :seller, class_name: "User", optional: true
+  belongs_to :buyer, class_name: "User", optional: true
+  has_many :images, dependent: :destroy
+  
+  validates :name,
+            :introduce,
+            :status,
+            :shipping_fee,
+            :shipping_area,
+            :shipping_day,
+            :price_introduce,
+            :category_id,
+            :images, presence: true
+  
+  accepts_nested_attributes_for :images, allow_destroy: true
+  validates_associated :images
+  
   enum status: { "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5 }
 
   enum shipping_fee: { "送料込み(出品者負担)": 0, "着払い(購入者負担)": 1 }
@@ -19,24 +39,4 @@ class Item < ApplicationRecord
 
   enum shipping_day: { "1~2日で発送": 0, "2~3日で発送": 1, "4~7日で発送": 2 }
 
-  
-  has_one :user_evaluation
-  belongs_to :category, optional: true
-  belongs_to :brand, optional: true
-  belongs_to :seller, class_name: "User", optional: true
-  belongs_to :buyer, class_name: "User", optional: true
-  has_many :images, dependent: :destroy
-  
-  validates :name, presence: true
-  validates :introduce, presence: true
-  validates :status, presence: true
-  validates :shipping_fee, presence: true
-  validates :shipping_area, presence: true
-  validates :shipping_day, presence: true
-  validates :price_introduce, presence: true
-
-  accepts_nested_attributes_for :images, allow_destroy: true
-
-  validates_associated :images
-  validates :images, presence: true
 end

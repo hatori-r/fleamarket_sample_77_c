@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @parents = Category.where(ancestry: nil)
+    @user = current_user
   end
 
   def edit

@@ -6,7 +6,7 @@ one:
   send_family_kana: MyString
   send_first_kana: MyString
   post_number: MyString
-  prefectures: MyString
+  prefectures_id: 1
   city: MyString
   address: MyString
   apartment: MyString
@@ -20,7 +20,7 @@ two:
   send_family_kana: MyString
   send_first_kana: MyString
   post_number: MyString
-  prefectures: MyString
+  prefectures_id: 1
   city: MyString
   address: MyString
   apartment: MyString

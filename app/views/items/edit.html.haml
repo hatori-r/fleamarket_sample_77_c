@@ -24,12 +24,14 @@
             .label-content
               = f.label :"images_attributes_#{@item.images.length}_image", class:"label-box", id: "label-box--#{@item.images.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
+                %i.fas.fa-camera
             .hidden-content
               = f.fields_for :images do |i|
                 = i.file_field :image, class: "hidden-field"
                 = i.check_box:_destroy, class: "hidden-checkbox"
               - @item.images.length.upto(4) do |i|
                 %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class: "hidden-field", type: "file"}
+                
       .item-wrapper
         .item-name
           .item-name__upper
@@ -54,12 +56,23 @@
             カテゴリー
             %span.required 必須
           .category-tab
-            = f.select :category_id, @category_parent_array, {}, {class: 'category__tab--select', id: 'parent_category'}
-            -# ↑editはエラーが出て編集できない状態です。↑
-            -# ダミーのときの記述
-            -# 服部さんCSS変更よろしくです！
-            -# = select_tag 'name', options_for_select({"選択してください": 0, "レディース": 1, "メンズ": 2}, 0), class: "category-tab__select", id: "category-alert"
+            -# -----↓メモ↓-----
+            -# = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'category-wrapper__category form-control', id: 'parent_category'}
+            -# -----↑メモ↑-----
+            = f.collection_select :category_id, Category.roots, :name, :name, {include_blank: "---",selected: @item.category.parent.parent.name}, required: true,class:'category-wrapper__category form-control', id: 'parent_category'
             .no-item-category
+            .category-wrapper-select#children_wrapper
+              .category-wrapper-select__box
+                -# -----↓メモ↓-----
+                -# = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'category-wrapper__category form-control', id: 'child_category'}
+                -# -----↑メモ↑-----
+                = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {include_blank: "---",selected: @item.category.parent_id}, required: true,class:'category-wrapper__category form-control', id: 'child_category'
+            .category-wrapper-select#grandchildren_wrapper
+              .category-wrapper-select__box
+                -# -----↓メモ↓-----
+                -# = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'category-wrapper__category form-control', id: 'grandchild_category'}
+                -# -----↑メモ↑-----
+                = f.collection_select :category_id, @item.category.siblings, :id, :name, {include_blank: "---",selected: @item.category.id}, required: true, class: 'category-wrapper__category form-control' ,id: 'grandchild_category'
           .brand
             ブランド
             %span.any 任意
@@ -128,8 +141,10 @@
         .buttons
           .sell-button
             = f.submit "出品する", class: "sell-button__link"
+          -# -----↓メモ↓-----
           -# .save-button
           -#   = link_to "下書きに保存", "#", class: "save-button__link"
+          -# -----↑メモ↑-----
           .back-button
             = link_to "もどる", "/", class: "back-button__link"
         .caution
