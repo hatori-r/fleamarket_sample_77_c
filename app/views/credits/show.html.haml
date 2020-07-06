@@ -47,4 +47,6 @@
               .destroy__function__link
                 = link_to credit_path, method: :delete, class: "destroy__function__link__btn" do 
                   削除する
+                = link_to '詳細へ戻る', credits_path
+                
       = render partial: "credit_footer"
