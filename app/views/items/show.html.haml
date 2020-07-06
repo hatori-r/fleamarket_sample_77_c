@@ -19,8 +19,8 @@
           = image_tag @item.images[0].image.url
         .another__image--box
           - @item.images.each do |image|
-            .another__image
-              = image_tag image.image.url
+            .another__image--box__item
+              = image_tag image.image.url, class:"item-subimage"
     .price__box
       .base__price
         = @item.price_introduce
