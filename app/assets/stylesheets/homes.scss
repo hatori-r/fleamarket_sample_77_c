@@ -42,13 +42,13 @@
     .top__message--b{
       width: 265px;
       font-size: 20px;
-      margin-top: -10px;
+      margin-top: 20px;
     }
   }
   .top__icon--box{
     width: 600px;
     height: 100px;
-    padding-top: 70px;
+    padding-top: 150px;
     margin-left: -50px;
     display: flex;
     .top__app--icon{
@@ -228,7 +228,7 @@
 }
 .center__image{
   width: 100%;
-  height: 300px;
+  height: 400px;
   background-image: image_url("/images/pict/bg-topMiddleDl-pict.jpg");
   background-size: cover;
   background-position: bottom right;
@@ -238,6 +238,7 @@
   &--box{
     width: 450px;
     height: 150px;
+    margin-top: -150px;
     margin-left: 200px;
     font-weight: bold;
     color: #fff;
@@ -661,7 +662,7 @@
 }
 .bottom__image{
   width: 100%;
-  height: 300px;
+  height: 400px;
   background-image: imageurl("/images/pict/bg-appBanner-pict.jpg");
   background-size: cover;
   background-position: center;
@@ -677,6 +678,7 @@
     color: #fff;
     text-shadow: 1px 1px 0#272727;
     margin: auto;
+    margin-top: -20px;
     .bottom__title{
       font-size: 30px;
       width: 650px;
@@ -694,22 +696,22 @@
     height: 150px;
     display: flex;
     margin: auto;
-    padding-top: 40px;
     .bottom__app--icon{
       width: 310px;
       height: 115px;
       background-image: image_url("/images/icon/apple_sozai.svg");
       background-size: cover;
       background-repeat: no-repeat;
+      margin-top: -30px;
       margin-left: 40px;
     }
     .bottom__google--icon{
       width: 200px;
       height: 60px;
+      margin-top: -10px;
       background-image: image_url("/images/icon/google_sozai.svg");
       background-size: cover;
       background-repeat: no-repeat;
-      margin-top: 20px;
     }
   }
 }
