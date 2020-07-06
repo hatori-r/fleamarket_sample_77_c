@@ -124,8 +124,9 @@ def create #payjpとCardのデータベース作成これを変更しない限�
       # destroyビューを作るのが面倒であれば、flashメッセージを入れてトップページやマイページに飛ばしてもOK
         
       else
-        # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
         redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
+        # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
+     
       end
     end
   end
