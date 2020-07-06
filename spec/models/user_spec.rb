@@ -4,7 +4,7 @@ describe User do
   describe '#create' do
 
     it "nikcnameがない場合は登録できないこと" do
-      user = build(:user, nickname: "が入力さていません。")
+      user = build(:user, nickname: "")
       user.valid?
       expect(user.errors[:nickname]).to include("が入力されていません。")
     end
@@ -12,19 +12,13 @@ describe User do
     it "emailがない場合は登録できないこと" do
       user = build(:user, email: "")
       user.valid?
-      expect(user.errors[:email]).to include("が入力さていません。")
-    end
-
-    it "emailがない場合は登録できないこと" do
-      user = build(:user, email: nil)
-      user.valid?
-      expect(user.errors[:email]).to include("が入力さていません。")
+      expect(user.errors[:email]).to include("が入力されていません。")
     end
 
     it "passwordがない場合は登録できないこと" do
-      user = build(:user, password: nil)
+      user = build(:user, password: "")
       user.valid?
-      expect(user.errors[:password]).to include("")
+      expect(user.errors[:password]).to include("が入力されていません。")
     end
 
     it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
