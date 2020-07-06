@@ -40,6 +40,9 @@
     = render partial: "credit_header"
     .show
       .show__frame
+        .show__frame__username
+        = current_user.nickname
+        さん
         .show__frame__title
           登録クレジットカード情報
         .credit_card
