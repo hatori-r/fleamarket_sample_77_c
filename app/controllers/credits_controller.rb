@@ -50,8 +50,8 @@ class CreditsController < ApplicationController
 
   # GET /credits/new
   def new
-    @card = CreditCard.where(user_id: current_user.id)
-    redirect_to credit_card_path(current_user.id) if @card.exists?
+    # @card = CreditCard.where(user_id: current_user.id)
+    # redirect_to credit_card_path(current_user.id) if @card.exists?
   end
 
   # GET /credits/1/edit
