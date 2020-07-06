@@ -23,7 +23,8 @@
       .users-show__left-wrapper__contents__content-title
         = link_to "クレジットカード詳細一覧", credits_path
       .users-show__left-wrapper__contents__content-title
-        = link_to "クレジットカード削除", credit_path(@user), method: :delete 
+        -# = link_to "クレジットカード削除", credit_path(@user), method: :delete 
+        = link_to "クレジットカード削除", credit_path(current_user.id) , method: :delete
     .users-show__left-wrapper__contents
       .users-show__left-wrapper__contents__content-title
         = link_to "ログアウト", destroy_user_session_path, method: :delete
