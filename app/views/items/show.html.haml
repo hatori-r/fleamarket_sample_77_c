@@ -1,110 +1,102 @@
-= render partial: "home/header"
-.head__navi
-  .head__navi--bar
-= link_to "/items/new", class: "exhibition__btn" do
-  .exhibition__name
-    出品する
-    .exhibition__icon
-      = image_tag "/images/icon/camera.png", class: "exhibition__icon"
-.detail__box
-  .item__title
-    .item__name
-      = @item.name
-  .item__image
-    .item__image--box
-      .main__image--box
-        =image_tag @item.images[0].image.url
-      .another__image--box
-        - @item.images.each do |image|
-          .another__image
-            = image_tag image.image.url
-  .price__box
-    .base__price
-      = @item.price_introduce
-    .price__unit
-      .price__tax
-        (税込)
-      .postage__included
-        送料込み   
-  .item__detail--comment
-    = @item.introduce
-  %table.detail__table
-    %tbody.table__list
-      %tr
-        %th.table__category 出品者
-        %td.table__content
-          =@item.seller.nickname
-      %tr
-        %th.table__category カテゴリー
-        %td.table__content
-          = link_to @categorys.find(@item.category_id).parent.parent.name
-          %br/
-          = link_to @categorys.find(@item.category_id).parent.name
-          %br/
-          = link_to @categorys.find(@item.category_id).name
-      %tr
-        %th.table__category ブランド
-        %td.table__content
-      %tr
-        %th.table__category 商品のサイズ
-        %td.table__content
-      %tr
-        %th.table__category 商品の状態
-        %td.table__content
-          = @item.status
-      %tr
-        %th.table__category 配送料の負担
-        %td.table__content
-          = @item.shipping_fee
-      %tr
-        %th.table__category 発送元の地域
-        %td.table__content
-          = link_to "#" do
-            = @item.shipping_area
-      %tr
-        %th.table__category 発送日の目安
-        %td.table__content
-          = @item.shipping_day
-  .stamp__box
-    .good__stamp
-      ☆お気に入り 1
-    .inappropriate__report
-      🏳不適切な商品の通報
-  
-  .item__action--box
-    .item__edit--box
-      .item__edit--btn
-        %button.item__edit--Btn{:name => "button", :type => "submit", :class => "item__edit--btn"}
-          -if user_signed_in? && current_user.id == @item.seller_id
-            = link_to '商品の編集', edit_item_path(@item)
-          -else user_signed_in? && current_user.id == @item.buyer_id
-            = link_to '購入画面に進む', "/items/buy", method: :get
-    .item__action--select
+.show__header
+  = render partial: "home/header"
+-# .head__navi
+  -# .head__navi--bar
+-# = link_to "/items/new", class: "exhibition__btn" do
+  -# .exhibition__name
+  -#   出品する
+    -# .exhibition__icon
+    -#   = image_tag "/images/icon/camera.png", class: "exhibition__icon"
+  ↑現時点で想定しないため、非表示として画面本体の機能として後に必要と判断した場合、再度表示。
+.outline__area--base
+  .detail__box
+    .item__title
+      .item__name
+        = @item.name
+    .item__image
+      .item__image--box
+        .main__image--box
+          = image_tag @item.images[0].image.url
+        .another__image--box
+          - @item.images.each do |image|
+            .another__image
+              = image_tag image.image.url
+    .price__box
+      .base__price
+        = @item.price_introduce
+        円
+      .price__unit
+        .price__tax
+          (税込)
+        .postage__included
+          送料込み   
+    .item__detail--comment
+      = @item.introduce
+    %table.detail__table
+      %tbody.table__list
+        %tr
+          %th.table__category 出品者
+          %td.table__content
+            =@item.seller.nickname
+        %tr
+          %th.table__category カテゴリー
+          %td.table__content
+            = link_to @categorys.find(@item.category_id).parent.parent.name
+            %br/
+            = link_to @categorys.find(@item.category_id).parent.name
+            %br/
+            = link_to @categorys.find(@item.category_id).name
+        %tr
+          %th.table__category ブランド
+          %td.table__content
+        -# サイズ表示は現在実装していませんが、実装する時間が取れそうでしたら行いますので一旦置かせてください。
+        -# %tr
+        -#   %th.table__category 商品のサイズ
+        -#   %td.table__content
+        %tr
+          %th.table__category 商品の状態
+          %td.table__content
+            = @item.status
+        %tr
+          %th.table__category 配送料の負担
+          %td.table__content
+            = @item.shipping_fee
+        %tr
+          %th.table__category 発送元の地域
+          %td.table__content
+            = link_to "#" do
+              = @item.shipping_area
+        %tr
+          %th.table__category 発送日の目安
+          %td.table__content
+            = @item.shipping_day
+    .stamp__box
+      .good__stamp
+        ☆お気に入り 1
+      .inappropriate__report
+        🏳不適切な商品の通報
+    .item__action--box
       -if user_signed_in? && current_user.id == @item.seller_id
-        or
-    .item__destroy--box
-      -if user_signed_in? && current_user.id == @item.seller_id    
+        .item__edit--btn
+          = link_to '商品の編集', edit_item_path(@item)
+        .item__action--select
+          or
         .item__destroy--btn
-          %button.item__edit--Btn{:name => "button", :type => "submit", :class => "item__destroy--btn"}
-            -if user_signed_in? && current_user.id == @item.seller_id
-              = link_to '商品の削除', item_path, method: :delete
-  .comment__box
-    .comment__form
-      %textarea#comment_body{:name => "comment[body]", :required => "required", :class => "comment__form"}
-    .note__box
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。 
-    .comment__btn
-      %button.commentBtn{:name => "button", :type => "submit", :class => "comment__btn"}
-        コメントする
-  .page__btn
-    .forward__btn
-      ＜前の商品
-    .back__btn
-      後の商品＞
-  .another__page
-    パソコンをもっと見る
+          = link_to '商品の削除', item_path, method: :delete
+      -else user_signed_in? && current_user.id == @item.buyer_id
+        .item__buy--btn
+          = link_to '購入画面に進む', "/items/buy", method: :get 
+    .page__btn
+      .forward__btn
+        ＜前の商品
+      .back__btn
+        後の商品＞
+    .another__page
+      パソコンをもっと見る
     .anoter__items--page
+
 -# ここからが３つ目のバック画像付きBOXです。
+.outline__area--plus
 .bottom__image
   .bottom__image--box
     .bottom__title
@@ -116,3 +108,13 @@
     .bottom__google--icon
 -# ここまで。
 = render partial: "home/footer"
+
+-# .comment__box
+-#   .comment__form
+-#     %textarea#comment_body{:name => "comment[body]", :required => "required", :class => "comment__form"}
+-#   .note__box
+-#     相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。 
+-#   .comment__btn
+-#     %button.commentBtn{:name => "button", :type => "submit", :class => "comment__btn"}
+-#       コメントする
+-# ↑現時点で想定しないため、非表示として画面本体の機能として後に必要と判断した場合、再度表示。
