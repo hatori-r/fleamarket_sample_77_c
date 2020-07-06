@@ -1,36 +1,27 @@
-assets/javascripts/payjp.js
-window.addEventListener('DOMContentLoaded', function(){
-
-  //id名が"payment_card_submit-button"というボタンが押されたら取得
-  let submit = document.getElementById("payment_card_submit-button");
-
-  Payjp.setPublicKey('pk_test_79aeeda5552d508caae94eeb'); //公開鍵の記述(ご自身の公開鍵コードを記述しよう！)
-
-    submit.addEventListener('click', function(e){ //ボタンが押されたらトークン作成開始。
-
-    e.preventDefault(); //ボタンを1度無効化
-
-    let card = { //入力されたカード情報を取得(id名の記載ミスに注意！)
-        number: document.getElementById("payment_card_no").value,
-        cvc: document.getElementById("payment_card_cvc").value,
-        exp_month: document.getElementById("payment_card_month").value,
-        exp_year: document.getElementById("payment_card_year").value
-    };
-
-    Payjp.createToken(card, function(status, response) {  // トークンを生成
-      if (status === 200) { //成功した場合(status === 200はリクエストが成功している状況です。)
-        //データを自サーバにpostしないようにremoveAttr("name")で削除
-        $(".number").removeAttr("name");
-        $(".cvc").removeAttr("name");
-        $(".exp_month").removeAttr("name");
-        $(".exp_year").removeAttr("name"); 
-        $("#charge-form").append(
-          $('<input type="hidden" name="payjp_token">').val(response.id)
-        ); //取得したトークンを送信できる状態にします
-        document.inputForm.submit();
-        alert("登録が完了しました"); //正常処理完了確認用。createビューがあればつけなくてもOKかな
+$(document).on('turbolinks:load', function() {
+  var form = $("#inputForm"); //id”charge-form”のものをformに代入します。
+  Payjp.setPublicKey('pk_test_79aeeda5552d508caae94eeb'); //公開鍵を直書き、して参照できる様にします。
+  $(document).on("click", "#token_submit", function(e) { //eが押されたときに作動します。
+    e.preventDefault(); //まずrailsの処理を止めて、jsの処理を先に行います。
+    let card = {
+      number: document.getElementById("card_number").value,
+      cvc: document.getElementById("payment_card_cvc").value,
+      exp_month: document.getElementById("exp_month").value,
+      exp_year: document.getElementById("exp_year").value
+    }; 
+    Payjp.createToken(card, (status, response) => {
+      if (status === 200) {
+        $("#card_number").removeAttr("name");
+        $("#payment_card_cvc").removeAttr("name");
+        $("#exp_month").removeAttr("name");
+        $("#exp_year").removeAttr("name"); 
+        form.append(
+          $(`<input type="hidden" name="payjp-token" value="${response.id}">`)
+        );
+        form.get(0).submit();
+        alert("登録が完了しました"); 
       } else {
-        alert("カード情報が正しくありません。"); //エラー確認用
+        alert("カード情報が正しくありません。"); 
       }
     });
   });
