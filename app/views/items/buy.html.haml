@@ -64,6 +64,12 @@
             %b.contract-bold 取引画面
             から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
           .contract-inner__lower
-            = link_to "購入する", "/", class: "contract-inner__lower__link"
-
+            - if @card_ex.exists?
+              = link_to item_path(@item), class: "contract-inner__lower__link" do
+                購入する
+            - else
+              = link_to new_card_path do
+                %b 商品の購入には購入方法の登録が必要です
+            -# 必要なためコメントアウトさせていただきました。
+            -# = link_to "購入する", "/", class: "contract-inner__lower__link"
   = render partial: "item_footer"

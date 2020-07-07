@@ -35,9 +35,21 @@ class ItemsController < ApplicationController
   
   # 商品購入
   def buy
+    # unless @product.soldout
     @address = SendAddress.where(user_id: current_user.id)[0]
+    @card_ex = Credit.where(user_id: current_user.id)
+    if @card_ex.exists?
+       @card= Credit.where(user_id: current_user.id).first
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
+    # end
+    else
+      redirect_to item_path(@item)
+    end
   end
-  
+
+
   # ＃商品詳細（仮）
   # def item_details
   
