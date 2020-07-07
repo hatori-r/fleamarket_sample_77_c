@@ -1,9 +1,9 @@
 = render partial: "credit_header"
-.create_background
-  .create_main
-    %h2.create_title 
-      クレジットカード削除完了
-    .create_form
-      登録情報を削除しました。
-    .create_actions    
-      = link_to "マイページに戻る", users_show_path(current_user.id), class: 'create_btn'
+.destroy__wrapper
+  .destroy__content
+    .destroy__content--title
+      %h2 クレジットカード削除完了
+    .destroy__content--form
+      %h2 登録情報を削除しました。
+    .destroy__content--btn 
+      = link_to "マイページに戻る", users_show_path(current_user.id), class: 'goMypage--btn'

@@ -6,7 +6,6 @@ class CreditsController < ApplicationController
   # GET /credits
   # GET /credits.json
   def index
-    
     @credits = Credit.get_card(current_user.credit.customer_id) if current_user.credit
   end
 
@@ -68,15 +67,13 @@ def create #payjpとCardのデータベース作成これを変更しない限�
     if params['payjp-token'].blank?
       redirect_to new_credit_path
     else
-    
       customer = Payjp::Customer.create(
         card: params['payjp-token'],
         metadata: {user_id: current_user.id}
       ) 
       @card = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-     
       if @card.save
-        redirect_to credits_path(current_user.id)
+        redirect_to users_show_path(current_user.id)
       else
         new_credit_path
       end
@@ -121,7 +118,6 @@ def create #payjpとCardのデータベース作成これを変更しない限�
       else
         redirect_to users_show_path(current_user.id)
         # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
-     
       end
     end
   end
@@ -129,7 +125,7 @@ def create #payjpとCardのデータベース作成これを変更しない限�
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_credit
-      @credit = Credit.find(params[:id])
+      @credit = Credit.find_by(user_id: current_user.id)
     end
 
     # Only allow a list of trusted parameters through.
