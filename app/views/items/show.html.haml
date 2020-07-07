@@ -85,7 +85,7 @@
           = link_to '商品の削除', item_path, method: :delete
       -else user_signed_in? && current_user.id == @item.buyer_id
         .item__buy--btn
-          = link_to '購入画面に進む', "/items/buy", method: :get 
+          = link_to '購入画面に進む', buy_item_path(@item)
     .page__btn
       .forward__btn
         ＜前の商品

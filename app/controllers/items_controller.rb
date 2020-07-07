@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-  
+  before_action :set_item, only: [:show, :edit, :update, :buy, :destroy]
 
   # GET /items
   # GET /items.json
@@ -8,22 +7,22 @@ class ItemsController < ApplicationController
     @items = Item.all
     @items = Item.includes(:user).order("created_at DESC").page(params[:page]).per(4)
   end
-
+  
   # GET /items/1.json
   def show
     @parents = Category.where(ancestry: nil)
     @categorys = Category.all
   end
-
+  
   # 商品出品
   def new
     @item = Item.new
     @item.images.new
-
+    
     # -----↓メモ↓-----
     # @category_parent_array = Category.get_parent_category
     # -----↑メモ↑-----
-
+    
   end
   #親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -36,7 +35,7 @@ class ItemsController < ApplicationController
   
   # 商品購入
   def buy
-    
+    @address = SendAddress.where(user_id: current_user.id)[0]
   end
   
   # ＃商品詳細（仮）
