@@ -9,21 +9,23 @@
         .info-table
           .image
             -# =image_tag (@item.images[0].item_image.url), class:"img"
-            = image_tag asset_path("/images/card_logos/coach.jpg"), class: "img"
+            = image_tag @item.images[0].image.url, class: "img"
           .details
             .name
-              COACH コーチ リュック
+              = @item.name
             .price
               .burden-info
-                送料込み(税込)
+                = @item.shipping_fee
               .price-info
-                ¥30,000
+                = @item.price_introduce
+                円
       .buy-item-section__price-display
         .price-table
           .price-guide
             支払い金額
           .price
-            ¥30,000
+            = @item.price_introduce
+            円
       .buy-item-section__payment
         .payment-content
           .payment-table
@@ -49,11 +51,12 @@
               = link_to "変更する >", "#", class: "change-shipping__link"
           .shipping-inner__lower
             .buyer-zip-code
-              106-6108
+              = "#{@address.post_number}"
             .buyer-address
-              東京都港区六本木６丁目１０−１
+              = @address.prefectures.name
+              = @address.city + @address.address
             .buyer-name
-              山田　太郎
+              = @address.send_family_name + @address.send_first_name
       .buy-item-section__contract
         .contract-inner
           .contract-inner__upper

@@ -14,11 +14,10 @@ Rails.application.routes.draw do
   # resources :send_addresses
   resources :images
   resources :items do
-    # （↓7つのアクション以外のルートを設定↓）
-    # （本来はidが必要なページですが、まだuserと連携していないため
-    # 一時的にcollectionで定義しております。【本来はmember】）
-    collection do
+    member do
       get "buy"
+    end
+    collection do
       # カテゴリー機能のルーティング
       # アクションのリスポンスをdefaultsでjsonに限定
       get 'get_category_children', defaults: { format: 'json' }

@@ -31,14 +31,13 @@
 }
 
 @mixin item-number-display {
-  height: 46px;
   width: 100%;
   padding: 12px 0;
 }
 
 @mixin text-area {
   height: 48px;
-  width: calc(100% - 33.5px);
+  width: 100%;
   padding: 0 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -124,7 +123,6 @@ a {
 }
 
 .item-footer {
-  height: 140px;
   padding: 30px 0 40px;
   ul {
     font-size: 12px;
