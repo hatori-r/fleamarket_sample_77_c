@@ -100,11 +100,6 @@ def create #payjpとCardのデータベース作成これを変更しない限�
   # DELETE /credits/1
   # DELETE /credits/1.json
   def destroy
-    # @credit.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to credits_url, notice: 'Credit was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
     # ログイン中のユーザーのクレジットカード登録の有無を判断
     @card = Credit.find_by(user_id: current_user.id)
     if @card.blank?
@@ -124,7 +119,7 @@ def create #payjpとCardのデータベース作成これを変更しない限�
       # destroyビューを作るのが面倒であれば、flashメッセージを入れてトップページやマイページに飛ばしてもOK
         
       else
-        redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
+        redirect_to users_show_path(current_user.id)
         # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
      
       end

@@ -1,29 +1,6 @@
--# %p#notice= notice
-
--# %p
--#   %b Card number:
--#   = @credit.card_number
--# %p
--#   %b Expiration year:
--#   = @credit.expiration_year
--# %p
--#   %b Expiration month:
--#   = @credit.expiration_month
--# %p
--#   %b Security code:
--#   = @credit.security_code
--# %p
--#   %b User:
--#   = @credit.user
-
--# = link_to 'Edit', edit_credit_path(@credit)
--# \|
--# = link_to 'Back', credits_path
-
-
 .background
   .my-page
-    -# = render "users/side_bar"    
+
     = render partial: "credit_header"
     .show
       .show__frame
@@ -34,19 +11,18 @@
           .credit_card__frame
             .credit_card_info
               .credit_card_info__brand
-                -# = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", size: '150x100', alt: @card_brand
               .credit_card_info__numbers
                 .number
                   = "**** **** **** " + @customer_card.last4
-                
+                  
                   .expiration_date__title
                     有効期限
                   .expiration_date__info
                     = @exp_month + " / " + @exp_year
             .destroy__function
               .destroy__function__link
-                = link_to credit_path, method: :delete, class: "destroy__function__link__btn" do 
+                -# = link_to "クレジットカード削除", credit_path(current_user.credit.id) , method: :delete do
                   削除する
-                = link_to '詳細へ戻る', credits_path
+                = link_to '戻る', users_show_path
                 
       = render partial: "credit_footer"
