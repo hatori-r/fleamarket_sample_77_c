@@ -1,12 +1,11 @@
 .background
   .my-page
-
     = render partial: "credit_header"
     .show
       .show__frame
         .show__frame__username
         .show__frame__title
-          登録クレジットカード情報の削除一覧
+          登録クレジットカード情報一覧
         .credit_card
           .credit_card__frame
             .credit_card_info
@@ -19,10 +18,7 @@
                     有効期限
                   .expiration_date__info
                     = @exp_month + " / " + @exp_year
-            .destroy__function
-              .destroy__function__link
-                -# = link_to "クレジットカード削除", credit_path(current_user.credit.id) , method: :delete do
-                  削除する
-                = link_to '戻る', users_show_path
-                
+            .link__function
+              .link__function__btn
+                = link_to 'マイページへ戻る', users_show_path, class:"goMypage"
       = render partial: "credit_footer"

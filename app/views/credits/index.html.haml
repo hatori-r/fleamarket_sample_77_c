@@ -1,30 +1,32 @@
-.background
-  .my-page
-    = render partial: "credit_header"
-    .show
-      .show__frame
-        .show__frame__username
-        = current_user.nickname
-        さん
-        .show__frame__title
-          登録クレジットカード情報詳細
-        .credit_card
-          .credit_card__frame
-            .credit_card_info
-              .credit_card_info__brand
+-# おそらく不要と思われる。
+-# アドさん確認後削除。
+-# .background
+-#   .my-page
+-#     = render partial: "credit_header"
+-#     .show
+-#       .show__frame
+-#         .show__frame__username
+-#         = current_user.nickname
+-#         さん
+-#         .show__frame__title
+-#           登録クレジットカード情報詳細
+-#         .credit_card
+-#           .credit_card__frame
+-#             .credit_card_info
+-#               .credit_card_info__brand
 
-              .credit_card_info__numbers
-                .number
-                  = "**** **** **** " + @credits[:last4]
-                  = @credits[:brand]
+-#               .credit_card_info__numbers
+-#                 .number
+-#                   = "**** **** **** " + @credits[:last4]
+-#                   = @credits[:brand]
                 
-                  .expiration_date__title
-                    有効期限
-                    = @credits[:exp_month]
-                    = @credits[:exp_year]
+-#                   .expiration_date__title
+-#                     有効期限
+-#                     = @credits[:exp_month]
+-#                     = @credits[:exp_year]
 
 
 
-          = link_to '戻る', users_show_path
+-#           = link_to '戻る', users_show_path
   
-      = render partial: "credit_footer"
+-#       = render partial: "credit_footer"

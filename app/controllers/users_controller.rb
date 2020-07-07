@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @parents = Category.where(ancestry: nil)
     @user = current_user
+    @card = Credit.find_by(user_id: current_user.id)
   end
 
   def edit
