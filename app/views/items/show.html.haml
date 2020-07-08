@@ -14,6 +14,10 @@
       .item__name
         = @item.name
     .item__image
+      - if @item.buyer_id == nil
+      - else
+        .items-box_photo__sold
+          .items-box_photo__sold__inner SOLD
       .item__image--box
         .main__image--box
           = image_tag @item.images[0].image.url
@@ -84,8 +88,12 @@
         .item__destroy--btn
           = link_to '商品の削除', item_path, method: :delete
       -else user_signed_in? && current_user.id == @item.buyer_id
-        .item__buy--btn
-          = link_to '購入画面に進む', buy_item_path(@item)
+        - if @item.buyer_id == nil
+          .item__buy--btn
+            = link_to '購入画面に進む', buy_item_path(@item)
+        - else
+          .item__buy--sold
+            売り切れました
     .page__btn
       .forward__btn
         ＜前の商品

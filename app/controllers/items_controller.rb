@@ -43,6 +43,8 @@ class ItemsController < ApplicationController
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
+      @item_buyer= Item.find(params[:id])
+      @item_buyer.update(buyer_id: current_user.id)
     # end
     else
       redirect_to item_path(@item)
