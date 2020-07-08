@@ -5,14 +5,12 @@
     .item__base
       .item__post--image
         - if item.images.present?
-          =image_tag (item.images[0].image.url)
+          -if item.buyer_id.present? 
+            .items-box_photo__sold
+              .items-box_photo__sold__inner SOLD
+          = image_tag (item.images[0].image.url)
         -# - else
         -# = image_tag "no_image.png"
-      -if item.buyer_id.present? 
-        .items-box_photo__sold
-          .items-box_photo__sold__inner SOLD
-          .items-box_photo__reserved
-            .items-box_photo__reserved__inner Reserved
       
       .item__name--label
         =item.name
