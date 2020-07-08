@@ -31,24 +31,24 @@
           .payment-table
             .payment-guide
               支払い方法
-            .change-payment
-              = link_to "変更する >", "#", class: "change-payment__link"
           .payment-info
-            .type
-              クレジットカード
-            .number
-              ************1111
-            .expiration-date
-              有効期限 01 / 25
-          .card-brand
-            = image_tag asset_path("/images/card_logos/jcb.png"), class: "card-brand__logo"
+            - if @card_ex.exists?
+              .type
+                クレジットカード
+              .number
+                = "**** **** ****" + @default_card_information.last4
+              .expiration-date
+                有効期限
+                = @default_card_information.exp_month.to_s + " / " + @default_card_information.exp_year.to_s.slice(2,3)
+              .card-brand
+                = image_tag asset_path("/images/card_logos/jcb.png"), class: "card-brand__logo"
+            - else
+              支払い方法を登録してください
       .buy-item-section__shipping
         .shipping-inner
           .shipping-inner__upper
             .shipping-guide
               配送先
-            .change-shipping
-              = link_to "変更する >", "#", class: "change-shipping__link"
           .shipping-inner__lower
             .buyer-zip-code
               = "#{@address.post_number}"
