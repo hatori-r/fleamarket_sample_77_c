@@ -9,12 +9,6 @@ $(document).on('turbolinks:load', ()=> {
     // 子カテゴリーの表示
     function appendChildrenBox(insertHTML){
       var childSelectHtml = '';
-      // -----↓メモ↓-----
-      // childSelectHtml = `<select class="category__tab--select" id="children_wrapper" name="item[category_id]">
-      //                     <option value="選択してください" data-category="選択してください">選択してください</option>
-      //                     ${insertHTML}
-      //                   </select>`;
-      // -----↑メモ↑-----
       childSelectHtml = `
                         <select required="required" class="category__tab--select" id="children_wrapper" name="item[category_id]">
                           <option value="選択してください" data-category="選択してください">選択してください</option>

@@ -2,19 +2,16 @@
   .image-wrapper__label
     出品画像
     %span.image-wrapper__label__tag 必須
-  %p.image-wrapper__text
-    最大10枚までアップロードできます
+  .image-wrapper__text
+    最大5枚までアップロードできます
   .image-wrapper__image
-    .image-drop
-      %label.image-drop__label
+    .post__drop__box__container
+      .prev-content
+      .label-content
+        %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0", type: "file"}
+          %pre.label-box__text-visible クリックしてファイルをアップロード
+          %i.fas.fa-camera
+      .hidden-content
         = f.fields_for :images do |i|
-          .image-drop__label__hidden
-            = i.file_field :image, value: "", class:"image-drop__label__area", id: "image-alert"
-        .no-item-image
-        .drop-area
-          .drop-area__icon
-            %i.fas.fa-camera
-          %p.drop-area__explanation
-            ドラッグアンドドロップ
-            %br/
-            またはクリックしてファイルをアップロード
+          - for num in 0..4 do
+            = i.file_field :image, class: "hidden-field", name: "item[images_attributes][#{num}][image]", id: "item_images_attributes_#{num}_image"

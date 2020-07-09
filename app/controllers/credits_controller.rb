@@ -3,14 +3,10 @@
 class CreditsController < ApplicationController
   before_action :set_credit, only: [:show, :edit, :update, :destroy]
   require "payjp"
-  # GET /credits
-  # GET /credits.json
   def index
     @credits = Credit.get_card(current_user.credit.customer_id) if current_user.credit
   end
 
-  # GET /credits/1
-  # GET /credits/1.json
   def show
     # ログイン中のユーザーのクレジットカード登録の有無を判断
     @card = Credit.find_by(user_id: current_user.id)
@@ -49,18 +45,13 @@ class CreditsController < ApplicationController
     end
   end
 
-  # GET /credits/new
   def new
-    # @card = CreditCard.where(user_id: current_user.id)
-    # redirect_to credit_card_path(current_user.id) if @card.exists?
   end
 
-  # GET /credits/1/edit
+
   def edit
   end
 
-  # POST /credits
-  # POST /credits.json
 def create #payjpとCardのデータベース作成これを変更しない限りエラーが起きる[:PAYJP_SECRET_KEY]
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
     #保管した顧客IDでpayjpから情報取得
@@ -80,8 +71,6 @@ def create #payjpとCardのデータベース作成これを変更しない限�
     end
   end
 
-  # PATCH/PUT /credits/1
-  # PATCH/PUT /credits/1.json
   def update
     respond_to do |format|
       if @credit.update(credit_params)
@@ -94,8 +83,6 @@ def create #payjpとCardのデータベース作成これを変更しない限�
     end
   end
 
-  # DELETE /credits/1
-  # DELETE /credits/1.json
   def destroy
     # ログイン中のユーザーのクレジットカード登録の有無を判断
     @card = Credit.find_by(user_id: current_user.id)
@@ -123,12 +110,10 @@ def create #payjpとCardのデータベース作成これを変更しない限�
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_credit
       @credit = Credit.find_by(user_id: current_user.id)
     end
 
-    # Only allow a list of trusted parameters through.
     def credit_params
       params.require(:credit).permit(:card_number, :expiration_year, :expiration_month, :security_code, :user_id)
     end

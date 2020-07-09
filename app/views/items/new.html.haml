@@ -2,7 +2,7 @@
   = render partial: "item_header"
   = form_with(model: @item, local: true) do |f|
     .items-main
-      = render partial: "image_form2", locals: {f: f}
+      = render partial: "image_form", locals: {f: f}
       .item-wrapper
         .item-name
           .item-name__upper
@@ -27,16 +27,12 @@
             カテゴリー
             %span.required 必須
           .category-tab
-            -# -----↓メモ↓-----
-            -# = f.select :category_id, @category_parent_array, {}, {class: 'category__tab--select', id: 'parent_category'}
-            -# -----↑メモ↑-----
             = f.collection_select :category_id, Category.roots, :name, :name, {include_blank: "---"}, required: true, class:'category__tab--select', id: 'parent_category'
             .no-item-category
           .brand
             ブランド
             %span.any 任意
           .brand-text
-            -# ダミーです
             = f.text_field(:brand_id, {class: "brand-text__area", placeholder: "例）シャネル"})
           .condition
             商品の状態
@@ -86,26 +82,10 @@
               .input
                 = f.number_field :price_introduce, placeholder: "0", class: "number-field", id: "price-alert"
                 .no-item-price
-          .fee-box
-            .fee-box__fee
-              販売手数料（10%）
-            .fee-box__fee-display
-              ¥2,000
-          .profit-box
-            .profit-box__fee
-              販売利益
-            .profit-box__fee-display
-              ¥18,000
       .buttons-wrapper
         .buttons
           .sell-button
             = f.submit "出品する", class: "sell-button__link"
-          -# -----↓メモ↓-----
-          -# .save-button
-          -#   = link_to "下書きに保存", "#", class: "save-button__link"
-          -# -----↑メモ↑-----
           .back-button
             = link_to "もどる", "/", class: "back-button__link"
-        .caution
-          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
   = render partial: "item_footer"

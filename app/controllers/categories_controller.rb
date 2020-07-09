@@ -1,29 +1,21 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /categories
-  # GET /categories.json
   def index
     @categories = Categorie.all
     @parents = Category.where(ancestry: nil)
   end
 
-  # GET /categories/1
-  # GET /categories/1.json
   def show
   end
 
-  # GET /categories/new
   def new
     @category = Categorie.new
   end
 
-  # GET /categories/1/edit
   def edit
   end
 
-  # POST /categories
-  # POST /categories.json
   def create
     @category = Categorie.new(category_params)
 
@@ -52,8 +44,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
   def destroy
     @category.destroy
     respond_to do |format|
@@ -63,12 +53,10 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Categorie.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:name, :ancestry)
     end
