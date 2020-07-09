@@ -1,14 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :buy, :destroy]
 
-  # GET /items
-  # GET /items.json
   def index
     @items = Item.all
     @items = Item.includes(:user).order("created_at DESC").page(params[:page]).per(4)
   end
   
-  # GET /items/1.json
   def show
     @parents = Category.where(ancestry: nil)
     @categorys = Category.all
@@ -18,11 +15,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    
-    # -----↓メモ↓-----
-    # @category_parent_array = Category.get_parent_category
-    # -----↑メモ↑-----
-    
   end
   #親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -35,53 +27,27 @@ class ItemsController < ApplicationController
   
   # 商品購入
   def buy
-    # unless @product.soldout
     @address = SendAddress.where(user_id: current_user.id)[0]
     @card_ex = Credit.where(user_id: current_user.id)
     if @card_ex.exists?
-       @card= Credit.where(user_id: current_user.id).first
+      @card= Credit.where(user_id: current_user.id).first
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = Payjp::Customer.retrieve(@card.customer_id).cards.data[0]
       @item_buyer= Item.find(params[:id])
       @item_buyer.update(buyer_id: current_user.id)
-    # end
     else
       redirect_to item_path(@item)
     end
   end
-
-
-  # ＃商品詳細（仮）
-  # def item_details
   
-  # end
-  
-  #商品編集(仮)
-  def change
-    
-  end
-  
-  #商品削除（仮）
-  def cut
-    
-  end
-  
-  # GET /items/1/edit
   def edit
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-    
-    # -----↓メモ↓-----
-    # @category_parent_array = Category.get_parent_category
-    # -----↑メモ↑-----
-    
     @category_children_array = Category.where(ancestry: child_category.ancestry)
     @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
   end
-  
-  # POST /items
-  # POST /items.json
+
   def create
     @item = Item.new(item_params)
       if @item.save
@@ -89,39 +55,16 @@ class ItemsController < ApplicationController
       else
         render "new"
       end
-
-    # respond_to do |format|
-    #   if @item.save
-    #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
-    #     format.json { render :show, status: :created, location: @item }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @item.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
-  # PATCH/PUT /items/1
-  # PATCH/PUT /items/1.json
   def update
     if @item.update(item_params)
       redirect_to root_path
     else
       reder :edit
     end
-    # respond_to do |format|
-    #   if @item.update(item_params)
-    #     format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @item }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @item.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
   def destroy
     if @item.destroy
       redirect_to root_path, notice: '削除しました'
@@ -131,12 +74,10 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:name, :introduce, :status, :shipping_fee, :shipping_area, :shipping_day, :price_introduce, :sales_status, :category_id, :brand_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
     end
